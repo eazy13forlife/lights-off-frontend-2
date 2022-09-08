@@ -1,11 +1,17 @@
-@mixin respondMax($screen-size) {
-  @media (max-width: $screen-size/16px * 1em) {
+$desktop: 144rem;
+$desktop-small: 100rem;
+$tablet: 76.8rem;
+$tablet-small: 52rem;
+$mobile: 37.5rem;
+
+@mixin respondMax($size) {
+  @media (max-width: calc(($size/16px)*1em)) {
     @content;
   }
 }
 
-@mixin respondMin($screen-size) {
-  @media (min-width: $screen-size/16px*1em) {
+@mixin respondMin($size) {
+  @media (min-width: calc(($size/16px)*1em)) {
     @content;
   }
 }

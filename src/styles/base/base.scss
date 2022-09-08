@@ -1,3 +1,29 @@
+@use "../abstracts";
+
+:root {
+  //colors
+  --primary-color: 22, 29, 47;
+  --primary-color-light: 90, 105, 143;
+  --secondary-color: 252, 71, 71;
+  --color-dark: 16, 20, 30;
+  --color-light: 255, 255, 255;
+
+  //font-family
+  --ff-primary: "Outfit", sans-serif;
+
+  //font-size
+  --fs-700: 3.2rem;
+  --fs-600: 2.4rem;
+  --fs-550:2.0rem;
+  --fs-500: 1.8rem;
+  --fs-450:1.6rem;
+  --fs-400: 1.5rem;
+  --fs-375:1.4rem;
+  --fs-350:1.2rem;
+  --fs-300: 1.3rem;
+  --fs-200:1.1rem;
+}
+
 html {
   font-size: 62.5%;
 }
@@ -14,7 +40,9 @@ body {
   min-height: 100vh;
   line-height: 1.5;
   box-sizing: border-box;
-  font-size: 1.4rem;
+  font-family: var(--ff-primary);
+  font-size: var(--fs-300);
+  font-weight: 300;
 }
 
 img {
