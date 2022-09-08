@@ -1,10 +1,15 @@
 import React from "react";
 
+import SearchBar from "./components/SearchBar";
 import "./app.scss";
+
 const App = () => {
   return (
     <div className="hey">
-      <button className="button-primary">hello</button>
+      <SearchBar
+        placeholder="Enter a movie or tv series"
+        className="body-medium"
+      />
     </div>
   );
 };

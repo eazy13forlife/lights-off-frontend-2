@@ -52,13 +52,10 @@
   font-size: var(--fs-400);
   font-weight: 300;
   line-height: 1.89rem;
-}
-
-.body-medium-mobile {
-  font-family: var(--ff-primary);
-  font-size: var(--fs-350);
-  font-weight: 300;
-  line-height: 1.512rem;
+  @include abstracts.respondMax(abstracts.$mobile) {
+    font-size: var(--fs-350);
+    line-height: 1.512rem;
+  }
 }
 
 .body-small {

@@ -1,0 +1,33 @@
+.SearchBar {
+  margin-top: 5rem;
+  width: 100%;
+  &__form {
+    display: flex;
+    height: 100%;
+  }
+  &__button {
+    width: 10rem;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__icon {
+    font-size: 3rem;
+    color: rgba(var(--color-light), 1);
+  }
+  &__input {
+    background-color: transparent;
+    padding: 2rem 3rem 2rem 0rem;
+    border: none;
+    border-bottom: 1px solid rgba(var(--color-light), 1);
+    font-size: 3rem;
+    flex: 1 0 0;
+    color: rgba(var(--color-light), 1);
+    caret-color: rgba(var(--color-secondary), 1);
+    &::placeholder {
+      color: rgba(var(--color-light), 0.7);
+    }
+  }
+}
