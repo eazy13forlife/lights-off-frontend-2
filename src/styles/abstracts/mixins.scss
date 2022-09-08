@@ -1,17 +1,17 @@
-$desktop: 144rem;
-$desktop-small: 100rem;
-$tablet: 76.8rem;
-$tablet-small: 52rem;
-$mobile: 37.5rem;
+$desktop: 1440px;
+$desktop-small: 1000px;
+$tablet: 768px;
+$tablet-small: 520px;
+$mobile: 375px;
 
 @mixin respondMax($size) {
-  @media (max-width: calc(($size/16px)*1em)) {
+  @media (max-width: $size/16px*1em) {
     @content;
   }
 }
 
 @mixin respondMin($size) {
-  @media (min-width: calc(($size/16px)*1em)) {
+  @media (min-width: $size/16px*1em) {
     @content;
   }
 }
