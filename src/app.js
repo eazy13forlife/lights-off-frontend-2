@@ -1,16 +1,13 @@
 import React from "react";
-
+import { BrowserRouter, Route } from "react-router-dom";
 import SearchBar from "./components/SearchBar";
 import "./app.scss";
 
 const App = () => {
   return (
-    <div className="hey">
-      <SearchBar
-        placeholder="Enter a movie or tv series"
-        className="body-medium"
-      />
-    </div>
+    <BrowserRouter>
+      <Route path="/" exact></Route>
+    </BrowserRouter>
   );
 };
 

@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BsSearch } from "react-icons/bs";
 
 import "./index.scss";
 
-const SearchBar = ({ placeholder, className }) => {
+const SearchBar = ({ placeholder }) => {
   const [searchValue, setSearchValue] = useState("");
 
   return (
-    <div className={`SearchBar ${className}`}>
+    <div className="SearchBar heading-medium">
       <form className="SearchBar__form">
         <button className="SearchBar__button">
           <BsSearch className="SearchBar__icon"></BsSearch>
