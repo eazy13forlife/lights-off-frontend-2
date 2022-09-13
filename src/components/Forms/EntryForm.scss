@@ -1,0 +1,73 @@
+.EntryForm {
+  padding: 3rem;
+  background-color: rgba(var(--color-primary), 1);
+  border-radius: var(--border-radius-small);
+  &__heading {
+    color: rgba(var(--color-light), 1);
+  }
+
+  &__group {
+    &:not(:first-child) {
+      margin-top: 2rem;
+    }
+    display: flex;
+    flex-direction: column;
+  }
+  &__label {
+    &--checkbox,
+    &--radio {
+      margin-left: 0.3rem;
+    }
+  }
+  &__input {
+    &::placeholder {
+      text-transform: capitalize;
+    }
+    outline: none;
+    color: rgba(var(--color-light), 1);
+    border: none;
+    padding: 1.5rem;
+    background-color: transparent;
+    &:focus {
+      border-bottom: 1px solid rgba(var(--color-light), 1);
+    }
+    &--error {
+      border-bottom: 1px solid var(--color-error);
+    }
+    &--success {
+      border-bottom: 1px solid rgba(var(--color-primary-light), 1);
+    }
+    border-bottom: 1px solid green;
+  }
+  &__checkboxes,
+  &__radios {
+    margin-top: 0.3rem;
+    display: flex;
+    align-items: center;
+  }
+  &__text-area,
+  &__select-box {
+    margin-top: 0.3rem;
+  }
+  &__checkbox-group,
+  &__radio-group {
+    &:not(:first-child) {
+      margin-left: 1rem;
+    }
+    display: flex;
+    align-items: center;
+  }
+  &__error-message {
+    color: var(--color-error);
+    margin-top: 0.5rem;
+    padding-left: 1.5rem;
+    font-size: 1.8rem;
+  }
+  &__submit-button {
+    margin-top: 5rem;
+  }
+}
+
+.error {
+  border-bottom: 1px solid green;
+}

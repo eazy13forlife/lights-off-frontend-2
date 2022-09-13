@@ -1,0 +1,9 @@
+.SignUp {
+  background-color: rgba(var(--color-dark), 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .EntryForm {
+    width: 40vw;
+  }
+}

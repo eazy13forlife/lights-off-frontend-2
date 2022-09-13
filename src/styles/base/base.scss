@@ -7,6 +7,7 @@
   --color-secondary: 252, 71, 71;
   --color-dark: 16, 20, 30;
   --color-light: 255, 255, 255;
+  --color-error: red;
 
   //font-family
   --ff-primary: "Outfit", sans-serif;
@@ -22,6 +23,9 @@
   --fs-350: 1.2rem;
   --fs-300: 1.3rem;
   --fs-200: 1.1rem;
+
+  //border-radius;
+  --border-radius-small: 1rem;
 }
 
 html {
