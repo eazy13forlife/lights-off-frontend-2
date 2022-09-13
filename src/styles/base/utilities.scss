@@ -1,4 +1,14 @@
-.flex-row {
-  display: flex;
-  align-items: center;
+.container {
+  max-width: 144rem;
+  margin: 0 auto;
+  padding: 0rem 4rem;
+  height: 100%;
+}
+
+.full-height {
+  min-height: 100vh;
+
+  .grow {
+    flex-grow: 1;
+  }
 }

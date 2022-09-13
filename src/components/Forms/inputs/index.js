@@ -13,7 +13,9 @@ const TextInput = ({ label, ...props }) => {
     <>
       <input
         className={`${props.formname}__input body-medium ${
-          meta.touched && meta.error ? `${props.formname}__input--error` : null
+          meta.touched && meta.error
+            ? `${props.formname}__input--error`
+            : `${props.formname}__input--success`
         }`}
         {...field}
         {...props}

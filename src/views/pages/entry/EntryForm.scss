@@ -31,13 +31,13 @@
     &:focus {
       border-bottom: 1px solid rgba(var(--color-light), 1);
     }
+
     &--error {
       border-bottom: 1px solid var(--color-error);
     }
     &--success {
       border-bottom: 1px solid rgba(var(--color-primary-light), 1);
     }
-    border-bottom: 1px solid green;
   }
   &__checkboxes,
   &__radios {
@@ -66,8 +66,4 @@
   &__submit-button {
     margin-top: 5rem;
   }
-}
-
-.error {
-  border-bottom: 1px solid green;
 }

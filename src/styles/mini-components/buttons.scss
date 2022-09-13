@@ -6,6 +6,7 @@
   font-family: var(--ff-primary);
   font-weight: 300;
   font-size: var(--fs-550);
+  cursor: pointer;
   &--accent {
     background-color: rgba(var(--color-secondary), 1);
     color: rgba(var(--color-light), 1);
