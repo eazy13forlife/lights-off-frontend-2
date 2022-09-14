@@ -2,8 +2,8 @@ import React from "react";
 import { Formik, Form } from "formik";
 
 import validationSchema from "./validation";
-import { TextInput } from "../../../../../components/Forms/inputs";
-import "../../EntryForm.scss";
+import { TextInput } from "../../../../../components/FormInputs";
+import "../../../../../components/FormInputs/index.scss";
 
 const SignUp = ({ onSubmit }) => {
   return (

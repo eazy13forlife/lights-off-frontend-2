@@ -1,0 +1,17 @@
+@use "../../styles/abstracts";
+
+.Entry {
+  min-height: 100vh;
+  background-color: rgba(var(--color-dark), 1);
+  padding: 10rem 1rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .EntryForm {
+    width: 50rem;
+    margin-top: 10rem;
+    @include abstracts.respondMax(abstracts.$tablet-small) {
+      width: 100%;
+    }
+  }
+}
