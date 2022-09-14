@@ -15,7 +15,9 @@ const SignUp = () => {
   return (
     <EntryPageLayout>
       {signUpErrorsBackend ? (
-        <p className="color-error body-medium">{signUpErrorsBackend}</p>
+        <p className="Entry__error-text color-error body-medium">
+          {signUpErrorsBackend}
+        </p>
       ) : null}
       <SignUpForm onSubmit={onSubmit} />
     </EntryPageLayout>

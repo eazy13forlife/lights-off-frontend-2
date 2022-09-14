@@ -10,6 +10,13 @@
   &__logo {
     margin-bottom: 10rem;
   }
+  &__error-text {
+    width: 50rem;
+    margin-bottom: 1rem;
+    @include abstracts.respondMax(abstracts.$tablet-small) {
+      width: 100%;
+    }
+  }
   .EntryForm {
     width: 50rem;
     @include abstracts.respondMax(abstracts.$tablet-small) {
