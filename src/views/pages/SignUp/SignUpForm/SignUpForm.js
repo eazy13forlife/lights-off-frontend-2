@@ -15,7 +15,7 @@ const SignUp = ({ onSubmit }) => {
       }}
       validationSchema={validationSchema}
       onSubmit={(values) => {
-        alert(JSON.stringify(values, null, 2));
+        onSubmit(values);
       }}
     >
       <Form className="EntryForm">
