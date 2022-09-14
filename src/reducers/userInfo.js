@@ -1,10 +1,20 @@
 import types from "../actions/types.js";
+import { saveToLocalStorage } from "../helperFunctions";
 
-const initialState = {
+//current initial state
+let initialState = {
   email: "",
   username: "",
   authToken: "",
 };
+
+//see if a userInfo exists in localStorage
+const userInfo = localStorage.getItem("userInfo");
+
+//if it exists, make it the initial userInfo object
+if (userInfo) {
+  initialState = JSON.parse(userInfo);
+}
 
 const userInfoReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -13,7 +23,11 @@ const userInfoReducer = (state = initialState, action) => {
 
       const { email, username } = action.payload.insertedUser;
 
-      return { email, username, authToken };
+      const newUserInfo = { email, username, authToken };
+
+      saveToLocalStorage("userInfo", newUserInfo);
+
+      return newUserInfo;
     }
     default:
       return state;
