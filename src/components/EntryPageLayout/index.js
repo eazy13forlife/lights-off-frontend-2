@@ -6,7 +6,7 @@ import "./index.scss";
 const EntryPageLayout = ({ children }) => {
   return (
     <div className="Entry">
-      <BsFillLightbulbOffFill className="logo" />
+      <BsFillLightbulbOffFill className="Entry__logo logo" />
       {children}
     </div>
   );

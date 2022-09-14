@@ -10,15 +10,20 @@ const createUser = (userData) => {
         userData
       );
 
-      console.log(response);
-
       dispatch({
         type: types.CREATE_USER,
         payload: response.data,
       });
     } catch (e) {
-      console.log(e);
+      dispatch(sendCreateUserError(e.response.data));
     }
+  };
+};
+
+const sendCreateUserError = (message) => {
+  return {
+    type: types.SEND_CREATE_USER_ERROR,
+    payload: message,
   };
 };
 
