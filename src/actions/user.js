@@ -32,4 +32,4 @@ const removeCreateUserError = (message) => {
     type: types.REMOVE_CREATE_USER_ERROR,
   };
 };
-export { createUser };
+export { createUser, removeCreateUserError };
