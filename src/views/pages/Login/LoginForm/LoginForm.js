@@ -1,55 +1,41 @@
 import React from "react";
-import { Formik, Form } from "formik";
+import { Formik, Form, useField } from "formik";
 
+import { TextInput } from "../../../../components/FormInputs";
 import validationSchema from "./validation";
-import { TextInput } from "../../../../../components/FormInputs";
-import "../../../../../components/FormInputs/index.scss";
 
-const SignUp = ({ onSubmit }) => {
+const LoginForm = ({ onSubmit }) => {
   return (
     <Formik
-      initialValues={{
-        email: "",
+      initivalValues={{
         username: "",
         password: "",
       }}
       validationSchema={validationSchema}
       onSubmit={(values) => {
-        alert(JSON.stringify(values, null, 2));
+        console.log(values);
       }}
     >
       <Form className="EntryForm">
-        <h1 className="EntryForm__heading heading-large">Sign Up</h1>
+        <h1 className="EntryForm__heading heading-large">Login</h1>
         <div className="EntryForm__group">
           <TextInput
-            type="text"
-            name="email"
-            id="email"
-            label="Email"
             formname="EntryForm"
-          />
-        </div>
-
-        <div className="EntryForm__group">
-          <TextInput
-            type="text"
             name="username"
+            type="text"
             id="username"
             label="Username"
-            formname="EntryForm"
           />
         </div>
-
         <div className="EntryForm__group">
           <TextInput
-            type="text"
+            formname="EntryForm"
             name="password"
+            type="text"
             id="password"
             label="Password"
-            formname="EntryForm"
           />
         </div>
-
         <button
           type="submit"
           className="EntryForm__submit-button button-primary button-primary--accent"
@@ -61,4 +47,4 @@ const SignUp = ({ onSubmit }) => {
   );
 };
 
-export default SignUp;
+export default LoginForm;

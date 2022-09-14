@@ -10,8 +10,8 @@ import TV from "../src/views/pages/TV";
 import Uploads from "../src/views/pages/Uploads";
 import WatchNext from "../src/views/pages/WatchNext";
 import Media from "../src/views/pages/Media";
-import Login from "./views/pages/entry/Login";
-import SignUp from "./views/pages/entry/SignUp";
+import Login from "./views/pages/Login";
+import SignUp from "./views/pages/SignUp";
 import "./app.scss";
 
 const App = () => {
