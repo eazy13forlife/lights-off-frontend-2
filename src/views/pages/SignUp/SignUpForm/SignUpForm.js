@@ -1,5 +1,6 @@
 import React from "react";
 import { Formik, Form } from "formik";
+import { Link } from "react-router-dom";
 
 import validationSchema from "./validation";
 import { TextInput } from "../../../../components/FormInputs";
@@ -56,6 +57,16 @@ const SignUp = ({ onSubmit }) => {
         >
           Submit
         </button>
+
+        <div className="EntryForm__alt-option body-medium">
+          <p className="color-light">Already have an account? </p>
+          <Link
+            to="/login"
+            className="EntryForm__alt-option-link color-error no-underline"
+          >
+            Login
+          </Link>
+        </div>
       </Form>
     </Formik>
   );

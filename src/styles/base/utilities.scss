@@ -16,3 +16,11 @@
 .color-error {
   color: var(--color-error);
 }
+
+.color-light {
+  color: rgba(var(--color-light), 1);
+}
+
+.no-underline {
+  text-decoration: none;
+}

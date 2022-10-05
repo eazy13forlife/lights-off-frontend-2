@@ -1,9 +1,9 @@
 import React from "react";
 import { Formik, Form } from "formik";
+import { Link } from "react-router-dom";
 
 import { TextInput } from "../../../../components/FormInputs";
 import validationSchema from "./validation";
-import { Link } from "react-router-dom";
 
 const LoginForm = ({ onSubmit }) => {
   return (
@@ -44,9 +44,15 @@ const LoginForm = ({ onSubmit }) => {
           Submit
         </button>
 
-        <p>
-          Don&apos;t have an account? <Link to="/signup">Sign Up </Link>
-        </p>
+        <div className="EntryForm__alt-option body-medium">
+          <p className="color-light">Don&apos;t have an account? </p>
+          <Link
+            to="/signup"
+            className="EntryForm__alt-option-link color-error no-underline"
+          >
+            Sign Up
+          </Link>
+        </div>
       </Form>
     </Formik>
   );
