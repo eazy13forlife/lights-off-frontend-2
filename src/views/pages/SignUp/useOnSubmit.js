@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createUser, removeCreateUserError } from "../../../actions";
+import { useNavigate } from "react-router-dom";
 
 const useOnSubmit = () => {
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
   const [clickSubmit, setClickSubmit] = useState(null);
@@ -14,9 +17,8 @@ const useOnSubmit = () => {
   useEffect(() => {
     if (clickSubmit) {
       if (!signUpErrorsBackend) {
-        //console.log("go to next page");
+        navigate("/");
       } else {
-        //console.log("stay on page");
         setClickSubmit(false);
       }
     }

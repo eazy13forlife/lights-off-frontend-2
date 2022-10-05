@@ -2,11 +2,7 @@ import types from "../actions/types.js";
 import { saveToLocalStorage } from "../helperFunctions";
 
 //current initial state
-let initialState = {
-  email: "",
-  username: "",
-  authToken: "",
-};
+let initialState = null;
 
 //see if a userInfo exists in localStorage
 const userInfo = localStorage.getItem("userInfo");

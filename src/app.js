@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import SignedInRoute from "../src/views/SignedInRoute";
+import ProtectedRoute from "../src/views/ProtectedRoute";
 import Home from "../src/views/pages/Home";
 import Favorites from "../src/views/pages/Favorites";
 import Movies from "../src/views/pages/Movies";
@@ -18,17 +20,94 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="favorites" element={<Favorites />} />
-        <Route path="movies" element={<Movies />} />
-        <Route path="media/:id" element={<Media />} />
-        <Route path="my-reviews" element={<MyReviews />} />
-        <Route path="seen" element={<Seen />} />
-        <Route path="tv" element={<TV />} />
-        <Route path="uploads" element={<Uploads />} />
-        <Route path="watch-next" element={<WatchNext />} />
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <SignedInRoute redirectPath="/">
+              <Login />
+            </SignedInRoute>
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <SignedInRoute redirectPath="/">
+              <SignUp />
+            </SignedInRoute>
+          }
+        />
+        <Route
+          path="favorites"
+          element={
+            <ProtectedRoute>
+              <Favorites />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="movies"
+          element={
+            <ProtectedRoute>
+              <Movies />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="media/:id"
+          element={
+            <ProtectedRoute>
+              <Media />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="my-reviews"
+          element={
+            <ProtectedRoute>
+              <MyReviews />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="seen"
+          element={
+            <ProtectedRoute>
+              <Seen />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="tv"
+          element={
+            <ProtectedRoute>
+              <TV />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="uploads"
+          element={
+            <ProtectedRoute>
+              <Uploads />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="watch-next"
+          element={
+            <ProtectedRoute>
+              <WatchNext />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

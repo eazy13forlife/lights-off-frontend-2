@@ -15,6 +15,7 @@ const createUser = (userData) => {
         payload: response.data,
       });
     } catch (e) {
+      console.log(e);
       dispatch(sendCreateUserError(e.response.data));
     }
   };

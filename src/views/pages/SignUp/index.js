@@ -6,7 +6,6 @@ import SignUpForm from "./SignUpForm/SignUpForm";
 import useOnSubmit from "./useOnSubmit";
 
 const SignUp = () => {
-  console.log("iffy");
   const onSubmit = useOnSubmit();
 
   const signUpErrorsBackend = useSelector((state) => {
