@@ -1,13 +1,14 @@
 import React from "react";
-import { Formik, Form, useField } from "formik";
+import { Formik, Form } from "formik";
 
 import { TextInput } from "../../../../components/FormInputs";
 import validationSchema from "./validation";
+import { Link } from "react-router-dom";
 
 const LoginForm = ({ onSubmit }) => {
   return (
     <Formik
-      initivalValues={{
+      initialValues={{
         username: "",
         password: "",
       }}
@@ -42,6 +43,10 @@ const LoginForm = ({ onSubmit }) => {
         >
           Submit
         </button>
+
+        <p>
+          Don&apos;t have an account? <Link to="/signup">Sign Up </Link>
+        </p>
       </Form>
     </Formik>
   );
