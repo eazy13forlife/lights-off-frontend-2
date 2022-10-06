@@ -2,13 +2,14 @@ import React from "react";
 
 import EntryPageLayout from "../../../components/EntryPageLayout";
 import LoginForm from "./LoginForm/LoginForm.js";
-import { loginUser } from "../../../actions";
+import useLogin from "./useLogin";
 
-loginUser({ username: "dfadsfasdf", password: "dfasdfasdf" })();
 const Login = () => {
+  const onSubmit = useLogin();
+
   return (
     <EntryPageLayout>
-      <LoginForm />
+      <LoginForm onSubmit={onSubmit} />
     </EntryPageLayout>
   );
 };

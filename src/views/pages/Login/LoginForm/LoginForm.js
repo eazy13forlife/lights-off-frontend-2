@@ -14,7 +14,7 @@ const LoginForm = ({ onSubmit }) => {
       }}
       validationSchema={validationSchema}
       onSubmit={(values) => {
-        console.log(values);
+        onSubmit(values);
       }}
     >
       <Form className="EntryForm">

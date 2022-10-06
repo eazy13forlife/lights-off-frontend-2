@@ -28,14 +28,16 @@ const loginUser = (userData) => {
         userData
       );
 
-      console.log(userResponse);
-
       dispatch({
         type: types.LOGIN_USER,
         payload: userResponse.data,
       });
     } catch (e) {
       console.log(e);
+      dispatch({
+        type: types.SEND_LOGIN_ERROR,
+        payload: e.response.data,
+      });
     }
   };
 };
