@@ -14,7 +14,8 @@ if (userInfo) {
 
 const userInfoReducer = (state = initialState, action) => {
   switch (action.type) {
-    case (types.CREATE_USER, types.LOGIN_USER): {
+    case types.CREATE_USER:
+    case types.LOGIN_USER: {
       const authToken = action.payload.authToken;
 
       const { email, username } = action.payload.user;

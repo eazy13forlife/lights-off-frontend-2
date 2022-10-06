@@ -1,3 +1,3 @@
-import { createUser, removeCreateUserError, loginUser } from "./user";
+import { createUser, loginUser } from "./user";
 
-export { createUser, removeCreateUserError, loginUser };
+export { createUser, loginUser };

@@ -14,7 +14,10 @@ const createUser = (userData) => {
         type: types.CREATE_USER,
         payload: response.data,
       });
+
+      dispatch(removeCreateUserError());
     } catch (e) {
+      console.log(e);
       dispatch(sendCreateUserError(e.response.data));
     }
   };
@@ -32,8 +35,9 @@ const loginUser = (userData) => {
         type: types.LOGIN_USER,
         payload: userResponse.data,
       });
+
+      dispatch(removeLoginError());
     } catch (e) {
-      console.log(e);
       dispatch({
         type: types.SEND_LOGIN_ERROR,
         payload: e.response.data,
@@ -49,9 +53,16 @@ const sendCreateUserError = (message) => {
   };
 };
 
-const removeCreateUserError = (message) => {
+const removeCreateUserError = () => {
   return {
     type: types.REMOVE_CREATE_USER_ERROR,
   };
 };
-export { createUser, removeCreateUserError, loginUser };
+
+const removeLoginError = () => {
+  return {
+    type: types.REMOVE_LOGIN_ERROR,
+  };
+};
+
+export { createUser, loginUser };
