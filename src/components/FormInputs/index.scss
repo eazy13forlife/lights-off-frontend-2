@@ -73,5 +73,8 @@
   }
   &__alt-option-link {
     margin-left: 1.5rem;
+    &:hover {
+      color: rgba(var(--color-light), 1);
+    }
   }
 }

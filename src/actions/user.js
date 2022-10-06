@@ -15,8 +15,27 @@ const createUser = (userData) => {
         payload: response.data,
       });
     } catch (e) {
-      console.log(e);
       dispatch(sendCreateUserError(e.response.data));
+    }
+  };
+};
+
+const loginUser = (userData) => {
+  return async (dispatch) => {
+    try {
+      const userResponse = await axios.post(
+        "http://localhost:3000/users/login",
+        userData
+      );
+
+      console.log(userResponse);
+
+      dispatch({
+        type: types.LOGIN_USER,
+        payload: userResponse.data,
+      });
+    } catch (e) {
+      console.log(e);
     }
   };
 };
@@ -33,4 +52,4 @@ const removeCreateUserError = (message) => {
     type: types.REMOVE_CREATE_USER_ERROR,
   };
 };
-export { createUser, removeCreateUserError };
+export { createUser, removeCreateUserError, loginUser };

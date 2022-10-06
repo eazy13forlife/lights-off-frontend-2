@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import EntryPageLayout from "../../../components/EntryPageLayout";
 import SignUpForm from "./SignUpForm/SignUpForm";

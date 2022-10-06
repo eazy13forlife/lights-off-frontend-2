@@ -1,35 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useDispatch } from "react-redux";
 import { createUser, removeCreateUserError } from "../../../actions";
-import { useNavigate } from "react-router-dom";
 
 const useOnSubmit = () => {
-  const navigate = useNavigate();
-
   const dispatch = useDispatch();
 
-  const [clickSubmit, setClickSubmit] = useState(null);
-
-  const signUpErrorsBackend = useSelector((state) => {
-    return state.signUpErrorsBackend;
-  });
-
-  useEffect(() => {
-    if (clickSubmit) {
-      if (!signUpErrorsBackend) {
-        navigate("/");
-      } else {
-        setClickSubmit(false);
-      }
-    }
-  }, [clickSubmit]);
-
+  //if submit function works, we should get a user object in our state, which will automatically lead to a redirect to home page because of signed in route.
   const onSubmit = async (userData) => {
     await dispatch(removeCreateUserError());
 
     await dispatch(createUser(userData));
-
-    setClickSubmit(true);
   };
 
   return onSubmit;
