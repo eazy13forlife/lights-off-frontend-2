@@ -5,6 +5,7 @@ const types = {
   LOGIN_USER: "LOGIN_USER",
   SEND_LOGIN_ERROR: "SEND_LOGIN_ERROR",
   REMOVE_LOGIN_ERROR: "REMOVE_LOGIN_ERROR",
+  GET_TRENDING: "GET_TRENDING",
 };
 
 export default types;

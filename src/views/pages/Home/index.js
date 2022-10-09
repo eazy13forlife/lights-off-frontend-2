@@ -1,10 +1,11 @@
 import React from "react";
 
 import ContentPageLayout from "../../../components/ContentPageLayout";
-import useTrendingMedia from "./useTrendingMedia";
+import useTrending from "./useTrending";
 
 const Home = () => {
-  const media = useTrendingMedia();
+  //hook for getting current trending results
+  useTrending();
 
   return (
     <div className="Home">
