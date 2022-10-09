@@ -1,0 +1,25 @@
+.Sidebar {
+  padding: 5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 10rem;
+  background-color: rgba(var(--color-primary), 1);
+  border-radius: var(--border-radius-medium);
+  &__icon {
+    &:not(:first-child) {
+      margin-top: 5rem;
+    }
+    font-size: 4rem;
+    cursor: pointer;
+    color: rgba(var(--color-primary-light), 1);
+    &--movie,
+    &--next,
+    &--download {
+      font-size: 5rem;
+    }
+    &:hover {
+      color: rgba(var(--color-light), 1);
+    }
+  }
+}

@@ -15,7 +15,7 @@ import Media from "../src/views/pages/Media";
 import Login from "./views/pages/Login";
 import SignUp from "./views/pages/SignUp";
 import "./app.scss";
-localStorage.clear();
+
 const App = () => {
   return (
     <BrowserRouter>

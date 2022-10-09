@@ -1,8 +1,12 @@
 import React from "react";
-import { createUser } from "../../../actions";
+import Sidebar from "../../../components/Sidebar";
 
 const Home = () => {
-  return <p>Home</p>;
+  return (
+    <div className="Home">
+      <Sidebar />
+    </div>
+  );
 };
 
 export default Home;
