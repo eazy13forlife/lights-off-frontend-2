@@ -1,0 +1,13 @@
+.ContentPageLayout {
+  display: flex;
+  min-height: 100vh;
+  padding: 3rem;
+  background-color: rgba(var(--color-dark), 1);
+  &__main {
+    flex: 1 0 0;
+    margin-left: 4rem;
+  }
+  .SearchBar {
+    margin-top: 2rem;
+  }
+}

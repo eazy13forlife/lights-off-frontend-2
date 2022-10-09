@@ -1,16 +1,15 @@
 .SearchBar {
-  margin-top: 5rem;
   width: 100%;
   &__form {
     display: flex;
     height: 100%;
   }
   &__button {
-    width: 10rem;
+    width: 5rem;
     border: none;
     background-color: transparent;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
   }
   &__icon {

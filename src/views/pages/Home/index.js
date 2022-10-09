@@ -1,10 +1,10 @@
 import React from "react";
-import Sidebar from "../../../components/Sidebar";
+import ContentPageLayout from "../../../components/ContentPageLayout";
 
 const Home = () => {
   return (
     <div className="Home">
-      <Sidebar />
+      <ContentPageLayout />
     </div>
   );
 };
