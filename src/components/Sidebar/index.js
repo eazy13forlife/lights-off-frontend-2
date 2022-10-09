@@ -12,22 +12,47 @@ import IconLink from "./IconLink/IconLink";
 import "./index.scss";
 
 const Sidebar = () => {
-  const location = useLocation();
-
-  const renderColor = (path) => {
-    return location.pathname.includes(path) ? "color-secondary" : null;
-  };
-
   return (
     <div className="Sidebar">
+      <IconLink path="/" pathPattern="/">
+        <MdMovie />
+      </IconLink>
+
+      <IconLink path="/movies" pathPattern="/movies">
+        <BsFilm />
+      </IconLink>
+
+      <IconLink path="/tv" pathPattern="/tv">
+        <CgScreen />
+      </IconLink>
+
+      <IconLink path="/favorites" pathPattern="/favorites">
+        <BsBookmark />
+      </IconLink>
+
+      <IconLink path="/seen" pathPattern="/seen">
+        <GoEye />
+      </IconLink>
+
+      <IconLink path="/uploads" pathPattern="/uploads">
+        <AiOutlineDownload />
+      </IconLink>
+
+      <IconLink path="/watch-next" pathPattern="/watch-next">
+        <CgPlayTrackNext className="Sidebar__link--next" />
+      </IconLink>
+
+      <IconLink path="/my-reviews" pathPattern="/my-reviews">
+        <BsPencilSquare />
+      </IconLink>
+
+      {/*
       <Link to="/" className="Sidebar__link">
-        <MdMovie
-          className={`Sidebar__icon Sidebar__icon--movie ${renderColor("/")}`}
-        />
+        <MdMovie className={`Sidebar__icon Sidebar__icon--movie `} />
       </Link>
 
       <Link to="/movies" className="Sidebar__link">
-        <BsFilm className="Sidebar__icon" />
+        <BsFilm className={`Sidebar__icon `} />
       </Link>
 
       <Link to="/tv" className="Sidebar__link">
@@ -53,6 +78,7 @@ const Sidebar = () => {
       <Link to="/my-reviews" className="Sidebar__link">
         <BsPencilSquare className="Sidebar__icon" />
       </Link>
+      */}
     </div>
   );
 };

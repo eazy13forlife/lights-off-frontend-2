@@ -8,6 +8,7 @@ const useMatchedRoute = (pathPattern) => {
     {
       path: pathPattern,
       exact: true,
+      strict: true,
     },
     location.pathname
   );

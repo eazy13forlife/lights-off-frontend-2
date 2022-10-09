@@ -10,18 +10,22 @@
     &:not(:first-child) {
       margin-top: 5rem;
     }
-  }
-  &__icon {
-    font-size: 4rem;
-    cursor: pointer;
-    color: rgba(var(--color-primary-light), 1);
-    &--movie,
-    &--next,
-    &--download {
-      font-size: 5rem;
+    svg {
+      font-size: 4rem;
+      cursor: pointer;
+      &:hover {
+        color: rgba(var(--color-light), 1);
+      }
     }
-    &:hover {
-      color: rgba(var(--color-light), 1);
+    &--active {
+      svg {
+        color: rgba(var(--color-secondary), 1);
+      }
+    }
+    &--inactive {
+      svg {
+        color: rgba(var(--color-primary-light), 1);
+      }
     }
   }
 }
