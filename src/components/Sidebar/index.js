@@ -11,14 +11,37 @@ import "./index.scss";
 const Sidebar = () => {
   return (
     <div className="Sidebar">
-      <MdMovie className="Sidebar__icon Sidebar__icon--movie" />
-      <BsFilm className="Sidebar__icon" />
-      <CgScreen className="Sidebar__icon" />
-      <BsBookmark className="Sidebar__icon" />
-      <GoEye className="Sidebar__icon" />
-      <AiOutlineDownload className="Sidebar__icon Sidebar__icon--download" />
-      <CgPlayTrackNext className="Sidebar__icon Sidebar__icon--next" />
-      <BsPencilSquare className="Sidebar__icon" />
+      <Link to="/" className="Sidebar__link">
+        <MdMovie className="Sidebar__icon Sidebar__icon--movie" />
+      </Link>
+
+      <Link to="/movies" className="Sidebar__link">
+        <BsFilm className="Sidebar__icon" />
+      </Link>
+
+      <Link to="tv" className="Sidebar__link">
+        <CgScreen className="Sidebar__icon" />
+      </Link>
+
+      <Link to="/favorites" className="Sidebar__link">
+        <BsBookmark className="Sidebar__icon" />
+      </Link>
+
+      <Link to="/seen" className="Sidebar__link">
+        <GoEye className="Sidebar__icon" />
+      </Link>
+
+      <Link to="/uploads" className="Sidebar__link">
+        <AiOutlineDownload className="Sidebar__icon Sidebar__icon--download" />
+      </Link>
+
+      <Link to="/watch-next" className="Sidebar__link">
+        <CgPlayTrackNext className="Sidebar__icon Sidebar__icon--next" />
+      </Link>
+
+      <Link to="my-reviews" className="Sidebar__link">
+        <BsPencilSquare className="Sidebar__icon" />
+      </Link>
     </div>
   );
 };

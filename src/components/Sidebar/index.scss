@@ -6,10 +6,12 @@
   width: 12rem;
   background-color: rgba(var(--color-primary), 1);
   border-radius: var(--border-radius-medium);
-  &__icon {
+  &__link {
     &:not(:first-child) {
       margin-top: 5rem;
     }
+  }
+  &__icon {
     font-size: 4rem;
     cursor: pointer;
     color: rgba(var(--color-primary-light), 1);
