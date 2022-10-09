@@ -6,20 +6,31 @@ import { CgScreen, CgPlayTrackNext } from "react-icons/cg";
 import { GoEye } from "react-icons/go";
 import { AiOutlineDownload } from "react-icons/ai";
 import { BsPencilSquare } from "react-icons/bs";
+
+import { useLocation } from "react-router-dom";
+import IconLink from "./IconLink/IconLink";
 import "./index.scss";
 
 const Sidebar = () => {
+  const location = useLocation();
+
+  const renderColor = (path) => {
+    return location.pathname.includes(path) ? "color-secondary" : null;
+  };
+
   return (
     <div className="Sidebar">
       <Link to="/" className="Sidebar__link">
-        <MdMovie className="Sidebar__icon Sidebar__icon--movie" />
+        <MdMovie
+          className={`Sidebar__icon Sidebar__icon--movie ${renderColor("/")}`}
+        />
       </Link>
 
       <Link to="/movies" className="Sidebar__link">
         <BsFilm className="Sidebar__icon" />
       </Link>
 
-      <Link to="tv" className="Sidebar__link">
+      <Link to="/tv" className="Sidebar__link">
         <CgScreen className="Sidebar__icon" />
       </Link>
 
@@ -39,7 +50,7 @@ const Sidebar = () => {
         <CgPlayTrackNext className="Sidebar__icon Sidebar__icon--next" />
       </Link>
 
-      <Link to="my-reviews" className="Sidebar__link">
+      <Link to="/my-reviews" className="Sidebar__link">
         <BsPencilSquare className="Sidebar__icon" />
       </Link>
     </div>
