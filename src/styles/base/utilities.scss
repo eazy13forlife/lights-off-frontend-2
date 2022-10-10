@@ -17,7 +17,7 @@
     flex-grow: 1;
   }
 }
-
+//colors
 .color-error {
   color: var(--color-error);
 }
@@ -30,6 +30,11 @@
   color: rgba(var(--color-secondary), 1);
 }
 
+//text
 .no-underline {
   text-decoration: none;
+}
+
+.capitalize {
+  text-transform: capitalize;
 }

@@ -1,16 +1,17 @@
 import React from "react";
 
 import ContentPageLayout from "../../../components/ContentPageLayout";
-import useTrending from "./useTrending";
+import TrendingContent from "./TrendingContent";
+import "./index.scss";
 
 const Home = () => {
-  //hook for getting current trending results
-  useTrending();
-
   return (
     <div className="Home">
       <ContentPageLayout searchBarPlaceholder="Search for movies and tv...">
-        <img src="http://image.tmdb.org/t/p/w500/4tHOplJqH1eg37cFBOWXkBTDTcB.jpg" />
+        <h1 className="heading-large color-light capitalize">
+          Currently Trending
+        </h1>
+        <div className="Home__content">{TrendingContent()}</div>
       </ContentPageLayout>
     </div>
   );
