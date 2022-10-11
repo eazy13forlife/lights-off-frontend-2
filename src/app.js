@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import SignedInRoute from "../src/views/SignedInRoute";
@@ -15,8 +16,23 @@ import Media from "../src/views/pages/Media";
 import Login from "./views/pages/Login";
 import SignUp from "./views/pages/SignUp";
 import "./app.scss";
+import useUserAuthorization from "./hooks/useUserAuthorization";
+import { getTrending } from "./actions";
 
 const App = () => {
+  const user = useUserAuthorization();
+
+  const dispatch = useDispatch();
+
+  const trending = useSelector((state) => {
+    return state.trending;
+  });
+  useEffect(() => {
+    if (user && !trending.length) {
+      dispatch(getTrending());
+    }
+  }, [user]);
+
   return (
     <BrowserRouter>
       <Routes>

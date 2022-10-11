@@ -3,6 +3,7 @@
     margin-top: 2rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 3rem;
+    grid-column-gap: 5rem;
+    grid-row-gap: 5rem;
   }
 }

@@ -6,6 +6,7 @@
   width: 12rem;
   background-color: rgba(var(--color-primary), 1);
   border-radius: var(--border-radius-medium);
+  position: sticky;
   &__link {
     &:not(:first-child) {
       margin-top: 5rem;
