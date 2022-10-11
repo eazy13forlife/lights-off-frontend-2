@@ -6,19 +6,23 @@ import "./index.scss";
 const ContentCard = ({ image, name, releaseDate, mediaType, knownFor }) => {
   const renderContent = () => {
     if (mediaType === "person") {
-      <>
-        return <p className="capitalize">{knownFor}</p>
-        <p className="MediaCard__name capitalize">{name}</p>
-      </>;
+      return (
+        <>
+          <p className="capitalize">{knownFor}</p>
+          <p className="MediaCard__name capitalize">{name}</p>
+        </>
+      );
     }
 
-    return (
-      <>
-        <p className="capitalize">{moment(releaseDate).year()}</p>
-        <p className="capitalize">{mediaType}</p>
-        <p className="MediaCard__name capitalize">{name}</p>
-      </>
-    );
+    if (mediaType === "movie" || mediaType === "tv") {
+      return (
+        <>
+          <p className="capitalize">{moment(releaseDate).year()}</p>
+          <p className="capitalize">{mediaType}</p>
+          <p className="MediaCard__name capitalize">{name}</p>
+        </>
+      );
+    }
   };
 
   return (
