@@ -38,3 +38,11 @@
 .capitalize {
   text-transform: capitalize;
 }
+
+//borders
+.oval-border {
+  border: 2px solid rgba(var(--color-light), 1);
+  border-radius: var(--border-radius-medium);
+  display: inline-block;
+  padding: 1rem 1.5rem;
+}

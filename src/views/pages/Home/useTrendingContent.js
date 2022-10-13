@@ -1,9 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import ContentCard from "../../../components/ContentCard";
-
-import blankPerson from "../../../images/blank-person.jpeg";
-import blankMedia from "../../../images/cinema-clapboard.png";
+import RenderedTrendingCard from "./RenderedTrendingCard";
 
 const useTrendingContent = () => {
   const trendingMovies = useSelector((state) => {
@@ -18,59 +15,17 @@ const useTrendingContent = () => {
     return state.trending.people || [];
   });
 
-  const renderContent = (media) => {
-    const {
-      id,
-      title,
-      release_date: releaseDate,
-      media_type: mediaType,
-      poster_path: mediaImage,
-      name,
-      known_for_department: knownFor,
-      profile_path: personImage,
-    } = media;
-
-    if (mediaType === "person") {
-      return (
-        <ContentCard
-          key={id}
-          name={name}
-          knownFor={knownFor}
-          mediaType={mediaType}
-          image={
-            personImage
-              ? `http://image.tmdb.org/t/p/h632/${personImage}`
-              : blankPerson
-          }
-        />
-      );
-    }
-
-    return (
-      <ContentCard
-        key={id}
-        name={mediaType === "movie" ? title : name}
-        releaseDate={releaseDate}
-        mediaType={mediaType}
-        image={
-          mediaImage
-            ? `http://image.tmdb.org/t/p/w500/${mediaImage}`
-            : blankMedia
-        }
-      />
-    );
-  };
-
+  //get jsx of rendered movies,tv and people
   const renderedMovies = trendingMovies.map((media) => {
-    return renderContent(media);
+    return <RenderedTrendingCard data={media} key={media.id} />;
   });
 
   const renderedTv = trendingTv.map((media) => {
-    return renderContent(media);
+    return <RenderedTrendingCard data={media} key={media.id} />;
   });
 
   const renderedPeople = trendingPeople.map((media) => {
-    return renderContent(media);
+    return <RenderedTrendingCard data={media} key={media.id} />;
   });
 
   return [renderedMovies, renderedTv, renderedPeople];

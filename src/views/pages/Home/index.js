@@ -1,6 +1,7 @@
 import React from "react";
 
 import ContentPageLayout from "../../../components/ContentPageLayout";
+import TrendingGroup from "./TrendingGroup";
 import useTrendingContent from "./useTrendingContent";
 import "./index.scss";
 
@@ -10,10 +11,9 @@ const Home = () => {
   return (
     <div className="Home">
       <ContentPageLayout searchBarPlaceholder="Search for movies and tv...">
-        <h1 className="heading-large color-light capitalize">
-          Currently Trending
-        </h1>
-        <div className="Home__content">{renderedMovies}</div>
+        <TrendingGroup title="Trending Movies" content={renderedMovies} />
+        <TrendingGroup title="Trending TV" content={renderedTv} />
+        <TrendingGroup title="Trending People" content={renderedPeople} />
       </ContentPageLayout>
     </div>
   );

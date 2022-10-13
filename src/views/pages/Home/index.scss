@@ -1,8 +1,11 @@
 .Home {
-  &__content {
+  &__trending-group {
+    margin-top: 7rem;
+  }
+  &__trending-content {
     margin-top: 3rem;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-column-gap: 5rem;
     grid-row-gap: 5rem;
   }
