@@ -14,7 +14,7 @@ const useTrending = () => {
 
   useEffect(() => {
     //if user is logged in and nothing in trending,call getTrending
-    if (user && !trending.length) {
+    if (user && !Object.values(trending).length) {
       dispatch(getTrending());
     }
   }, [user]);

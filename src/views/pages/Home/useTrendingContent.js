@@ -5,12 +5,20 @@ import ContentCard from "../../../components/ContentCard";
 import blankPerson from "../../../images/blank-person.jpeg";
 import blankMedia from "../../../images/cinema-clapboard.png";
 
-const TrendingContent = () => {
-  const trending = useSelector((state) => {
-    return state.trending;
+const useTrendingContent = () => {
+  const trendingMovies = useSelector((state) => {
+    return state.trending.movies || [];
   });
 
-  const allTrending = trending.map((media) => {
+  const trendingTv = useSelector((state) => {
+    return state.trending.tv || [];
+  });
+
+  const trendingPeople = useSelector((state) => {
+    return state.trending.people || [];
+  });
+
+  const renderContent = (media) => {
     const {
       id,
       title,
@@ -51,9 +59,21 @@ const TrendingContent = () => {
         }
       />
     );
+  };
+
+  const renderedMovies = trendingMovies.map((media) => {
+    return renderContent(media);
   });
 
-  return allTrending;
+  const renderedTv = trendingTv.map((media) => {
+    return renderContent(media);
+  });
+
+  const renderedPeople = trendingPeople.map((media) => {
+    return renderContent(media);
+  });
+
+  return [renderedMovies, renderedTv, renderedPeople];
 };
 
-export default TrendingContent;
+export default useTrendingContent;

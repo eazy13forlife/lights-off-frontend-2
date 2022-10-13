@@ -1,11 +1,16 @@
 .ContentPageLayout {
-  display: flex;
   min-height: 100vh;
   padding: 3rem;
+  padding-bottom: 10rem;
   background-color: rgba(var(--color-dark), 1);
   &__main {
-    flex: 1 0 0;
-    margin-left: 4rem;
+    padding: 0rem 10rem;
+    margin-left: 18rem;
+  }
+  .Sidebar {
+    top: 5rem;
+    position: fixed;
+    height: 90vh;
   }
   .SearchBar {
     margin-top: 2rem;

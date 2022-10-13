@@ -29,6 +29,39 @@ const getTrendingPeople = async () => {
 
 const getTrending = () => {
   return async (dispatch) => {
+    const allTrending = {
+      movies: [],
+      tv: [],
+      people: [],
+    };
+
+    const trendingData = await Promise.all([
+      getTrendingMovies(),
+
+      getTrendingTv(),
+
+      getTrendingPeople(),
+    ]);
+
+    trendingData.forEach((_, index) => {
+      if (index === 0) {
+        allTrending.movies = trendingData[0];
+      }
+
+      if (index === 1) {
+        allTrending.tv = trendingData[1];
+      }
+
+      if (index === 2) {
+        allTrending.people = trendingData[2];
+      }
+    });
+
+    dispatch({
+      type: types.GET_TRENDING,
+      payload: allTrending,
+    });
+    /*
     const allTrending = [];
 
     const trendingData = await Promise.all([
@@ -49,6 +82,7 @@ const getTrending = () => {
       type: types.GET_TRENDING,
       payload: allTrending,
     });
+    */
   };
 };
 
