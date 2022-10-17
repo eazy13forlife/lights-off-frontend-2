@@ -4,12 +4,19 @@ import Sidebar from "../Sidebar";
 import Searchbar from "../SearchBar";
 import "./index.scss";
 
-const ContentPageLayout = ({ searchBarPlaceholder, children }) => {
+const ContentPageLayout = ({
+  searchBarPlaceholder,
+  onSearchSubmit,
+  children,
+}) => {
   return (
     <div className="ContentPageLayout">
       <Sidebar />
       <div className="ContentPageLayout__main">
-        <Searchbar placeholder={searchBarPlaceholder} />
+        <Searchbar
+          placeholder={searchBarPlaceholder}
+          onSubmit={onSearchSubmit}
+        />
         {children}
       </div>
     </div>

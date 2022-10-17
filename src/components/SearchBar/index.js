@@ -3,13 +3,18 @@ import { BsSearch } from "react-icons/bs";
 
 import "./index.scss";
 
-const SearchBar = ({ placeholder }) => {
+const SearchBar = ({ placeholder, onSubmit }) => {
   const [searchValue, setSearchValue] = useState("");
 
   return (
     <div className="SearchBar heading-medium">
-      <form className="SearchBar__form">
-        <button className="SearchBar__button">
+      <form
+        className="SearchBar__form"
+        onSubmit={(e) => {
+          onSubmit(e, searchValue);
+        }}
+      >
+        <button type="submit" className="SearchBar__button">
           <BsSearch className="SearchBar__icon"></BsSearch>
         </button>
 

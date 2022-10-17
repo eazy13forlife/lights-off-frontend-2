@@ -1,11 +1,11 @@
 import axios from "axios";
 
 import types from "./types";
-import { randomizeArray } from "../helperFunctions";
+import apiKeys from "../api";
 
 const getTrendingMovies = async () => {
   const response = await axios.get(
-    "https://api.themoviedb.org/3/trending/movie/day?api_key=aa7835518306593feca1d43f01ae2cb2"
+    `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKeys.theMovieDb}`
   );
 
   return response.data.results;
@@ -13,7 +13,7 @@ const getTrendingMovies = async () => {
 
 const getTrendingTv = async () => {
   const response = await axios.get(
-    "https://api.themoviedb.org/3/trending/tv/day?api_key=aa7835518306593feca1d43f01ae2cb2"
+    `https://api.themoviedb.org/3/trending/tv/day?api_key=${apiKeys.theMovieDb}`
   );
 
   return response.data.results;
@@ -21,7 +21,7 @@ const getTrendingTv = async () => {
 
 const getTrendingPeople = async () => {
   const response = await axios.get(
-    "https://api.themoviedb.org/3/trending/person/day?api_key=aa7835518306593feca1d43f01ae2cb2"
+    `https://api.themoviedb.org/3/trending/person/day?api_key=${apiKeys.theMovieDb}`
   );
 
   return response.data.results;

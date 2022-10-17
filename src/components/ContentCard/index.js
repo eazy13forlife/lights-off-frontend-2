@@ -3,6 +3,7 @@ import moment from "moment";
 
 import { FiFilm } from "react-icons/fi";
 import { FaTv } from "react-icons/fa";
+import blankPerson from "../../images/blank-person.jpeg";
 import "./index.scss";
 
 const ContentCard = ({ image, name, releaseDate, mediaType, knownFor }) => {
@@ -43,8 +44,8 @@ const ContentCard = ({ image, name, releaseDate, mediaType, knownFor }) => {
 
   return (
     <div className="ContentCard">
-      <figure className="ContentCard__image">
-        <img src={image} />
+      <figure className="ContentCard__image-container">
+        <img src={image} className="ContentCard__image" />
       </figure>
 
       <div className="ContentCard__contents color-light">{renderContent()}</div>

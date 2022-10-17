@@ -4,7 +4,7 @@ import ContentCard from "../../../components/ContentCard";
 import blankPerson from "../../../images/blank-person.jpeg";
 import blankMedia from "../../../images/cinema-clapboard.png";
 
-const RenderedTrendingCard = ({ data }) => {
+const RenderedContentCard = ({ data }) => {
   const {
     id,
     title,
@@ -45,4 +45,4 @@ const RenderedTrendingCard = ({ data }) => {
   );
 };
 
-export default RenderedTrendingCard;
+export default RenderedContentCard;
