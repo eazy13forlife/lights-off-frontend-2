@@ -16,7 +16,6 @@ const Home = () => {
         onSearchSubmit={onSearchSubmit}
       >
         <MainBody searchResults={searchResults} />
-        <PagesButtons currentPage={1} totalPages={33} />
       </ContentPageLayout>
     </div>
   );

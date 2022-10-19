@@ -5,8 +5,9 @@ import apiKeys from "../../api";
 import ContentGroup from "../ContentGroup";
 import RenderedContentCard from "../../views/pages/Home/RenderedContentCard";
 import PagesButtons from "../PagesButtons";
+import "./index.scss";
 
-const Pagination = ({
+const PaginatedContentGroup = ({
   initialResults,
   searchValue,
   totalNumberResults,
@@ -62,4 +63,4 @@ const Pagination = ({
   );
 };
 
-export default Pagination;
+export default PaginatedContentGroup;

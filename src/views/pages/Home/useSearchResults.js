@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import RenderedContentCard from "./RenderedContentCard";
 import apiKeys from "../../../api";
 
 const useSearchResults = () => {

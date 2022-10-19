@@ -1,5 +1,5 @@
 .PagesButtons {
-  width: 40rem;
+  width: 45rem;
   height: 5rem;
   border: 2px solid rgba(var(--color-light), 1);
   border-radius: var(--border-radius-small);
@@ -19,6 +19,8 @@
     border: none;
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 15rem;
     padding: 1rem 2rem;
     cursor: pointer;
     &:hover {

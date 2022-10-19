@@ -2,7 +2,6 @@ import React from "react";
 
 import ContentGroup from "../../../components/ContentGroup";
 import useTrendingContent from "./useTrendingContent";
-import RenderedContentCard from "./RenderedContentCard";
 import PaginatedContentGroup from "../../../components/PaginatedContentGroup";
 
 const MainBody = ({ searchResults }) => {
@@ -32,17 +31,6 @@ const MainBody = ({ searchResults }) => {
         totalNumberPages={totalNumberPages}
       />
     );
-
-    // const renderedSearchResults = results.map((media) => {
-    //   return <RenderedContentCard data={media} key={media.id} />;
-    // });
-
-    // return (
-    //   <ContentGroup
-    //     title={`Found ${totalNumberResults} results for ${searchValue} `}
-    //     content={renderedSearchResults}
-    //   />
-    // );
   }
 };
 
