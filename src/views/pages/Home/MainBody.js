@@ -3,6 +3,7 @@ import React from "react";
 import ContentGroup from "./ContentGroup";
 import useTrendingContent from "./useTrendingContent";
 import RenderedContentCard from "./RenderedContentCard";
+import PaginatedContentGroup from "../../../components/PaginatedContentGroup";
 
 const MainBody = ({ searchResults }) => {
   const [renderedMovies, renderedTv, renderedPeople] = useTrendingContent();
@@ -20,18 +21,28 @@ const MainBody = ({ searchResults }) => {
 
   //if something entered in search results, return the results
   if (searchResults !== null) {
-    const { data, totalResults, searchValue } = searchResults;
-
-    const renderedSearchResults = data.map((media) => {
-      return <RenderedContentCard data={media} key={media.id} />;
-    });
+    const { results, totalNumberResults, totalNumberPages, searchValue } =
+      searchResults;
 
     return (
-      <ContentGroup
-        title={`Found ${totalResults} results for ${searchValue} `}
-        content={renderedSearchResults}
+      <PaginatedContentGroup
+        initialResults={results}
+        searchValue={searchValue}
+        totalNumberResults={totalNumberResults}
+        totalNumberPages={totalNumberPages}
       />
     );
+
+    // const renderedSearchResults = results.map((media) => {
+    //   return <RenderedContentCard data={media} key={media.id} />;
+    // });
+
+    // return (
+    //   <ContentGroup
+    //     title={`Found ${totalNumberResults} results for ${searchValue} `}
+    //     content={renderedSearchResults}
+    //   />
+    // );
   }
 };
 

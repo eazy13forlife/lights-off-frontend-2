@@ -4,13 +4,13 @@ import axios from "axios";
 import apiKeys from "../../api";
 import ContentGroup from "../../views/pages/Home/ContentGroup";
 import RenderedContentCard from "../../views/pages/Home/RenderedContentCard";
+import PagesButtons from "../PagesButtons";
 
 const Pagination = ({
-  title,
   initialResults,
   searchValue,
   totalNumberResults,
-  totalPages,
+  totalNumberPages,
 }) => {
   const [results, setResults] = useState(initialResults);
 
@@ -25,7 +25,7 @@ const Pagination = ({
 
   const onNextPageClick = () => {
     //ensures new page does not go past total pages
-    const newPage = Math.min(totalPages, currentPage + 1);
+    const newPage = Math.min(totalNumberPages, currentPage + 1);
 
     setCurrentPage(newPage);
   };
@@ -48,7 +48,18 @@ const Pagination = ({
 
   return (
     <>
-      <ContentGroup title="hello" content={renderedResults} />
+      <ContentGroup
+        title={`Found ${totalNumberResults} results for ${searchValue} `}
+        content={renderedResults}
+      />
+      <PagesButtons
+        currentPage={currentPage}
+        totalPages={totalNumberPages}
+        onNextClick={onNextPageClick}
+        onPreviousClick={onPreviousPageClick}
+      />
     </>
   );
 };
+
+export default Pagination;

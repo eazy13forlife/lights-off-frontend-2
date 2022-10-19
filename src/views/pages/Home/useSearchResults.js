@@ -20,8 +20,9 @@ const useSearchResults = () => {
     );
 
     setSearchResults({
-      data: response.data.results,
-      totalResults: response.data.total_results,
+      results: response.data.results,
+      totalNumberResults: response.data.total_results,
+      totalNumberPages: response.data.total_pages,
       searchValue: searchValue,
     });
   };
