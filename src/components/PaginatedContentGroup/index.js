@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import apiKeys from "../../api";
-import ContentGroup from "../../views/pages/Home/ContentGroup";
+import ContentGroup from "../ContentGroup";
 import RenderedContentCard from "../../views/pages/Home/RenderedContentCard";
 import PagesButtons from "../PagesButtons";
 

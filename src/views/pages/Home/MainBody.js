@@ -1,6 +1,6 @@
 import React from "react";
 
-import ContentGroup from "./ContentGroup";
+import ContentGroup from "../../../components/ContentGroup";
 import useTrendingContent from "./useTrendingContent";
 import RenderedContentCard from "./RenderedContentCard";
 import PaginatedContentGroup from "../../../components/PaginatedContentGroup";
