@@ -1,21 +1,22 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import ContentPageLayout from "../../../components/ContentPageLayout";
-import useSearchResults from "./useSearchResults";
 import MainBody from "./MainBody";
-import PagesButtons from "../../../components/PagesButtons";
-import "./index.scss";
 
 const Home = () => {
-  const [searchResults, onSearchSubmit] = useSearchResults();
+  const navigate = useNavigate();
 
   return (
     <div className="Home">
       <ContentPageLayout
         searchBarPlaceholder="Search for movies, tv and people..."
-        onSearchSubmit={onSearchSubmit}
+        onSearchSubmit={(e, searchValue) => {
+          e.preventDefault();
+          navigate(`/search/?searchValue=${searchValue}&page=1`);
+        }}
       >
-        <MainBody searchResults={searchResults} />
+        <MainBody />
       </ContentPageLayout>
     </div>
   );

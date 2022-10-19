@@ -14,7 +14,7 @@ const HomeSearch = () => {
 
   const pageNumber = location.get("page");
 
-  const [searchResults] = useSearchResults(searchValue, pageNumber);
+  const [searchResults] = useSearchResults(searchValue, +pageNumber);
 
   return (
     <div className="HomeSearch">
