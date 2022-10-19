@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { BsSearch } from "react-icons/bs";
-
 import "./index.scss";
 
 const SearchBar = ({ placeholder, onSubmit }) => {

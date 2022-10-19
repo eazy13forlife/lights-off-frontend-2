@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SignedInRoute from "../src/views/SignedInRoute";
 import ProtectedRoute from "../src/views/ProtectedRoute";
 import Home from "../src/views/pages/Home";
+import HomeSearch from "../src/views/pages/HomeSearch";
 import Favorites from "../src/views/pages/Favorites";
 import Movies from "../src/views/pages/Movies";
 import MyReviews from "../src/views/pages/MyReviews";
@@ -28,6 +29,14 @@ const App = () => {
           element={
             <ProtectedRoute>
               <Home />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/search"
+          element={
+            <ProtectedRoute>
+              <HomeSearch />
             </ProtectedRoute>
           }
         />
