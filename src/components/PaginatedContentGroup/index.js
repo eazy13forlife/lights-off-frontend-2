@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import apiKeys from "../../api";
 import ContentGroup from "../ContentGroup";
-import RenderedContentCard from "../../views/pages/Home/RenderedContentCard";
+import ContentCard from "../ContentCard";
 import PagesButtons from "../PagesButtons";
 import "./index.scss";
 
@@ -31,7 +29,7 @@ const PaginatedContentGroup = ({
   };
 
   const renderedResults = initialResults.map((media) => {
-    return <RenderedContentCard data={media} key={media.id} />;
+    return <ContentCard data={media} key={media.id} />;
   });
 
   return (

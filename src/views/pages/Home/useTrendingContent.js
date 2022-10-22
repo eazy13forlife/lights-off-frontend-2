@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import RenderedContentCard from "./RenderedContentCard";
+import ContentCard from "../../../components/ContentCard";
 
 const useTrendingContent = () => {
   const trendingMovies = useSelector((state) => {
@@ -17,15 +17,16 @@ const useTrendingContent = () => {
 
   //get jsx of rendered movies,tv and people
   const renderedMovies = trendingMovies.map((media) => {
-    return <RenderedContentCard data={media} key={media.id} />;
+    console.log("hey");
+    return <ContentCard data={media} key={media.id} />;
   });
 
   const renderedTv = trendingTv.map((media) => {
-    return <RenderedContentCard data={media} key={media.id} />;
+    return <ContentCard data={media} key={media.id} />;
   });
 
   const renderedPeople = trendingPeople.map((media) => {
-    return <RenderedContentCard data={media} key={media.id} />;
+    return <ContentCard data={media} key={media.id} />;
   });
 
   return [renderedMovies, renderedTv, renderedPeople];
