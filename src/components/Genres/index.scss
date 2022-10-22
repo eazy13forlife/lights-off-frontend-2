@@ -1,0 +1,17 @@
+.Genres {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-gap: 1.5rem;
+  &__genre {
+    text-decoration: none;
+    border-radius: var(--border-radius-small);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20rem;
+    background-color: rgba(var(--color-primary-light), 0.7);
+    &:nth-child(2n) {
+      background-color: teal;
+    }
+  }
+}
