@@ -17,7 +17,6 @@ const useTrendingContent = () => {
 
   //get jsx of rendered movies,tv and people
   const renderedMovies = trendingMovies.map((media) => {
-    console.log("hey");
     return <ContentCard data={media} key={media.id} />;
   });
 

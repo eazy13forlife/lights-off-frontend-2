@@ -32,9 +32,12 @@ const ContentCard = ({ data }) => {
     }
 
     if (mediaType === "movie" || mediaType === "tv") {
+      console.log(releaseDate);
       return (
         <>
-          <p className="capitalize body-medium">{moment(releaseDate).year()}</p>
+          <p className="capitalize body-medium">
+            {releaseDate ? moment(releaseDate).year() : "NA"}
+          </p>
           <div className="ContentCard__media-type">
             {mediaType === "movie" ? (
               <FiFilm className="ContentCard__icon" />
