@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 import useMatchedRoute from "../../../hooks/useMatchedRoute";
 
-const IconLink = ({ path, pathPattern, className, children }) => {
-  const routeMatches = useMatchedRoute(pathPattern);
+const IconLink = ({ path, pathPatterns, className, children }) => {
+  let routeMatches = useMatchedRoute(pathPatterns);
 
   return (
     <Link

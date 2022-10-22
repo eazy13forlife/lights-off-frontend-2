@@ -32,7 +32,6 @@ const ContentCard = ({ data }) => {
     }
 
     if (mediaType === "movie" || mediaType === "tv") {
-      console.log(releaseDate);
       return (
         <>
           <p className="capitalize body-medium">
