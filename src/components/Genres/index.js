@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import "./index.scss";
+
 const Genres = ({ genres }) => {
   const renderedGenres = genres.map((genre, index) => {
     return (
