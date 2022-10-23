@@ -69,7 +69,7 @@ const ContentCard = ({ data }) => {
         : blankPerson;
     }
   };
-
+  console.log(getImage());
   return (
     <div className="ContentCard">
       <figure className="ContentCard__image-container">
