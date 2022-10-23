@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
-import { BiDownArrow } from "react-icons/bi";
+import { BiDownArrow, BiUpArrow } from "react-icons/bi";
 import "./index.scss";
 
-const GenresDropdown = ({ children, buttonTitle }) => {
+const ScrollDropdown = ({ children, buttonTitle }) => {
   const genresRef = useRef();
 
-  const [expandDropdown, setExpandDropdown] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const [contentHeight, setContentHeight] = useState(0);
 
@@ -18,7 +18,7 @@ const GenresDropdown = ({ children, buttonTitle }) => {
   }, []);
 
   const getContentStyles = () => {
-    if (!expandDropdown) {
+    if (!isExpanded) {
       return {
         height: "0rem",
         overflow: "hidden",
@@ -32,12 +32,12 @@ const GenresDropdown = ({ children, buttonTitle }) => {
   };
 
   return (
-    <div className="GenresDropdown">
+    <div className="ScrollDropdown">
       <div
-        className={`GenresDropdown__content ${
-          expandDropdown
-            ? `GenresDropdown__content--expand`
-            : `GenresDropdown__content--collapsed`
+        className={`ScrollDropdown__content ${
+          isExpanded
+            ? `ScrollDropdown__content--expand`
+            : `ScrollDropdown__content--collapsed`
         }`}
         ref={genresRef}
         style={getContentStyles()}
@@ -45,16 +45,20 @@ const GenresDropdown = ({ children, buttonTitle }) => {
         {children}
       </div>
       <button
-        className="GenresDropdown__button color-light heading-medium"
+        className="ScrollDropdown__button color-light heading-medium"
         onClick={() => {
-          setExpandDropdown(!expandDropdown);
+          setIsExpanded(!isExpanded);
         }}
       >
-        <BiDownArrow className="GenresDropdown__icon" />
+        {!isExpanded ? (
+          <BiDownArrow className="ScrollDropdown__icon" />
+        ) : (
+          <BiUpArrow className="ScrollDropdown__icon" />
+        )}
         {buttonTitle}
       </button>
     </div>
   );
 };
 
-export default GenresDropdown;
+export default ScrollDropdown;

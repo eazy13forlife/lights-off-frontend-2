@@ -2,15 +2,15 @@ import React from "react";
 
 import ContentPageLayout from "../../../components/ContentPageLayout";
 import Genres from "../../../components/Genres";
-import GenresDropdown from "../../../components/GenresDropdown";
+import ScrollDropdown from "../../../components/ScrollDropdown";
 
-//import "./index.scss";
+import "./index.scss";
 
 const Movies = () => {
   return (
     <div className="Movies">
       <ContentPageLayout>
-        <GenresDropdown buttonTitle="Select a genre">
+        <ScrollDropdown buttonTitle="Select a genre">
           <Genres
             genres={[
               "Action",
@@ -34,7 +34,7 @@ const Movies = () => {
               "Western",
             ]}
           />
-        </GenresDropdown>
+        </ScrollDropdown>
       </ContentPageLayout>
     </div>
   );
