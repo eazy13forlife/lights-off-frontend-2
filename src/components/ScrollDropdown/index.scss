@@ -1,4 +1,5 @@
 .ScrollDropdown {
+  background-color: rgba(var(--color-primary), 1);
   &__content {
     &--collapsed {
       transition: height 800ms ease-in;

@@ -34,10 +34,13 @@ const PaginatedContentGroup = ({
 
   return (
     <>
-      <ContentGroup
-        title={`Found ${totalNumberResults} results for ${searchValue} `}
-        content={renderedResults}
-      />
+      <div className="ContentGroupContainer">
+        <ContentGroup
+          title={`Found ${totalNumberResults} results for ${searchValue} `}
+          content={renderedResults}
+        />
+      </div>
+
       <PagesButtons
         currentPage={currentPage}
         totalPages={totalNumberPages}

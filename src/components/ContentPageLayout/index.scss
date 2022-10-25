@@ -4,11 +4,10 @@
   padding-bottom: 10rem;
   background-color: rgba(var(--color-dark), 1);
   &__main {
+    position: relative;
     padding: 0rem 10rem;
     margin-left: 18rem;
-    .ContentGroup {
-      margin-top: 7rem;
-    }
+
     .PagesButtons {
       margin: 8rem auto 0rem auto;
     }

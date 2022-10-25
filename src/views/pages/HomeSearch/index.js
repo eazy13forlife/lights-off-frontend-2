@@ -4,6 +4,7 @@ import { useSearchParams, useNavigate } from "react-router-dom";
 import useSearchResults from "./useSearchResults";
 import MainBody from "./MainBody";
 import ContentPageLayout from "../../../components/ContentPageLayout";
+import "./index.scss";
 
 const HomeSearch = () => {
   const navigate = useNavigate();

@@ -1,22 +1,15 @@
 import React from "react";
 
-import ContentPageLayout from "../../../components/ContentPageLayout";
-import Genres from "../../../components/Genres";
-import ScrollDropdown from "../../../components/ScrollDropdown";
+import MoviesPageLayout from "../../../components/MoviesPageLayout";
 import MainBody from "./MainBody";
 import "./index.scss";
 
 const Movies = () => {
   return (
-    <div className="Movies">
-      <ContentPageLayout
-        searchBarPlaceholder="Search for movies"
-        onSearchSubmit={(e, searchValue) => {
-          e.preventDefault();
-        }}
-      >
+    <div className="MoviesHome">
+      <MoviesPageLayout>
         <MainBody />
-      </ContentPageLayout>
+      </MoviesPageLayout>
     </div>
   );
 };

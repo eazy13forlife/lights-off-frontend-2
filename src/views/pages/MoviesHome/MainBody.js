@@ -13,13 +13,13 @@ const MainBody = () => {
   ] = usePopularContent();
 
   return (
-    <>
+    <div className="ContentGroupContainer">
       <ContentGroup title="Top Rated" content={renderedTopRated} />
       <ContentGroup title="Now Playing" content={renderedNowPlaying} />
       <ContentGroup title="Popular" content={renderedPopular} />
       <ContentGroup title="Upcoming" content={renderedUpcoming} />
       <ContentGroup title="Trending" content={renderedTrending} />
-    </>
+    </div>
   );
 };
 

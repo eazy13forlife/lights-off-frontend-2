@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import ContentPageLayout from "../../../components/ContentPageLayout";
 import MainBody from "./MainBody";
+import "./index.scss";
 
 const Home = () => {
   const navigate = useNavigate();

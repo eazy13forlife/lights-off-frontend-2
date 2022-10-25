@@ -7,11 +7,11 @@ const MainBody = () => {
   const [renderedMovies, renderedTv, renderedPeople] = useTrendingContent();
 
   return (
-    <>
+    <div className="ContentGroupContainer">
       <ContentGroup title="Trending Movies" content={renderedMovies} />
       <ContentGroup title="Trending TV" content={renderedTv} />
       <ContentGroup title="Trending People" content={renderedPeople} />
-    </>
+    </div>
   );
 };
 
