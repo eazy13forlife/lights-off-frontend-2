@@ -15,7 +15,7 @@ const MainBody = ({ searchResults }) => {
 
     return (
       <PaginatedContentGroup
-        initialResults={results}
+        results={results}
         searchValue={searchValue}
         totalNumberResults={totalNumberResults}
         totalNumberPages={totalNumberPages}

@@ -7,6 +7,7 @@ import Home from "../src/views/pages/Home";
 import HomeSearch from "../src/views/pages/HomeSearch";
 import Favorites from "../src/views/pages/Favorites";
 import MoviesHome from "./views/pages/MoviesHome";
+import MoviesSearch from "./views/pages/MoviesSearch";
 import MyReviews from "../src/views/pages/MyReviews";
 import Seen from "../src/views/pages/Seen";
 import TV from "../src/views/pages/TV";
@@ -69,6 +70,14 @@ const App = () => {
           element={
             <ProtectedRoute>
               <MoviesHome />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="movies/search"
+          element={
+            <ProtectedRoute>
+              <MoviesSearch />
             </ProtectedRoute>
           }
         />

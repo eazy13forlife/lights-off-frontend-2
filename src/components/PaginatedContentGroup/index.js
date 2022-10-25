@@ -6,7 +6,7 @@ import PagesButtons from "../PagesButtons";
 import "./index.scss";
 
 const PaginatedContentGroup = ({
-  initialResults,
+  results,
   searchValue,
   totalNumberResults,
   totalNumberPages,
@@ -28,8 +28,10 @@ const PaginatedContentGroup = ({
     navigate(`/search?searchValue=${searchValue}&page=${newPage}`);
   };
 
-  const renderedResults = initialResults.map((media) => {
-    return <ContentCard data={media} key={media.id} />;
+  const renderedResults = results.map((media) => {
+    return (
+      <ContentCard data={{ ...media, media_type: "movie" }} key={media.id} />
+    );
   });
 
   return (
