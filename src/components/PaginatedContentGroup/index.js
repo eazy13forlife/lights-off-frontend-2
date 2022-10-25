@@ -11,6 +11,8 @@ const PaginatedContentGroup = ({
   totalNumberResults,
   totalNumberPages,
   currentPage,
+  mediaType,
+  onPageButtonClick,
 }) => {
   const navigate = useNavigate();
 
@@ -18,20 +20,27 @@ const PaginatedContentGroup = ({
     //ensures new page does not go below 1
     const newPage = Math.max(1, currentPage - 1);
 
-    navigate(`/search?searchValue=${searchValue}&page=${newPage}`);
+    onPageButtonClick(searchValue, newPage);
   };
 
   const onNextPageClick = () => {
     //ensures new page does not go past total pages
     const newPage = Math.min(totalNumberPages, currentPage + 1);
 
-    navigate(`/search?searchValue=${searchValue}&page=${newPage}`);
+    onPageButtonClick(searchValue, newPage);
   };
 
   const renderedResults = results.map((media) => {
-    return (
-      <ContentCard data={{ ...media, media_type: "movie" }} key={media.id} />
-    );
+    if (media.media_type) {
+      return <ContentCard data={{ ...media }} key={media.id} />;
+    } else {
+      return (
+        <ContentCard
+          data={{ ...media, media_type: mediaType }}
+          key={media.id}
+        />
+      );
+    }
   });
 
   return (

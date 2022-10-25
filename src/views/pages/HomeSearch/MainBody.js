@@ -1,13 +1,17 @@
 import React from "react";
 
 import PaginatedContentGroup from "../../../components/PaginatedContentGroup";
+import useOnPageButtonClick from "./useOnPageButtonClick";
 
-const MainBody = ({ searchResults }) => {
-  console.log(searchResults);
-  //if something entered in search results, return the results
-  if (searchResults !== null) {
-    return <PaginatedContentGroup {...searchResults} />;
-  }
+const MainBody = ({ searchData }) => {
+  const onPageButtonClick = useOnPageButtonClick();
+
+  return (
+    <PaginatedContentGroup
+      {...searchData}
+      onPageButtonClick={onPageButtonClick}
+    />
+  );
 };
 
 export default MainBody;

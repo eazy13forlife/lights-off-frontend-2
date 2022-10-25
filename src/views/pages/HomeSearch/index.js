@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 
 //import useSearchResults from "./useSearchResults";
@@ -13,11 +13,11 @@ const HomeSearch = () => {
 
   const [location] = useSearchParams();
 
-  const searchValue = location.get("searchValue");
+  const searchValue = location.get("name");
 
   const pageNumber = location.get("page");
 
-  const searchResults = useSearchData(
+  const searchData = useSearchData(
     { searchValue: searchValue, pageNumber: +pageNumber },
     getSearchResponse
   );
@@ -28,10 +28,10 @@ const HomeSearch = () => {
         searchBarPlaceholder="Search for movies, tv and people..."
         onSearchSubmit={(e, searchValue) => {
           e.preventDefault();
-          navigate(`/search/?searchValue=${searchValue}&page=1`);
+          navigate(`/search/?name=${searchValue}&page=1`);
         }}
       >
-        <MainBody searchResults={searchResults} />
+        <MainBody searchData={searchData} />
       </ContentPageLayout>
     </div>
   );

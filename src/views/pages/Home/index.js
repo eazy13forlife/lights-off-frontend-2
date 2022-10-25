@@ -14,7 +14,7 @@ const Home = () => {
         searchBarPlaceholder="Search for movies, tv and people..."
         onSearchSubmit={(e, searchValue) => {
           e.preventDefault();
-          navigate(`/search/?searchValue=${searchValue}&page=1`);
+          navigate(`/search/?name=${searchValue}&page=1`);
         }}
       >
         <MainBody />

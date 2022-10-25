@@ -16,7 +16,7 @@ const Sidebar = () => {
         <MdMovie />
       </IconLink>
 
-      <IconLink path="/movies" pathPatterns={["/movies"]}>
+      <IconLink path="/movies" pathPatterns={["/movies", "/movies/search"]}>
         <BsFilm />
       </IconLink>
 
