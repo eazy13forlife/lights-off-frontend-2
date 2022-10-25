@@ -1,6 +1,7 @@
 import React from "react";
 import usePopularContent from "./usePopularContent";
 import ContentGroup from "../../../components/ContentGroup";
+
 const MainBody = () => {
   const [renderedPopular, renderedTopRated, renderedTrending, renderedOnAir] =
     usePopularContent();

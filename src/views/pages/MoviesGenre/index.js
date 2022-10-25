@@ -5,7 +5,6 @@ import MoviesPageLayout from "../../../components/MoviesPageLayout";
 import MainBody from "./MainBody";
 import useSearchData from "../../../hooks/useSearchData";
 import { getSearchResponse } from "./helperFunctions";
-import "./index.scss";
 
 const MoviesGenre = () => {
   const [searchParams] = useSearchParams();

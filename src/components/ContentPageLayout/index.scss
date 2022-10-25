@@ -3,6 +3,7 @@
   padding: 3rem;
   padding-bottom: 10rem;
   background-color: rgba(var(--color-dark), 1);
+  overflow: scroll;
   &__main {
     position: relative;
     padding: 0rem 6rem;

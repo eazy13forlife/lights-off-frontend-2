@@ -15,6 +15,7 @@ const ContentCard = ({ data }) => {
     media_type: mediaType,
     poster_path: mediaImage,
     name,
+    first_air_date,
     known_for_department: knownFor,
     profile_path: personImage,
   } = data;
@@ -35,7 +36,9 @@ const ContentCard = ({ data }) => {
       return (
         <>
           <p className="capitalize body-medium">
-            {releaseDate ? moment(releaseDate).year() : "NA"}
+            {mediaType === "movie"
+              ? moment(releaseDate).year()
+              : moment(first_air_date).year()}
           </p>
           <div className="ContentCard__media-type">
             {mediaType === "movie" ? (

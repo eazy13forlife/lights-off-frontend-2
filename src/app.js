@@ -12,6 +12,7 @@ import MoviesGenreWrapper from "./views/pages/MoviesGenreWrapper";
 import MyReviews from "../src/views/pages/MyReviews";
 import Seen from "../src/views/pages/Seen";
 import TvHome from "./views/pages/TvHome";
+import TvSearch from "./views/pages/TvSearch";
 import Uploads from "../src/views/pages/Uploads";
 import WatchNext from "../src/views/pages/WatchNext";
 import Media from "../src/views/pages/Media";
@@ -119,6 +120,14 @@ const App = () => {
           element={
             <ProtectedRoute>
               <TvHome />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="tv/search/"
+          element={
+            <ProtectedRoute>
+              <TvSearch />
             </ProtectedRoute>
           }
         />

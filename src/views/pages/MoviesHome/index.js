@@ -2,7 +2,6 @@ import React from "react";
 
 import MoviesPageLayout from "../../../components/MoviesPageLayout";
 import MainBody from "./MainBody";
-import "./index.scss";
 
 const Movies = () => {
   return (

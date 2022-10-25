@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import ContentPageLayout from "../ContentPageLayout";
 import Genres from "../Genres";
@@ -7,12 +8,15 @@ import { tvGenres } from "../Genres/helpers";
 import "./index.scss";
 
 const TvPageLayout = ({ children }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="TvPageLayout">
       <ContentPageLayout
-        searchBarPlaceholder="Search for movies"
+        searchBarPlaceholder="Search for tv shows"
         onSearchSubmit={(e, searchValue) => {
           e.preventDefault();
+          navigate(`/tv/search?name=${searchValue}&page=1`);
         }}
       >
         <div className="Scroll__container">
