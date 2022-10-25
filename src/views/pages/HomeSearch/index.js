@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 
-import useSearchResults from "./useSearchResults";
+//import useSearchResults from "./useSearchResults";
+import { getSearchResponse } from "./helperFunctions";
+import useSearchData from "../../../hooks/useSearchData";
 import MainBody from "./MainBody";
 import ContentPageLayout from "../../../components/ContentPageLayout";
 import "./index.scss";
@@ -15,7 +17,10 @@ const HomeSearch = () => {
 
   const pageNumber = location.get("page");
 
-  const [searchResults] = useSearchResults(searchValue, +pageNumber);
+  const searchResults = useSearchData(
+    { searchValue: searchValue, pageNumber: +pageNumber },
+    getSearchResponse
+  );
 
   return (
     <div className="HomeSearch">

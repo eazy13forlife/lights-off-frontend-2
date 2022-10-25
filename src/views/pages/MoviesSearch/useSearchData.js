@@ -3,34 +3,34 @@ import axios from "axios";
 
 import apiKeys from "../../../api";
 
-const useSearchResults = (searchValue, pageNumber) => {
-  const [searchResults, setSearchResults] = useState({
+const useSearchData = (searchValue, pageNumber) => {
+  const [searchData, setSearchData] = useState({
     results: [],
+    searchValue: searchValue,
     totalNumberResults: 0,
     totalNumberPages: 0,
-    searchValue: searchValue,
     currentPage: 0,
   });
 
   useEffect(() => {
-    const getValues = async () => {
+    const getSearchData = async () => {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/search/multi?api_key=${apiKeys.theMovieDb}&language=en-US&page=${pageNumber}&include_adult=false&query=${searchValue}`
+        `https://api.themoviedb.org/3/search/movie?api_key=${apiKeys.theMovieDb}&language=en-US&page=${pageNumber}&include_adult=false&query=${searchValue}`
       );
 
-      setSearchResults({
+      setSearchData({
         results: response.data.results,
+        searchValue: searchValue,
         totalNumberResults: response.data.total_results,
         totalNumberPages: response.data.total_pages,
-        searchValue: searchValue,
         currentPage: response.data.total_pages === 0 ? 0 : pageNumber,
       });
     };
 
-    getValues();
+    getSearchData();
   }, [searchValue, pageNumber]);
 
-  return [searchResults];
+  return searchData;
 };
 
-export default useSearchResults;
+export default useSearchData;
