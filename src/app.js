@@ -8,10 +8,10 @@ import HomeSearch from "../src/views/pages/HomeSearch";
 import Favorites from "../src/views/pages/Favorites";
 import MoviesHome from "./views/pages/MoviesHome";
 import MoviesSearch from "./views/pages/MoviesSearch";
-import MoviesGenre from "./views/pages/MoviesGenre";
+import MoviesGenreWrapper from "./views/pages/MoviesGenreWrapper";
 import MyReviews from "../src/views/pages/MyReviews";
 import Seen from "../src/views/pages/Seen";
-import TV from "../src/views/pages/TV";
+import TvHome from "./views/pages/TvHome";
 import Uploads from "../src/views/pages/Uploads";
 import WatchNext from "../src/views/pages/WatchNext";
 import Media from "../src/views/pages/Media";
@@ -86,7 +86,7 @@ const App = () => {
           path="movies/genre"
           element={
             <ProtectedRoute>
-              <MoviesGenre />
+              <MoviesGenreWrapper />
             </ProtectedRoute>
           }
         />
@@ -118,7 +118,7 @@ const App = () => {
           path="tv"
           element={
             <ProtectedRoute>
-              <TV />
+              <TvHome />
             </ProtectedRoute>
           }
         />

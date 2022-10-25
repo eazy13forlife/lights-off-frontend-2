@@ -1,6 +1,7 @@
-.MoviesPageLayout {
+.MoviesPageLayout,
+.TvPageLayout {
   .Scroll__container {
-    margin-top: 4rem;
+    margin-top: 0.1rem;
     position: relative;
   }
   .ScrollDropdown {
@@ -9,5 +10,8 @@
     left: 0rem;
     width: 100%;
     z-index: 2;
+  }
+  .ContentGroupContainer {
+    margin-top: 12rem;
   }
 }

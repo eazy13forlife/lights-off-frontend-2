@@ -3,6 +3,8 @@ import { BiDownArrow, BiUpArrow } from "react-icons/bi";
 import "./index.scss";
 
 const ScrollDropdown = ({ children, buttonTitle }) => {
+  const dropdownRef = useRef();
+
   const genresRef = useRef();
 
   const [isExpanded, setIsExpanded] = useState(false);
@@ -32,7 +34,7 @@ const ScrollDropdown = ({ children, buttonTitle }) => {
   };
 
   return (
-    <div className="ScrollDropdown">
+    <div className="ScrollDropdown" ref={dropdownRef}>
       <div
         className={`ScrollDropdown__content ${
           isExpanded
@@ -45,7 +47,7 @@ const ScrollDropdown = ({ children, buttonTitle }) => {
         {children}
       </div>
       <button
-        className="ScrollDropdown__button color-light heading-medium"
+        className="ScrollDropdown__button  heading-medium"
         onClick={() => {
           setIsExpanded(!isExpanded);
         }}

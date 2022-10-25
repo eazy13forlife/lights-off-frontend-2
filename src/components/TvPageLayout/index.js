@@ -1,27 +1,23 @@
 import React from "react";
 
-import { useNavigate } from "react-router-dom";
 import ContentPageLayout from "../ContentPageLayout";
 import Genres from "../Genres";
 import ScrollDropdown from "../ScrollDropdown";
-import { movieGenres } from "../Genres/helpers";
+import { tvGenres } from "../Genres/helpers";
 import "./index.scss";
 
-const MoviesPageLayout = ({ children }) => {
-  const navigate = useNavigate();
-
+const TvPageLayout = ({ children }) => {
   return (
-    <div className="MoviesPageLayout">
+    <div className="TvPageLayout">
       <ContentPageLayout
         searchBarPlaceholder="Search for movies"
         onSearchSubmit={(e, searchValue) => {
           e.preventDefault();
-          navigate(`/movies/search/?name=${searchValue}&page=1`);
         }}
       >
         <div className="Scroll__container">
           <ScrollDropdown buttonTitle="Genres">
-            <Genres genres={movieGenres} />
+            <Genres genres={tvGenres} />
           </ScrollDropdown>
         </div>
 
@@ -31,4 +27,4 @@ const MoviesPageLayout = ({ children }) => {
   );
 };
 
-export default MoviesPageLayout;
+export default TvPageLayout;

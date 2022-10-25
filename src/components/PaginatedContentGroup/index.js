@@ -8,6 +8,7 @@ import "./index.scss";
 const PaginatedContentGroup = ({
   results,
   searchValue,
+  subject,
   totalNumberResults,
   totalNumberPages,
   currentPage,
@@ -47,7 +48,7 @@ const PaginatedContentGroup = ({
     <>
       <div className="ContentGroupContainer">
         <ContentGroup
-          title={`Found ${totalNumberResults} results for ${searchValue} `}
+          title={`Found ${totalNumberResults} results for ${subject} `}
           content={renderedResults}
         />
       </div>

@@ -14,18 +14,19 @@
     height: 6rem;
     margin-top: 0rem;
     background-color: transparent;
-    border: 1px solid rgba(var(--color-light), 1);
-    border-radius: 0.5rem;
+    border: 1px solid rgba(var(--color-primary-light), 1);
+    border-radius: 0.8rem;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #a6e1fa;
     &:hover {
       background-color: rgba(var(--color-light), 1);
       color: rgba(var(--color-primary), 1);
     }
   }
   &__icon {
-    margin-right: 1.5rem;
+    margin-right: 1rem;
   }
 }

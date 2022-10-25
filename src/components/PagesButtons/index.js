@@ -9,10 +9,26 @@ const PagesButtons = ({
   onNextClick,
   onPreviousClick,
 }) => {
+  const getLeftButtonHoverClass = () => {
+    if (currentPage === 1) {
+      return "PagesButtons__button--inactive";
+    } else {
+      return "PagesButtons__button--active";
+    }
+  };
+
+  const getRightButtonHoverClass = () => {
+    if (currentPage === totalPages) {
+      return "PagesButtons__button--inactive";
+    } else {
+      return "PagesButtons__button--active";
+    }
+  };
+
   return (
     <div className="PagesButtons heading-extra-small">
       <button
-        className="PagesButtons__button PagesButtons__button--left"
+        className={`PagesButtons__button ${getLeftButtonHoverClass()} PagesButtons__button--left`}
         onClick={onPreviousClick}
       >
         <GoArrowLeft className="PagesButtons__icon PagesButtons__icon--left" />
@@ -24,7 +40,7 @@ const PagesButtons = ({
       </div>
 
       <button
-        className="PagesButtons__button PagesButtons__button--right"
+        className={`PagesButtons__button ${getRightButtonHoverClass()} PagesButtons__button--right`}
         onClick={onNextClick}
       >
         <span>Next</span>

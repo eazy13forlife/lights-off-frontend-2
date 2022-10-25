@@ -23,10 +23,12 @@
     width: 15rem;
     padding: 1rem 2rem;
     cursor: pointer;
-    &:hover {
-      background-color: rgba(var(--color-light), 1);
-      color: rgba(var(--color-dark), 1);
-      border: 1px solid rgba(var(--color-dark), 0.4);
+    &--active {
+      &:hover {
+        background-color: rgba(var(--color-light), 1);
+        color: rgba(var(--color-dark), 1);
+        border: 1px solid rgba(var(--color-dark), 0.4);
+      }
     }
   }
   &__icon {

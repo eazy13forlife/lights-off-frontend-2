@@ -5,16 +5,17 @@ import MoviesPageLayout from "../../../components/MoviesPageLayout";
 import MainBody from "./MainBody";
 import useSearchData from "../../../hooks/useSearchData";
 import { getSearchResponse } from "./helperFunctions";
+import "./index.scss";
 
 const MoviesGenre = () => {
   const [searchParams] = useSearchParams();
 
-  const searchValue = searchParams.get("name");
+  const searchValue = searchParams.get("id");
 
   const pageNumber = searchParams.get("page");
 
   const searchData = useSearchData(
-    { searchValue, pageNumber },
+    { searchValue, pageNumber: +pageNumber },
     getSearchResponse
   );
 

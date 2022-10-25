@@ -9,6 +9,7 @@ const MainBody = ({ searchData }) => {
   return (
     <PaginatedContentGroup
       {...searchData}
+      subject={searchData.searchValue}
       onPageButtonClick={onPageButtonClick}
     />
   );
