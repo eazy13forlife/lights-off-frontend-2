@@ -6,7 +6,11 @@ import "./index.scss";
 const Genres = ({ genres }) => {
   const renderedGenres = genres.map((genre, index) => {
     return (
-      <Link to="/" key={index} className="Genres__genre color-light">
+      <Link
+        to={`/movies/genre/?name=${genre}&page=1`}
+        key={index}
+        className="Genres__genre color-light"
+      >
         <span className="heading-medium">{genre}</span>
       </Link>
     );

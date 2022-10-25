@@ -8,6 +8,7 @@ import HomeSearch from "../src/views/pages/HomeSearch";
 import Favorites from "../src/views/pages/Favorites";
 import MoviesHome from "./views/pages/MoviesHome";
 import MoviesSearch from "./views/pages/MoviesSearch";
+import MoviesGenre from "./views/pages/MoviesGenre";
 import MyReviews from "../src/views/pages/MyReviews";
 import Seen from "../src/views/pages/Seen";
 import TV from "../src/views/pages/TV";
@@ -78,6 +79,14 @@ const App = () => {
           element={
             <ProtectedRoute>
               <MoviesSearch />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="movies/genre"
+          element={
+            <ProtectedRoute>
+              <MoviesGenre />
             </ProtectedRoute>
           }
         />
