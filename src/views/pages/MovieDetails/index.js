@@ -1,11 +1,39 @@
 import React from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
-import moment from "moment";
+import { useParams, useNavigate } from "react-router-dom";
 
+import MediaDetails from "../../../components/MediaDetails";
 import useMovieDetails from "./useMovieDetails";
 import ContentPageLayout from "../../../components/ContentPageLayout";
 import "./index.scss";
+const MovieDetails = () => {
+  const navigate = useNavigate();
 
+  const movieId = useParams().id;
+
+  const movieDetails = useMovieDetails(movieId);
+
+  return (
+    <div className="MovieDetails color-light">
+      <ContentPageLayout
+        searchBarPlaceholder="Search for movies"
+        onSearchSubmit={(e, searchValue) => {
+          e.preventDefault();
+          navigate(`/movies/search/?name=${searchValue}&page=1`);
+        }}
+      >
+        <MediaDetails
+          mediaData={movieDetails.movie}
+          castData={movieDetails.cast}
+          mediaType="movie"
+        />
+      </ContentPageLayout>
+    </div>
+  );
+};
+
+export default MovieDetails;
+
+/*
 const MovieDetails = () => {
   const navigate = useNavigate();
 
@@ -15,6 +43,7 @@ const MovieDetails = () => {
 
   const {
     title,
+    crooks,
     tagline,
     genres = [],
     release_date,
@@ -78,6 +107,19 @@ const MovieDetails = () => {
                 <p className="MovieDetails__tagline">{tagline}</p>
               </div>
 
+              {imdb_id ? (
+                <div className="MovieDetails__group MovieDetails__horizontal">
+                  <a
+                    href={`https://www.imdb.com/title/${imdb_id}/`}
+                    className="MovieDetails__external-link"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span className="MovieDetails__link-text">IMDB</span>
+                  </a>
+                </div>
+              ) : null}
+
               <div className="MovieDetails__group MovieDetails__horizontal">
                 <div className="MovieDetails__about">
                   <p className="MovieDetails__subject">Length</p>
@@ -118,3 +160,4 @@ const MovieDetails = () => {
 };
 
 export default MovieDetails;
+*/
