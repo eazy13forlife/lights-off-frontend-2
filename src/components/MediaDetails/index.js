@@ -25,7 +25,7 @@ const MediaDetails = ({ mediaData, castData, mediaType }) => {
           </div>
 
           {mediaData.imdb_id || mediaData.homepage ? (
-            <div className="MediaDetails__group MediaDetails__horizontal">
+            <div className="MediaDetails__group MediaDetails__socials">
               {mediaData.imdb_id ? (
                 <a
                   href={`https://www.imdb.com/title/${mediaData.imdb_id}/`}
@@ -56,7 +56,7 @@ const MediaDetails = ({ mediaData, castData, mediaType }) => {
 
           <div className="MediaDetails__group">
             <p className="MediaDetails__subject">Genres</p>
-            <div className="MediaDetails__genres">
+            <div className="MediaDetails__genres ">
               {<RenderedGenres genres={mediaData.genres} />}
             </div>
           </div>
