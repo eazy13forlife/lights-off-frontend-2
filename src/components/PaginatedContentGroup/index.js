@@ -48,7 +48,7 @@ const PaginatedContentGroup = ({
     <>
       <div className="ContentGroupContainer">
         <ContentGroup
-          title={`Found ${totalNumberResults} results for ${subject} `}
+          title={`All results for "${subject}" `}
           content={renderedResults}
         />
       </div>
