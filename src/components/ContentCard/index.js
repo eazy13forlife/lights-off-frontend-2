@@ -1,5 +1,6 @@
 import React from "react";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 import { FiFilm } from "react-icons/fi";
 import { FaTv } from "react-icons/fa";
@@ -84,15 +85,17 @@ const ContentCard = ({ data }) => {
   };
 
   return (
-    <div className="ContentCard">
-      <figure className="ContentCard__image-container">
-        <img src={getImage()} className="ContentCard__image" />
-      </figure>
+    <Link to={`${getLink()}`}>
+      <div className="ContentCard">
+        <figure className="ContentCard__image-container">
+          <img src={getImage()} className="ContentCard__image" />
+        </figure>
 
-      <div className="ContentCard__contents color-light">
-        {renderTextContent()}
+        <div className="ContentCard__contents color-light">
+          {renderTextContent()}
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

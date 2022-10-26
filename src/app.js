@@ -15,6 +15,7 @@ import Seen from "../src/views/pages/Seen";
 import TvHome from "./views/pages/TvHome";
 import TvSearch from "./views/pages/TvSearch";
 import TvGenreWrapper from "./views/pages/TvGenreWrapper";
+import TvDetails from "./views/pages/TvDetails";
 import Uploads from "../src/views/pages/Uploads";
 import WatchNext from "../src/views/pages/WatchNext";
 import Media from "../src/views/pages/Media";
@@ -93,7 +94,14 @@ const App = () => {
             </ProtectedRoute>
           }
         />
-        <Route path="movies/:id" element={<MovieDetails />} />
+        <Route
+          path="movie/:id"
+          element={
+            <ProtectedRoute>
+              <MovieDetails />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="media/:id"
           element={
@@ -139,6 +147,14 @@ const App = () => {
           element={
             <ProtectedRoute>
               <TvGenreWrapper />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="tv/:id"
+          element={
+            <ProtectedRoute>
+              <TvDetails />
             </ProtectedRoute>
           }
         />
