@@ -6,6 +6,7 @@ import { FiFilm } from "react-icons/fi";
 import { FaTv } from "react-icons/fa";
 import blankPerson from "../../images/blank-person.jpeg";
 import blankMedia from "../../images/cinema-clapboard.png";
+import { getOnClickLink, getImageSrc } from "./helperFunctions";
 import "./index.scss";
 
 const ContentCard = ({ data }) => {
@@ -21,17 +22,7 @@ const ContentCard = ({ data }) => {
     profile_path: personImage,
   } = data;
 
-  const getLink = () => {
-    if (mediaType === "movie") {
-      return `/movie/${id}`;
-    }
-
-    if (mediaType === "tv") {
-      return `/tv/${id}`;
-    }
-  };
-
-  const renderTextContent = () => {
+  const renderDescriptionContent = () => {
     if (mediaType === "person") {
       return (
         <>
@@ -70,29 +61,15 @@ const ContentCard = ({ data }) => {
     }
   };
 
-  const getImage = () => {
-    if (mediaType === "movie" || mediaType === "tv") {
-      return mediaImage
-        ? `http://image.tmdb.org/t/p/w500/${mediaImage}`
-        : blankMedia;
-    }
-
-    if (mediaType === "person") {
-      return personImage
-        ? `http://image.tmdb.org/t/p/h632/${personImage}`
-        : blankPerson;
-    }
-  };
-
   return (
-    <Link to={`${getLink()}`}>
+    <Link to={`${getOnClickLink(mediaType, id)}`}>
       <div className="ContentCard">
         <figure className="ContentCard__image-container">
-          <img src={getImage()} className="ContentCard__image" />
+          <img src={getImageSrc(data)} className="ContentCard__image" />
         </figure>
 
         <div className="ContentCard__contents color-light">
-          {renderTextContent()}
+          {renderDescriptionContent()}
         </div>
       </div>
     </Link>

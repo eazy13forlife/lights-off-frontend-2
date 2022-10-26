@@ -22,7 +22,7 @@ const Sidebar = () => {
           "/movies",
           "/movies/search",
           "/movies/genre",
-          "movies/:id",
+          "movie/:id",
         ]}
       >
         <BsFilm />
