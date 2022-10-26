@@ -1,0 +1,11 @@
+@keyframes tiltToLeft {
+  0% {
+    transform: rotatey(0deg);
+  }
+  50% {
+    transform: rotatey(-20deg);
+  }
+  100% {
+    transform: rotatey(0deg);
+  }
+}

@@ -20,6 +20,16 @@ const ContentCard = ({ data }) => {
     profile_path: personImage,
   } = data;
 
+  const getLink = () => {
+    if (mediaType === "movie") {
+      return `/movie/${id}`;
+    }
+
+    if (mediaType === "tv") {
+      return `/tv/${id}`;
+    }
+  };
+
   const renderTextContent = () => {
     if (mediaType === "person") {
       return (

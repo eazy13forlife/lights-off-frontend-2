@@ -1,6 +1,9 @@
 .ContentCard {
   position: relative;
   cursor: pointer;
+  &:hover {
+    animation: tiltToLeft 700ms ease-in;
+  }
 
   &__blank-image-container {
     width: 100%;

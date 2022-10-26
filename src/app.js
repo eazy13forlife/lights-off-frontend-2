@@ -8,6 +8,7 @@ import HomeSearch from "../src/views/pages/HomeSearch";
 import Favorites from "../src/views/pages/Favorites";
 import MoviesHome from "./views/pages/MoviesHome";
 import MoviesSearch from "./views/pages/MoviesSearch";
+import MovieDetails from "./views/pages/MovieDetails";
 import MoviesGenreWrapper from "./views/pages/MoviesGenreWrapper";
 import MyReviews from "../src/views/pages/MyReviews";
 import Seen from "../src/views/pages/Seen";
@@ -92,6 +93,7 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+        <Route path="movies/:id" element={<MovieDetails />} />
         <Route
           path="media/:id"
           element={
