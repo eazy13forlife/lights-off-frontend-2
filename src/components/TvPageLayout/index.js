@@ -21,7 +21,7 @@ const TvPageLayout = ({ children }) => {
       >
         <div className="Scroll__container">
           <ScrollDropdown buttonTitle="Genres">
-            <Genres genres={tvGenres} />
+            <Genres genres={tvGenres} mediaType="tv" />
           </ScrollDropdown>
         </div>
 

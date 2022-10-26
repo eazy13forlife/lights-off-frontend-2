@@ -2,7 +2,9 @@ import React from "react";
 import { useSearchParams } from "react-router-dom";
 
 import MoviesPageLayout from "../../../components/MoviesPageLayout";
-import MainBody from "./MainBody";
+import PaginatedContentGroup from "../../../components/PaginatedContentGroup";
+import useOnPageButtonClick from "./useOnPageButtonClick";
+import { movieGenres } from "../../../components/Genres/helpers";
 import useSearchData from "../../../hooks/useSearchData";
 import { getSearchResponse } from "./helperFunctions";
 
@@ -18,10 +20,17 @@ const MoviesGenre = () => {
     getSearchResponse
   );
 
+  const onPageButtonClick = useOnPageButtonClick();
+
   return (
     <div className="MoviesGenre">
       <MoviesPageLayout>
-        <MainBody searchData={searchData} />
+        <PaginatedContentGroup
+          {...searchData}
+          subject={movieGenres[searchData.searchValue].genre}
+          mediaType="movie"
+          onPageButtonClick={onPageButtonClick}
+        />
       </MoviesPageLayout>
     </div>
   );

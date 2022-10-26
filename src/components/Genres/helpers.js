@@ -85,4 +85,5 @@ const tvGenres = {
     id: 37,
   },
 };
+
 export { movieGenres, tvGenres };

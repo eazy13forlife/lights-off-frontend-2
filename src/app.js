@@ -13,6 +13,7 @@ import MyReviews from "../src/views/pages/MyReviews";
 import Seen from "../src/views/pages/Seen";
 import TvHome from "./views/pages/TvHome";
 import TvSearch from "./views/pages/TvSearch";
+import TvGenre from "./views/pages/TvGenre";
 import Uploads from "../src/views/pages/Uploads";
 import WatchNext from "../src/views/pages/WatchNext";
 import Media from "../src/views/pages/Media";
@@ -128,6 +129,14 @@ const App = () => {
           element={
             <ProtectedRoute>
               <TvSearch />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="tv/genre/"
+          element={
+            <ProtectedRoute>
+              <TvGenre />
             </ProtectedRoute>
           }
         />

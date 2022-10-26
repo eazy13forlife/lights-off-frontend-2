@@ -4,7 +4,8 @@ import { useSearchParams, useNavigate } from "react-router-dom";
 //import useSearchResults from "./useSearchResults";
 import { getSearchResponse } from "./helperFunctions";
 import useSearchData from "../../../hooks/useSearchData";
-import MainBody from "./MainBody";
+import PaginatedContentGroup from "../../../components/PaginatedContentGroup";
+import useOnPageButtonClick from "./useOnPageButtonClick";
 import HomePageLayout from "../../../components/HomePageLayout";
 import "./index.scss";
 
@@ -20,10 +21,16 @@ const HomeSearch = () => {
     getSearchResponse
   );
 
+  const onPageButtonClick = useOnPageButtonClick();
+
   return (
     <div className="HomeSearch">
       <HomePageLayout>
-        <MainBody searchData={searchData} />
+        <PaginatedContentGroup
+          {...searchData}
+          subject={searchData.searchValue}
+          onPageButtonClick={onPageButtonClick}
+        />
       </HomePageLayout>
     </div>
   );

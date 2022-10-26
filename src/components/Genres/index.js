@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 
 import "./index.scss";
 
-const Genres = ({ genres }) => {
+const Genres = ({ genres, mediaType }) => {
+  let subject = mediaType === "movie" ? "movies" : "tv";
   const renderedGenres = Object.values(genres).map((genreObject, index) => {
     const { genre, id } = genreObject;
     return (
       <Link
-        to={`/movies/genre/?id=${id}&name=${genres[id].genre}&page=1`}
+        to={`/${subject}/genre/?id=${id}&name=${genres[id].genre}&page=1`}
         key={index}
         className="Genres__genre color-light"
       >
