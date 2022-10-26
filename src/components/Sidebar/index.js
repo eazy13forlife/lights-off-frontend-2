@@ -28,7 +28,10 @@ const Sidebar = () => {
         <BsFilm />
       </IconLink>
 
-      <IconLink path="/tv" pathPatterns={["/tv", "/tv/search", "/tv/genre"]}>
+      <IconLink
+        path="/tv"
+        pathPatterns={["/tv", "/tv/search", "/tv/genre", "/tv/:id"]}
+      >
         <CgScreen />
       </IconLink>
 

@@ -2,7 +2,7 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import MediaDetails from "../../../components/MediaDetails";
-import useMovieDetails from "./useMovieDetails";
+import useMediaDetails from "../../../hooks/useMediaDetails";
 import ContentPageLayout from "../../../components/ContentPageLayout";
 import "./index.scss";
 const MovieDetails = () => {
@@ -10,7 +10,7 @@ const MovieDetails = () => {
 
   const movieId = useParams().id;
 
-  const movieDetails = useMovieDetails(movieId);
+  const movieDetails = useMediaDetails("movie", movieId);
 
   return (
     <div className="MovieDetails color-light">
@@ -22,7 +22,7 @@ const MovieDetails = () => {
         }}
       >
         <MediaDetails
-          mediaData={movieDetails.movie}
+          mediaData={movieDetails.media}
           castData={movieDetails.cast}
           mediaType="movie"
         />

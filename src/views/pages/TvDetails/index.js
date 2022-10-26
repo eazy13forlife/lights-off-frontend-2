@@ -2,8 +2,8 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import MediaDetails from "../../../components/MediaDetails";
-import useTvDetails from "./useTvDetails";
 import ContentPageLayout from "../../../components/ContentPageLayout";
+import useMediaDetails from "../../../hooks/useMediaDetails";
 import "./index.scss";
 
 const TvDetails = () => {
@@ -11,7 +11,7 @@ const TvDetails = () => {
 
   const tvId = useParams().id;
 
-  const tvDetails = useTvDetails(tvId);
+  const tvDetails = useMediaDetails("tv", tvId);
 
   return (
     <div className="TvDetails">
@@ -23,7 +23,7 @@ const TvDetails = () => {
         }}
       >
         <MediaDetails
-          mediaData={tvDetails.tv}
+          mediaData={tvDetails.media}
           castData={tvDetails.cast}
           mediaType="tv"
         />
