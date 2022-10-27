@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import "./index.scss";
 
 const Genres = ({ genres, mediaType }) => {
+  //the correct link is /movies/genre but mediaType is just movie,so make plural
   let subject = mediaType === "movie" ? "movies" : "tv";
+
   const renderedGenres = Object.values(genres).map((genreObject, index) => {
     const { genre, id } = genreObject;
     return (

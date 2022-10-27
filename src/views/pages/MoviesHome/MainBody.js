@@ -19,8 +19,16 @@ const MainBody = () => {
         content={renderedTopRated}
         linkTo="/movies/top_rated/?page=1"
       />
-      <ContentGroup title="Now Playing" content={renderedNowPlaying} />
-      <ContentGroup title="Popular" content={renderedPopular} />
+      <ContentGroup
+        title="Now Playing"
+        content={renderedNowPlaying}
+        linkTo="/movies/now_playing/?page=1"
+      />
+      <ContentGroup
+        title="Popular"
+        content={renderedPopular}
+        linkTo="/movies/popular/?page=1"
+      />
       <ContentGroup title="Upcoming" content={renderedUpcoming} />
       <ContentGroup
         title="Trending"

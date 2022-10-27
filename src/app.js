@@ -11,6 +11,8 @@ import MoviesSearch from "./views/pages/MoviesSearch";
 import MovieDetails from "./views/pages/MovieDetails";
 import MoviesTrending from "./views/pages/MoviesTrending";
 import MoviesTopRated from "./views/pages/MoviesTopRated";
+import MoviesNowPlaying from "./views/pages/MoviesNowPlaying";
+import MoviesPopular from "./views/pages/MoviesPopular";
 import MoviesGenreWrapper from "./views/pages/MoviesGenreWrapper";
 import MyReviews from "../src/views/pages/MyReviews";
 import Seen from "../src/views/pages/Seen";
@@ -109,6 +111,22 @@ const App = () => {
           element={
             <ProtectedRoute>
               <MoviesTopRated />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="movies/popular"
+          element={
+            <ProtectedRoute>
+              <MoviesPopular />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="movies/now_playing"
+          element={
+            <ProtectedRoute>
+              <MoviesNowPlaying />
             </ProtectedRoute>
           }
         />

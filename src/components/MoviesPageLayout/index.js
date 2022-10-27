@@ -21,7 +21,7 @@ const MoviesPageLayout = ({ children }) => {
       >
         <div className="Scroll__container">
           <ScrollDropdown buttonTitle="Genres">
-            <Genres genres={movieGenres} />
+            <Genres genres={movieGenres} mediaType="movie" />
           </ScrollDropdown>
         </div>
 
