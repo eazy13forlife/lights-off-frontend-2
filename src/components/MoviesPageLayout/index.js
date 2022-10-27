@@ -5,7 +5,7 @@ import ContentPageLayout from "../ContentPageLayout";
 import Genres from "../Genres";
 import ScrollDropdown from "../ScrollDropdown";
 import { movieGenres } from "../Genres/helpers";
-import "./index.scss";
+import "../sharedStyles/moviesTvPageLayout.scss";
 
 const MoviesPageLayout = ({ children }) => {
   const navigate = useNavigate();

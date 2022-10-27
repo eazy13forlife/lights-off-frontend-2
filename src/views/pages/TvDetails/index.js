@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import MediaDetails from "../../../components/MediaDetails";
 import ContentPageLayout from "../../../components/ContentPageLayout";
 import useMediaDetails from "../../../hooks/useMediaDetails";
-import "./index.scss";
+import "../sharedStyles/movie-tv-details.scss";
 
 const TvDetails = () => {
   const navigate = useNavigate();
