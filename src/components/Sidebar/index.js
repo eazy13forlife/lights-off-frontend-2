@@ -26,6 +26,7 @@ const Sidebar = () => {
           "/movies/trending",
           "/movies/top_rated",
           "/movies/popular",
+          "/movies/upcoming",
         ]}
       >
         <BsFilm />

@@ -6,7 +6,7 @@ import MoviesPageLayout from "../../../components/MoviesPageLayout";
 import PaginatedContentGroup from "../../../components/PaginatedContentGroup";
 import useOnPageButtonClick from "./useOnPageButtonClick";
 
-const MoviesTrending = () => {
+const MoviesUpcoming = () => {
   const onPageButtonClick = useOnPageButtonClick();
 
   const [searchParams] = useSearchParams();
@@ -22,7 +22,7 @@ const MoviesTrending = () => {
     <MoviesPageLayout>
       <PaginatedContentGroup
         {...searchData}
-        subject="Trending Movies"
+        subject="Upcoming Movies"
         mediaType="movie"
         onPageButtonClick={onPageButtonClick}
       />
@@ -30,4 +30,4 @@ const MoviesTrending = () => {
   );
 };
 
-export default MoviesTrending;
+export default MoviesUpcoming;

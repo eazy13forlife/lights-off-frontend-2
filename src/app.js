@@ -13,6 +13,7 @@ import MoviesTrending from "./views/pages/MoviesTrending";
 import MoviesTopRated from "./views/pages/MoviesTopRated";
 import MoviesNowPlaying from "./views/pages/MoviesNowPlaying";
 import MoviesPopular from "./views/pages/MoviesPopular";
+import MoviesUpcoming from "./views/pages/MoviesUpcoming";
 import MoviesGenreWrapper from "./views/pages/MoviesGenreWrapper";
 import MyReviews from "../src/views/pages/MyReviews";
 import Seen from "../src/views/pages/Seen";
@@ -119,6 +120,14 @@ const App = () => {
           element={
             <ProtectedRoute>
               <MoviesPopular />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="movies/upcoming"
+          element={
+            <ProtectedRoute>
+              <MoviesUpcoming />
             </ProtectedRoute>
           }
         />
