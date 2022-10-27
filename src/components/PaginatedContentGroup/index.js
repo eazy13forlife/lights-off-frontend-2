@@ -9,7 +9,6 @@ const PaginatedContentGroup = ({
   results,
   searchValue,
   subject,
-  totalNumberResults,
   totalNumberPages,
   currentPage,
   mediaType,

@@ -23,6 +23,8 @@ const Sidebar = () => {
           "/movies/search",
           "/movies/genre",
           "movie/:id",
+          "/movies/trending",
+          "/movies/top_rated",
         ]}
       >
         <BsFilm />

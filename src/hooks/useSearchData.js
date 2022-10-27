@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 
+//queryObject needs to take in searchValue and pageNumber keys as we will perform api
+//requests with these two values. We might need more though.
 const useSearchData = (queryObject, searchFunction) => {
   const [searchData, setSearchData] = useState({
-    ...queryObject,
+    searchValue: queryObject.searchValue,
     results: [],
     totalNumberResults: 0,
     totalNumberPages: 0,

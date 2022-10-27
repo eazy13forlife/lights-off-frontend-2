@@ -9,6 +9,8 @@ import Favorites from "../src/views/pages/Favorites";
 import MoviesHome from "./views/pages/MoviesHome";
 import MoviesSearch from "./views/pages/MoviesSearch";
 import MovieDetails from "./views/pages/MovieDetails";
+import MoviesTrending from "./views/pages/MoviesTrending";
+import MoviesTopRated from "./views/pages/MoviesTopRated";
 import MoviesGenreWrapper from "./views/pages/MoviesGenreWrapper";
 import MyReviews from "../src/views/pages/MyReviews";
 import Seen from "../src/views/pages/Seen";
@@ -91,6 +93,22 @@ const App = () => {
           element={
             <ProtectedRoute>
               <MoviesGenreWrapper />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="movies/trending"
+          element={
+            <ProtectedRoute>
+              <MoviesTrending />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="movies/top_rated"
+          element={
+            <ProtectedRoute>
+              <MoviesTopRated />
             </ProtectedRoute>
           }
         />
