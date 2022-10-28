@@ -4,12 +4,8 @@ import { Link } from "react-router-dom";
 const RenderedCast = ({ cast }) => {
   const renderedCast = cast.map((castObject, index) => {
     return (
-      <Link
-        to=""
-        className="MediaDetails__link MediaDetails__link--dark"
-        key={index}
-      >
-        <span className="MediaDetails__link-text">{castObject.name}</span>
+      <Link to="" className="Details__link Details__link--dark" key={index}>
+        <span className="Details__link-text">{castObject.name}</span>
       </Link>
     );
   });

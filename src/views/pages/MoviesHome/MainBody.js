@@ -15,27 +15,27 @@ const MainBody = () => {
   return (
     <div className="ContentGroupContainer">
       <ContentGroup
-        title="Top Rated"
+        title="Top Rated Movies"
         content={renderedTopRated}
         linkTo="/movies/top_rated/?page=1"
       />
       <ContentGroup
-        title="Now Playing"
+        title="Now Playing Movies"
         content={renderedNowPlaying}
         linkTo="/movies/now_playing/?page=1"
       />
       <ContentGroup
-        title="Popular"
+        title="Popular Movies"
         content={renderedPopular}
         linkTo="/movies/popular/?page=1"
       />
       <ContentGroup
-        title="Upcoming"
+        title="Upcoming Movies"
         content={renderedUpcoming}
         linkTo="/movies/upcoming/?page=1"
       />
       <ContentGroup
-        title="Trending"
+        title="Trending Movies"
         content={renderedTrending}
         linkTo="/movies/trending/?page=1"
       />

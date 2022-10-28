@@ -9,10 +9,10 @@ const RenderedGenres = ({ genres }) => {
       return (
         <Link
           to={`/movies/genre/?id=${genre.id}&name=${genre.name}&page=1`}
-          className="MediaDetails__link MediaDetails__link--light"
+          className="Details__link Details__link--light"
           key={index}
         >
-          <span className="MediaDetails__link-text">{genre.name}</span>
+          <span className="Details__link-text">{genre.name}</span>
         </Link>
       );
     });

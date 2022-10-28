@@ -8,9 +8,9 @@ const MainBody = () => {
 
   return (
     <div className="ContentGroupContainer">
-      <ContentGroup title="Popular" content={renderedPopular} />
-      <ContentGroup title="Top Rated" content={renderedTopRated} />
-      <ContentGroup title="Trending" content={renderedTrending} />
+      <ContentGroup title="Popular TV" content={renderedPopular} />
+      <ContentGroup title="Top Rated TV" content={renderedTopRated} />
+      <ContentGroup title="Trending TV" content={renderedTrending} />
       <ContentGroup title="On Air" content={renderedOnAir} />
     </div>
   );

@@ -15,6 +15,7 @@ import MoviesNowPlaying from "./views/pages/MoviesNowPlaying";
 import MoviesPopular from "./views/pages/MoviesPopular";
 import MoviesUpcoming from "./views/pages/MoviesUpcoming";
 import MoviesGenreWrapper from "./views/pages/MoviesGenreWrapper";
+import Person from "./views/pages/Person";
 import MyReviews from "../src/views/pages/MyReviews";
 import Seen from "../src/views/pages/Seen";
 import TvHome from "./views/pages/TvHome";
@@ -200,6 +201,14 @@ const App = () => {
           element={
             <ProtectedRoute>
               <TvDetails />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="person/:id"
+          element={
+            <ProtectedRoute>
+              <Person />
             </ProtectedRoute>
           }
         />

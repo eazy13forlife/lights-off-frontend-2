@@ -5,70 +5,75 @@ import RenderedGenres from "./RenderedGenres";
 import RenderedSpecificContent from "./RenderedSpecificContent";
 import "./index.scss";
 
-const MediaDetails = ({ mediaData, castData, mediaType }) => {
+const Details = ({ mediaData, castData, mediaType }) => {
+  //if no media currently, don't show anything on screen.
+  if (!Object.values(mediaData).length) {
+    return null;
+  }
+
   return (
-    <div className="MediaDetails">
-      <div className="MediaDetails__container container">
-        <figure className="MediaDetails__image-container">
+    <div className="Details">
+      <div className="Details__container container">
+        <figure className="Details__image-container">
           <img
             src={`http://image.tmdb.org/t/p/w500/${mediaData.poster_path}`}
-            className="MediaDetails__image"
+            className="Details__image"
           />
         </figure>
 
-        <div className="MediaDetails__info">
-          <div className="MediaDetails__group">
-            <h1 className="MediaDetails__title">
+        <div className="Details__info">
+          <div className="Details__group">
+            <h1 className="Details__title">
               {mediaType === "movie" ? mediaData.title : mediaData.name}
             </h1>
-            <p className="MediaDetails__tagline">{mediaData.tagline}</p>
+            <p className="Details__tagline">{mediaData.tagline}</p>
           </div>
 
           {mediaData.imdb_id || mediaData.homepage ? (
-            <div className="MediaDetails__group MediaDetails__socials">
+            <div className="Details__group Details__horizontal">
               {mediaData.imdb_id ? (
                 <a
                   href={`https://www.imdb.com/title/${mediaData.imdb_id}/`}
-                  className="MediaDetails__external-link"
+                  className="Details__external-link"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <span className="MediaDetails__link-text">IMDB</span>
+                  <span className="Details__link-text">IMDB</span>
                 </a>
               ) : null}
 
               {mediaData.homepage ? (
                 <a
                   href={mediaData.homepage}
-                  className="MediaDetails__external-link"
+                  className="Details__external-link"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <span className="MediaDetails__link-text">Website</span>
+                  <span className="Details__link-text">Website</span>
                 </a>
               ) : null}
             </div>
           ) : null}
 
-          <div className="MediaDetails__group MediaDetails__horizontal">
+          <div className="Details__group Details__horizontal">
             {RenderedSpecificContent(mediaData, mediaType)}
           </div>
 
-          <div className="MediaDetails__group">
-            <p className="MediaDetails__subject">Genres</p>
-            <div className="MediaDetails__genres ">
+          <div className="Details__group">
+            <p className="Details__subject">Genres</p>
+            <div className="Details__genres ">
               {<RenderedGenres genres={mediaData.genres} />}
             </div>
           </div>
 
-          <div className="MediaDetails__group">
-            <p className="MediaDetails__subject">Synopsis</p>
-            <p className="MediaDetails__body-text">{mediaData.overview}</p>
+          <div className="Details__group">
+            <p className="Details__subject">Synopsis</p>
+            <p className="Details__body-text">{mediaData.overview}</p>
           </div>
 
-          <div className="MediaDetails__group">
-            <p className="MediaDetails__subject">Cast</p>
-            <div className="MediaDetails__cast">
+          <div className="Details__group">
+            <p className="Details__subject">Cast</p>
+            <div className="Details__cast">
               {<RenderedCast cast={castData} />}
             </div>
           </div>
@@ -78,4 +83,4 @@ const MediaDetails = ({ mediaData, castData, mediaType }) => {
   );
 };
 
-export default MediaDetails;
+export default Details;

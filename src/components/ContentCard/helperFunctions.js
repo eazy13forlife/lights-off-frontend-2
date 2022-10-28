@@ -1,5 +1,5 @@
-import blankPerson from "../../images/blank-person.jpeg";
-import blankMedia from "../../images/cinema-clapboard.png";
+import blankPerson from "../../images/blank-person.jpg";
+import blankMedia from "../../images/cinema-clapboard.jpg";
 
 const getOnClickLink = (mediaType, mediaId) => {
   if (mediaType === "movie") {
@@ -8,6 +8,10 @@ const getOnClickLink = (mediaType, mediaId) => {
 
   if (mediaType === "tv") {
     return `/tv/${mediaId}`;
+  }
+
+  if (mediaType === "person") {
+    return `/person/${mediaId}`;
   }
 };
 

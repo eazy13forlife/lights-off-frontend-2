@@ -5,6 +5,7 @@ import MediaDetails from "../../../components/MediaDetails";
 import useMediaDetails from "../../../hooks/useMediaDetails";
 import ContentPageLayout from "../../../components/ContentPageLayout";
 import "../sharedStyles/movie-tv-details.scss";
+
 const MovieDetails = () => {
   const navigate = useNavigate();
 
