@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import usePersonDetails from "./usePersonDetails";
@@ -6,6 +6,8 @@ import PersonDetails from "./PersonDetails";
 import ContentPageLayout from "../../../components/ContentPageLayout";
 import ContentCard from "../../../components/ContentCard";
 import ContentGroup from "../../../components/ContentGroup";
+import PaginatedContentGroup2 from "../../../components/PaginatedContentGroup2";
+import "./index.scss";
 
 const Person = () => {
   const navigate = useNavigate();
@@ -14,14 +16,32 @@ const Person = () => {
 
   const [details, credits] = usePersonDetails(personId);
 
-  const renderedMovieCredits = credits.movie.map((data) => {
-    return (
-      <ContentCard data={{ ...data, media_type: "movie" }} key={data.id} />
-    );
+  const [creditType, setCreditType] = useState("movie");
+
+  const renderedMovieCredits = credits.movie.map((result) => {
+    if (result.media_type) {
+      return <ContentCard data={result} key={result.credit_id} />;
+    } else {
+      return (
+        <ContentCard
+          data={{ ...result, media_type: "movie" }}
+          key={result.credit_id}
+        />
+      );
+    }
   });
 
-  const renderedTvCredits = credits.tv.map((data) => {
-    return <ContentCard data={{ ...data, media_type: "tv" }} key={data.id} />;
+  const renderedTVCredits = credits.tv.map((result) => {
+    if (result.media_type) {
+      return <ContentCard data={result} key={result.credit_id} />;
+    } else {
+      return (
+        <ContentCard
+          data={{ ...result, media_type: "tv" }}
+          key={result.credit_id}
+        />
+      );
+    }
   });
 
   return (
@@ -34,11 +54,45 @@ const Person = () => {
         }}
       >
         <PersonDetails data={details} />
-        <ContentGroup
-          content={renderedMovieCredits}
-          title="All Movie Credits"
-        />
-        <ContentGroup content={renderedTvCredits} title="All TV Credits" />
+
+        <div className="Person__buttons">
+          <button
+            className="Person__button"
+            onClick={() => {
+              setCreditType("movie");
+            }}
+          >
+            <span className="Person__button-text Details__body-text">
+              Get Movie Credits
+            </span>
+          </button>
+          <button
+            className="Person__button"
+            onClick={() => {
+              setCreditType("tv");
+            }}
+          >
+            <span className="Person__button-text Details__body-text">
+              Get TV Credits
+            </span>
+          </button>
+        </div>
+
+        {creditType === "movie" ? (
+          <PaginatedContentGroup2
+            content={renderedMovieCredits}
+            itemsPerPage={15}
+            mediaType="movie"
+            subject="All Movie Credits"
+          />
+        ) : (
+          <PaginatedContentGroup2
+            content={renderedTVCredits}
+            itemsPerPage={15}
+            mediaType="tv"
+            subject="All TV Credits"
+          />
+        )}
       </ContentPageLayout>
     </div>
   );

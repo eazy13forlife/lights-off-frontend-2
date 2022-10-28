@@ -1,0 +1,24 @@
+.Person {
+  &__buttons {
+    margin-top: 8rem;
+  }
+  &__button {
+    cursor: pointer;
+    border: none;
+    padding: 1rem 2rem;
+    background-color: rgba(var(--color-secondary), 1);
+    color: rgba(var(--color-light), 1);
+    font-size: 2rem;
+    box-shadow: 0 1rem 2rem rgba(var(--color-light), 0.1);
+    &:not(:first-child) {
+      margin-left: 3rem;
+    }
+
+    &:active {
+      transform: translatey(0.3rem);
+    }
+  }
+  .ContentGroup {
+    margin-top: 8rem;
+  }
+}
