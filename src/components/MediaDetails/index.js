@@ -28,9 +28,15 @@ const Details = ({ mediaData, castData, mediaType }) => {
 
         <div className="Details__info">
           <div className="Details__group">
-            <h1 className="Details__title">
-              {mediaType === "movie" ? mediaData.title : mediaData.name}
-            </h1>
+            <div className="Details__header">
+              <h1 className="Details__title">
+                {mediaType === "movie" ? mediaData.title : mediaData.name}
+              </h1>
+              <p className="Details__body-text color-secondary">
+                {mediaType === "movie" ? "movie" : "tv"}
+              </p>
+            </div>
+
             <p className="Details__tagline">{mediaData.tagline}</p>
           </div>
 
