@@ -3,6 +3,7 @@ import React from "react";
 import RenderedCast from "./RenderedCast";
 import RenderedGenres from "./RenderedGenres";
 import RenderedSpecificContent from "./RenderedSpecificContent";
+import blankMedia from "../../images/cinema-clapboard.jpg";
 import "./index.scss";
 
 const Details = ({ mediaData, castData, mediaType }) => {
@@ -16,7 +17,11 @@ const Details = ({ mediaData, castData, mediaType }) => {
       <div className="Details__container container">
         <figure className="Details__image-container">
           <img
-            src={`http://image.tmdb.org/t/p/w500/${mediaData.poster_path}`}
+            src={
+              mediaData.poster_path
+                ? `http://image.tmdb.org/t/p/w500/${mediaData.poster_path}`
+                : blankMedia
+            }
             className="Details__image"
           />
         </figure>
