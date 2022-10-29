@@ -5,6 +5,7 @@ import { CgScreen, CgPlayTrackNext } from "react-icons/cg";
 import { GoEye } from "react-icons/go";
 import { AiOutlineDownload } from "react-icons/ai";
 import { BsPencilSquare } from "react-icons/bs";
+import { BsPersonFill } from "react-icons/bs";
 
 import IconLink from "./IconLink/IconLink";
 import "./index.scss";
@@ -37,6 +38,10 @@ const Sidebar = () => {
         pathPatterns={["/tv", "/tv/search", "/tv/genre", "/tv/:id"]}
       >
         <CgScreen />
+      </IconLink>
+
+      <IconLink path="/people" pathPatterns={["/people"]}>
+        <BsPersonFill />
       </IconLink>
 
       <IconLink path="/favorites" pathPatterns={["/favorites"]}>
