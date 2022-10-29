@@ -4,19 +4,20 @@ import ContentCard from "../ContentCard";
 import PagesButtons from "../PagesButtons";
 import ContentGroup from "../ContentGroup";
 
-const PaginatedContentGroup2 = ({
-  content,
-  itemsPerPage,
-  mediaType,
-  subject,
-}) => {
+const PaginatedContentGroup2 = ({ content, itemsPerPage, subject }) => {
   const totalNumberItems = content.length;
 
-  const totalNumberPages = Math.ceil(totalNumberItems / itemsPerPage);
+  //lowest value for number of pages is 1. so, on the first page there could be nothing there
+  const totalNumberPages = Math.max(
+    Math.ceil(totalNumberItems / itemsPerPage),
+    1
+  );
 
   const [contentToDisplay, setContentToDisplay] = useState(content);
 
   const [currentPage, setCurrentPage] = useState(1);
+
+  console.log(currentPage);
 
   const onNextPageClick = () => {
     const nextPage = Math.min(currentPage + 1, totalNumberPages);
@@ -25,7 +26,13 @@ const PaginatedContentGroup2 = ({
   };
 
   const onPreviousPageClick = () => {
-    const nextPage = Math.max(currentPage - 1, 1);
+    let nextPage;
+
+    if (totalNumberPages === 0) {
+      nextPage = Math.max(currentPage - 1, 0);
+    } else {
+      nextPage = Math.max(currentPage - 1, 1);
+    }
 
     setCurrentPage(nextPage);
   };
@@ -42,7 +49,13 @@ const PaginatedContentGroup2 = ({
   return (
     <>
       <div className="ContentGroupContainer">
-        <ContentGroup title={subject} content={contentToDisplay} />
+        {contentToDisplay.length ? (
+          <ContentGroup title={subject} content={contentToDisplay} />
+        ) : (
+          <p className="ContentGroup__blank heading-large color-light">
+            No results found
+          </p>
+        )}
       </div>
 
       <PagesButtons

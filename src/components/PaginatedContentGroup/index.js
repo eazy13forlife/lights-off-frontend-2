@@ -14,20 +14,22 @@ const PaginatedContentGroup = ({
   mediaType,
   onPageButtonClick,
 }) => {
-  const navigate = useNavigate();
-
   const onPreviousPageClick = () => {
-    //ensures new page does not go below 1
-    const newPage = Math.max(1, currentPage - 1);
+    //only call function when we are not on the first page
+    if (currentPage !== 1) {
+      const newPage = currentPage - 1;
 
-    onPageButtonClick(searchValue, newPage);
+      onPageButtonClick(searchValue, newPage);
+    }
   };
 
   const onNextPageClick = () => {
-    //ensures new page does not go past total pages
-    const newPage = Math.min(totalNumberPages, currentPage + 1);
+    //only call function when we are not on the last page
+    if (currentPage !== totalNumberPages) {
+      const newPage = currentPage + 1;
 
-    onPageButtonClick(searchValue, newPage);
+      onPageButtonClick(searchValue, newPage);
+    }
   };
 
   const renderedResults = results.map((media) => {
@@ -50,6 +52,11 @@ const PaginatedContentGroup = ({
           title={`All results for "${subject}" `}
           content={renderedResults}
         />
+        {!results.length ? (
+          <p className="ContentGroup__blank heading-large color-light">
+            No results found
+          </p>
+        ) : null}
       </div>
 
       <PagesButtons

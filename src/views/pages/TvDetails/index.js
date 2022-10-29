@@ -16,7 +16,7 @@ const TvDetails = () => {
   return (
     <div className="TvDetails">
       <ContentPageLayout
-        searchBarPlaceholder="Search for Tv shows"
+        searchBarPlaceholder="Search for TV shows"
         onSearchSubmit={(e, searchValue) => {
           e.preventDefault();
           navigate(`/tv/search/?name=${searchValue}&page=1`);

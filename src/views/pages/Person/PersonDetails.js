@@ -60,7 +60,9 @@ const PersonDetails = ({ data }) => {
 
             <div className="Details__about">
               <p className="Details__subject">Place of Birth</p>
-              <p className="Details__body-text">{data.place_of_birth}</p>
+              <p className="Details__body-text">
+                {data.place_of_birth ? data.place_of_birth : "N/A"}
+              </p>
             </div>
           </div>
 

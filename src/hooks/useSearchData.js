@@ -7,21 +7,21 @@ const useSearchData = (queryObject, searchFunction) => {
     searchValue: queryObject.searchValue,
     results: [],
     totalNumberResults: 0,
-    totalNumberPages: 0,
-    currentPage: 0,
+    totalNumberPages: 1,
+    currentPage: 1,
   });
 
   useEffect(() => {
     const getSearchData = async () => {
       const response = await searchFunction(queryObject);
-
+      console.log(response.data);
       setSearchData({
         results: response.data.results,
         searchValue: queryObject.searchValue,
         totalNumberResults: response.data.total_results,
-        totalNumberPages: response.data.total_pages,
-        currentPage:
-          response.data.total_pages === 0 ? 0 : queryObject.pageNumber,
+        totalNumberPages:
+          response.data.total_pages === 0 ? 1 : response.data.total_pages,
+        currentPage: queryObject.pageNumber,
       });
     };
 
