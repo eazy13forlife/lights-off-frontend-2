@@ -1,5 +1,6 @@
 import React from "react";
 import moment from "moment";
+import blankPerson from "../../../images/blank-person.jpg";
 
 const PersonDetails = ({ data }) => {
   if (!Object.values(data).length) {
@@ -11,7 +12,11 @@ const PersonDetails = ({ data }) => {
       <div className="Details__container container">
         <figure className="Details__image-container">
           <img
-            src={`http://image.tmdb.org/t/p/h632/${data.profile_path}`}
+            src={
+              data.profile_path
+                ? `http://image.tmdb.org/t/p/h632/${data.profile_path}`
+                : blankPerson
+            }
             className="Details__image"
           />
         </figure>
