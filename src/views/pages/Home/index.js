@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import HomePageLayout from "../../../components/HomePageLayout";
 import MainBody from "./MainBody";
-import "./index.scss";
+import "../sharedStyles/home.scss";
 
 const Home = () => {
   return (
