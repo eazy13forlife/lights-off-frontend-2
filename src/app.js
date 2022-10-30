@@ -16,6 +16,9 @@ import MoviesPopular from "./views/pages/MoviesPopular";
 import MoviesUpcoming from "./views/pages/MoviesUpcoming";
 import MoviesGenreWrapper from "./views/pages/MoviesGenreWrapper";
 import PeopleHome from "./views/pages/PeopleHome";
+import PeopleSearch from "./views/pages/PeopleSearch";
+import PeoplePopular from "./views/pages/PeoplePopular";
+import PeopleTrending from "./views/pages/PeopleTrending";
 import Person from "./views/pages/Person";
 import MyReviews from "../src/views/pages/MyReviews";
 import Seen from "../src/views/pages/Seen";
@@ -210,6 +213,30 @@ const App = () => {
           element={
             <ProtectedRoute>
               <PeopleHome />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="people/search/"
+          element={
+            <ProtectedRoute>
+              <PeopleSearch />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="people/popular/"
+          element={
+            <ProtectedRoute>
+              <PeoplePopular />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="people/trending/"
+          element={
+            <ProtectedRoute>
+              <PeopleTrending />
             </ProtectedRoute>
           }
         />

@@ -17,10 +17,12 @@ const PeopleHome = () => {
           <ContentGroup
             title="Popular People"
             content={renderedPopularPeople}
+            linkTo="/people/popular/?page=1"
           />
           <ContentGroup
             title="Trending People"
             content={renderedTrendingPeople}
+            linkTo="/people/trending/?page=1"
           />
         </div>
       </PeoplePageLayout>

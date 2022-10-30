@@ -37,13 +37,13 @@ const usePopularPeople = () => {
 
   const renderedTrendingPeople = popular.trending.map((data) => {
     return (
-      <ContentCard data={{ ...data, media_type: "person" }} key={data._id} />
+      <ContentCard data={{ ...data, media_type: "person" }} key={data.id} />
     );
   });
 
   const renderedPopularPeople = popular.popular.map((data) => {
     return (
-      <ContentCard data={{ ...data, media_type: "person" }} key={data._id} />
+      <ContentCard data={{ ...data, media_type: "person" }} key={data.id} />
     );
   });
 

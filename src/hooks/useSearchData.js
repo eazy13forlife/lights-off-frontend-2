@@ -14,7 +14,7 @@ const useSearchData = (queryObject, searchFunction) => {
   useEffect(() => {
     const getSearchData = async () => {
       const response = await searchFunction(queryObject);
-      console.log(response.data);
+
       setSearchData({
         results: response.data.results,
         searchValue: queryObject.searchValue,

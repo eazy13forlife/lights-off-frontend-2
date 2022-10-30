@@ -7,7 +7,6 @@ import useSearchData from "../../../hooks/useSearchData";
 import PaginatedContentGroup from "../../../components/PaginatedContentGroup";
 import useOnPageButtonClick from "./useOnPageButtonClick";
 import HomePageLayout from "../../../components/HomePageLayout";
-import "./index.scss";
 
 const HomeSearch = () => {
   const [location] = useSearchParams();

@@ -40,7 +40,15 @@ const Sidebar = () => {
         <CgScreen />
       </IconLink>
 
-      <IconLink path="/people" pathPatterns={["/people"]}>
+      <IconLink
+        path="/people"
+        pathPatterns={[
+          "/people",
+          "/people/search",
+          "/person/:id",
+          "people/popular",
+        ]}
+      >
         <BsPersonFill />
       </IconLink>
 
