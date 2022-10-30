@@ -33,13 +33,17 @@ const RenderedSpecificContent = (mediaData, mediaType) => {
         <div className="Details__about">
           <p className="Details__subject">First Air</p>
           <p className="Details__body-text">
-            {moment(mediaData.first_air_date).format("MMM DD, YYYY")}
+            {mediaData.first_air_date
+              ? moment(mediaData.first_air_date).format("MMM DD, YYYY")
+              : "N/A"}
           </p>
         </div>
         <div className="Details__about">
           <p className="Details__subject">Last Air</p>
           <p className="Details__body-text">
-            {moment(mediaData.last_air_date).format("MMM DD, YYYY")}
+            {mediaData.last_air_date
+              ? moment(mediaData.last_air_date).format("MMM DD, YYYY")
+              : "N/A"}
           </p>
         </div>
         <div className="Details__about">

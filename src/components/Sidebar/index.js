@@ -47,6 +47,7 @@ const Sidebar = () => {
           "/people/search",
           "/person/:id",
           "people/popular",
+          "people/trending",
         ]}
       >
         <BsPersonFill />

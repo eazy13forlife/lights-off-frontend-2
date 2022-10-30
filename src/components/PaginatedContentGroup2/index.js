@@ -17,8 +17,6 @@ const PaginatedContentGroup2 = ({ content, itemsPerPage, subject }) => {
 
   const [currentPage, setCurrentPage] = useState(1);
 
-  console.log(currentPage);
-
   const onNextPageClick = () => {
     const nextPage = Math.min(currentPage + 1, totalNumberPages);
 
