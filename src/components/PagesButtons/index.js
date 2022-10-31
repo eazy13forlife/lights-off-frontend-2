@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { GoArrowRight, GoArrowLeft } from "react-icons/go";
 
 import "./index.scss";
@@ -8,7 +8,10 @@ const PagesButtons = ({
   totalPages,
   onNextClick,
   onPreviousClick,
+  onDirectPageNumberChange,
 }) => {
+  const [pageNumberToDisplay, setPageNumberToDisplay] = useState(currentPage);
+
   const getLeftButtonHoverClass = () => {
     if (currentPage === 1) {
       return "PagesButtons__button--inactive";
@@ -25,6 +28,10 @@ const PagesButtons = ({
     }
   };
 
+  useEffect(() => {
+    setPageNumberToDisplay(currentPage);
+  }, [currentPage]);
+
   return (
     <div className="PagesButtons heading-extra-small">
       <button
@@ -36,7 +43,25 @@ const PagesButtons = ({
       </button>
 
       <div className="PagesButtons__screen">
-        <p>{`Page ${currentPage} of ${totalPages}`} </p>
+        <span>Page</span>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            onDirectPageNumberChange(pageNumberToDisplay);
+          }}
+        >
+          <input
+            type="text"
+            value={pageNumberToDisplay}
+            className="PagesButtons__number-screen"
+            onChange={(e) => {
+              setPageNumberToDisplay(e.target.value);
+            }}
+          />
+        </form>
+
+        <span>{`of ${totalPages}`}</span>
+        {/*<p>{`Page ${currentPage} of ${totalPages}`} </p>*/}
       </div>
 
       <button

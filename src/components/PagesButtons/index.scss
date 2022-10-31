@@ -1,5 +1,5 @@
 .PagesButtons {
-  width: 45rem;
+  width: 53rem;
   height: 5rem;
   border: 2px solid rgba(var(--color-light), 1);
   border-radius: var(--border-radius-small);
@@ -10,8 +10,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 10rem;
     flex: 1 0 0;
+    padding: 0rem 1rem;
+  }
+  &__number-screen {
+    text-align: center;
+    width: 6rem;
+    height: 3rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
   &__button {
     color: rgba(var(--color-light), 1);

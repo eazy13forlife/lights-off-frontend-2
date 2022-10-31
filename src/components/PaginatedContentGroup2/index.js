@@ -5,6 +5,7 @@ import PagesButtons from "../PagesButtons";
 import ContentGroup from "../ContentGroup";
 
 const PaginatedContentGroup2 = ({ content, itemsPerPage, subject }) => {
+  console.log("why");
   const totalNumberItems = content.length;
 
   //lowest value for number of pages is 1. so, on the first page there could be nothing there
@@ -35,6 +36,16 @@ const PaginatedContentGroup2 = ({ content, itemsPerPage, subject }) => {
     setCurrentPage(nextPage);
   };
 
+  const onDirectPageNumberChange = (pageNumber) => {
+    pageNumber = +pageNumber;
+
+    if (isNaN(pageNumber) || pageNumber < 1 || pageNumber > totalNumberPages) {
+      return;
+    }
+
+    setCurrentPage(pageNumber);
+  };
+
   //when the content change from empty to something we want to get the content to display. And same when currentPage changes
   useEffect(() => {
     const lastSpliceIndex = itemsPerPage * currentPage;
@@ -61,6 +72,7 @@ const PaginatedContentGroup2 = ({ content, itemsPerPage, subject }) => {
         totalPages={totalNumberPages}
         onNextClick={onNextPageClick}
         onPreviousClick={onPreviousPageClick}
+        onDirectPageNumberChange={onDirectPageNumberChange}
       />
     </>
   );

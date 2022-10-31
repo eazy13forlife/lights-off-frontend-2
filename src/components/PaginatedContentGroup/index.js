@@ -32,6 +32,16 @@ const PaginatedContentGroup = ({
     }
   };
 
+  const onDirectPageNumberChange = (pageNumber) => {
+    pageNumber = +pageNumber;
+
+    if (isNaN(pageNumber) || pageNumber < 1 || pageNumber > totalNumberPages) {
+      return;
+    }
+
+    onPageButtonClick(searchValue, pageNumber);
+  };
+
   const renderedResults = results.map((media) => {
     if (media.media_type) {
       return <ContentCard data={{ ...media }} key={media.id} />;
@@ -64,6 +74,7 @@ const PaginatedContentGroup = ({
         totalPages={totalNumberPages}
         onNextClick={onNextPageClick}
         onPreviousClick={onPreviousPageClick}
+        onDirectPageNumberChange={onDirectPageNumberChange}
       />
     </>
   );
