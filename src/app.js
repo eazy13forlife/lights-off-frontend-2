@@ -24,6 +24,10 @@ import MyReviews from "../src/views/pages/MyReviews";
 import Seen from "../src/views/pages/Seen";
 import TvHome from "./views/pages/TvHome";
 import TvSearch from "./views/pages/TvSearch";
+import TvPopular from "./views/pages/TvPopular";
+import TvTopRated from "./views/pages/TvTopRated";
+import TvTrending from "./views/pages/TvTrending";
+import TvOnAir from "./views/pages/TvOnAir";
 import TvGenreWrapper from "./views/pages/TvGenreWrapper";
 import TvDetails from "./views/pages/TvDetails";
 import Uploads from "../src/views/pages/Uploads";
@@ -181,6 +185,38 @@ const App = () => {
           element={
             <ProtectedRoute>
               <TvHome />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="tv/popular"
+          element={
+            <ProtectedRoute>
+              <TvPopular />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="tv/top_rated"
+          element={
+            <ProtectedRoute>
+              <TvTopRated />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="tv/trending"
+          element={
+            <ProtectedRoute>
+              <TvTrending />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="tv/on_air"
+          element={
+            <ProtectedRoute>
+              <TvOnAir />
             </ProtectedRoute>
           }
         />
