@@ -5,6 +5,12 @@
   &__image-container {
     flex: 1 0 0;
     margin-right: 7rem;
+    position: relative;
+    .MediaOptions {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
   }
 
   &__image {

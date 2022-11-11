@@ -1,0 +1,28 @@
+.MediaOptions {
+  width: 20rem;
+  &__button {
+    width: 100%;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: rgba(var(--color-light), 1);
+    color: rgba(var(--color-primary-light), 1);
+    border: 2px solid rgba(var(--color-primary-light), 1);
+    &:hover {
+      background-color: rgba(var(--color-light), 0.9);
+      color: rgba(var(--color-primary), 1);
+    }
+    &--title {
+      font-size: var(--fs-600);
+      padding: 1rem 1.5rem;
+    }
+    &--option {
+      padding: 2rem;
+      font-size: var(--fs-550);
+    }
+  }
+
+  &__options {
+    display: flex;
+    flex-direction: column;
+  }
+}

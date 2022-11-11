@@ -59,7 +59,7 @@ const usePopularContent = () => {
     return <ContentCard data={{ ...data, media_type: "tv" }} key={data.id} />;
   });
 
-  const renderedTopRated = popularContent.popular.map((data) => {
+  const renderedTopRated = popularContent.topRated.map((data) => {
     return <ContentCard data={{ ...data, media_type: "tv" }} key={data.id} />;
   });
 
