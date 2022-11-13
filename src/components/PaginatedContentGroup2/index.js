@@ -5,7 +5,6 @@ import PagesButtons from "../PagesButtons";
 import ContentGroup from "../ContentGroup";
 
 const PaginatedContentGroup2 = ({ content, itemsPerPage, subject }) => {
-  console.log("why");
   const totalNumberItems = content.length;
 
   //lowest value for number of pages is 1. so, on the first page there could be nothing there

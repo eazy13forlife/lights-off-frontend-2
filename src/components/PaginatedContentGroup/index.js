@@ -1,8 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+
 import ContentGroup from "../ContentGroup";
 import ContentCard from "../ContentCard";
 import PagesButtons from "../PagesButtons";
+import { createDataObjectFrontEnd } from "../../helperFunctions";
 import "./index.scss";
 
 const PaginatedContentGroup = ({
@@ -43,12 +45,17 @@ const PaginatedContentGroup = ({
   };
 
   const renderedResults = results.map((media) => {
-    if (media.media_type) {
-      return <ContentCard data={{ ...media }} key={media.id} />;
-    } else {
+    //if backend data(theres a media_id property), get that and turn to a mediaObject recognized by front end, which is designed to use the fields of the imdb api
+    if (media.media_id) {
+      const data = createDataObjectFrontEnd(media);
+      return <ContentCard data={data} key={data.id} />;
+    }
+
+    //if not our backend data(so no media_id property) but imdb data, we can use it as it is. If we dont provide a media_type that means data already contains it, so it will override our undefined. Otherwise, what we provided will stay
+    if (!media.media_id) {
       return (
         <ContentCard
-          data={{ ...media, media_type: mediaType }}
+          data={{ media_type: mediaType, ...media }}
           key={media.id}
         />
       );

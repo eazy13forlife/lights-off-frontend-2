@@ -19,4 +19,18 @@ const randomizeArray = (array) => {
   }
 };
 
-export { saveToLocalStorage, randomizeArray };
+const createDataObjectFrontEnd = (data) => {
+  return {
+    media_type: data.media_type_id === 1 ? "movie" : "tv",
+    id: data.media_id,
+    poster_path: data.media_image,
+    release_date:
+      data.media_type_id === 1 ? data.release_year.toString() : null,
+    first_air_date:
+      data.media_type_id === 2 ? data.release_year.toString() : null,
+    title: data.media_type_id === 1 ? data.title : null,
+    name: data.media_type_id === 2 ? data.title : null,
+  };
+};
+
+export { saveToLocalStorage, randomizeArray, createDataObjectFrontEnd };

@@ -1,8 +1,8 @@
 import moment from "moment";
 
-//we will use this object to store the data used to make requests to backend to save the imdb media to our database to be able to then ultimately add to favorites, seen,watch_next etc.
-const createOptionsObject = (mediaData, mediaType) => {
-  //user_upload is not true means it is imdb data. So get the correct imdb data based on mediaType. If i dont set user_account_id null, a random one is generated and messes things upm so set it
+//we will use this object to store the data required to make requests to our backend in order to save the imdb media to our database and then to be able to then ultimately add to favorites, seen,watch_next etc.
+const createDataObject = (mediaData, mediaType) => {
+  //user_upload is not true or doesnt exist means it is imdb data. So, we are getting the necessary info from mediaData returned to us by imdb data and saving it in the keys that our backend takes in. (If I dont set user_account_id as null, a random one is generated and messes things up so set it). If imdb data, we only need to save certain things to our media database,in order to create the content card. When we actually want the media details of an imdb media we will call its api.
   if (!mediaData.user_upload && mediaType === "movie") {
     return {
       media_id: mediaData.id,
@@ -32,4 +32,4 @@ const createOptionsObject = (mediaData, mediaType) => {
   }
 };
 
-export { createOptionsObject };
+export { createDataObject };

@@ -19,7 +19,7 @@ const DescriptionContent = ({ data }) => {
     return (
       <>
         <p className="capitalize body-medium">
-          {data.mediaType === "movie"
+          {data.media_type === "movie"
             ? moment(data.release_date).year()
             : moment(data.first_air_date).year()}
         </p>
