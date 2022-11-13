@@ -5,7 +5,7 @@ import RenderedGenres from "./RenderedGenres";
 import RenderedSpecificContent from "./RenderedSpecificContent";
 import blankMedia from "../../images/cinema-clapboard.jpg";
 import MediaOptionsButton from "./MediaOptionsButton";
-import { createDataObject } from "./MediaOptionsButton/helperFunctions";
+import { createBackendDataObject } from "./MediaOptionsButton/helperFunctions";
 import "./index.scss";
 
 const Details = ({ mediaData, castData, mediaType }) => {
@@ -27,7 +27,7 @@ const Details = ({ mediaData, castData, mediaType }) => {
             className="Details__image"
           />
           <MediaOptionsButton
-            mediaData={createDataObject(mediaData, mediaType)}
+            mediaData={createBackendDataObject(mediaData, mediaType)}
           />
         </figure>
 

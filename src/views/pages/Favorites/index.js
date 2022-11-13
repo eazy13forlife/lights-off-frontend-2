@@ -5,9 +5,12 @@ import useSearchResponse from "./useSearchResponse";
 import useSearchData from "../../../hooks/useSearchData";
 import ContentPageLayout from "../../../components/ContentPageLayout";
 import PaginatedContentGroup from "../../../components/PaginatedContentGroup";
+import useOnPageButtonClick from "./useOnPageButtonClick";
 
 const Favorites = () => {
   const [searchParams] = useSearchParams();
+
+  const onPageButtonClick = useOnPageButtonClick();
 
   const page = searchParams.get("page");
 
@@ -24,7 +27,11 @@ const Favorites = () => {
         //   navigate(`/search/?name=${searchValue}&page=1`);
         // }}
       >
-        <PaginatedContentGroup {...searchData} subject="All favorites" />
+        <PaginatedContentGroup
+          {...searchData}
+          subject="Favorites"
+          onPageButtonClick={onPageButtonClick}
+        />
       </ContentPageLayout>
     </div>
   );
