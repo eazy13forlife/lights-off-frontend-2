@@ -4,7 +4,7 @@ const useOnPageButtonClick = () => {
   const navigate = useNavigate();
 
   return (searchValue, pageNumber) => {
-    navigate(`/favorites/?page=${pageNumber}`);
+    navigate(`/watch-next/?page=${pageNumber}`);
   };
 };
 

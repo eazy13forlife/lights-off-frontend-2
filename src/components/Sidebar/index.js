@@ -65,7 +65,7 @@ const Sidebar = () => {
         <AiOutlineDownload />
       </IconLink>
 
-      <IconLink path="/watch-next" pathPatterns={["/watch-next"]}>
+      <IconLink path="/watch-next/?page=1" pathPatterns={["/watch-next"]}>
         <CgPlayTrackNext className="Sidebar__link--next" />
       </IconLink>
 
