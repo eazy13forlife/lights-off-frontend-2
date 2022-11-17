@@ -8,7 +8,6 @@ import PaginatedContentGroup from "../../../components/PaginatedContentGroup";
 import useOnPageButtonClick from "./useOnPageButtonClick";
 
 const TvPopular = () => {
-  console.log("why");
   const onPageButtonClick = useOnPageButtonClick();
 
   const [searchParams] = useSearchParams();

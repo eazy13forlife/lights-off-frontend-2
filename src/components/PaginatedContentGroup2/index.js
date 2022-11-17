@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-import ContentCard from "../ContentCard";
 import PagesButtons from "../PagesButtons";
 import ContentGroup from "../ContentGroup";
 

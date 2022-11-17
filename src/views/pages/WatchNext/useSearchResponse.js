@@ -1,5 +1,6 @@
 import axios from "axios";
 
+import { BACKEND_URL } from "../../../constants";
 import useUserAuthorization from "../../../hooks/useUserAuthorization";
 
 const useSearchResponse = () => {
@@ -7,7 +8,7 @@ const useSearchResponse = () => {
 
   const getSearchResponse = async (query) => {
     const response = await axios.get(
-      `http://localhost:3000/watch-next/?page=${query.pageNumber}`,
+      `${BACKEND_URL}/watch-next/?page=${query.pageNumber}`,
       {
         headers: {
           Authorization: `Bearer ${userInfo.authToken} `,

@@ -1,12 +1,13 @@
 import axios from "axios";
 
 import types from "./types";
+import { BACKEND_URL } from "../constants";
 
 const createUser = (userData) => {
   return async (dispatch) => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/users/signup",
+        `${BACKEND_URL}/users/signup`,
         userData
       );
 
@@ -27,7 +28,7 @@ const loginUser = (userData) => {
   return async (dispatch) => {
     try {
       const userResponse = await axios.post(
-        "http://localhost:3000/users/login",
+        `${BACKEND_URL}/users/login`,
         userData
       );
 

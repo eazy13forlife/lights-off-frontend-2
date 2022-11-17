@@ -5,7 +5,6 @@ import usePersonDetails from "./usePersonDetails";
 import PersonDetails from "./PersonDetails";
 import ContentPageLayout from "../../../components/ContentPageLayout";
 import ContentCard from "../../../components/ContentCard";
-import ContentGroup from "../../../components/ContentGroup";
 import PaginatedContentGroup2 from "../../../components/PaginatedContentGroup2";
 import "./index.scss";
 
