@@ -19,7 +19,7 @@ const WatchNext = () => {
   const searchData = useSearchData({ pageNumber: page }, getSearchResponse);
 
   return (
-    <div className="Favorites">
+    <div className="WatchNext">
       <ContentPageLayout
         searchBarPlaceholder="Search for watch next..."
         // onSearchSubmit={(e, searchValue) => {
