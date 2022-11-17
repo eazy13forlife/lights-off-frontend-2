@@ -12,7 +12,7 @@ const Favorites = () => {
 
   const onPageButtonClick = useOnPageButtonClick();
 
-  const page = searchParams.get("page");
+  const page = +searchParams.get("page");
 
   const getSearchResponse = useSearchResponse();
 

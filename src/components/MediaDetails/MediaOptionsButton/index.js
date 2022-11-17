@@ -39,7 +39,18 @@ const MediaOptionsButton = ({ mediaData }) => {
           >
             Add to favorites
           </button>
-          <button className="MediaOptions__button MediaOptions__button--option  capitalize">
+          <button
+            className="MediaOptions__button MediaOptions__button--option  capitalize"
+            onClick={async () => {
+              await onButtonClick(
+                "seen",
+                mediaData,
+                authToken,
+                setShowMediaOptions,
+                setDisplayMessageBox
+              );
+            }}
+          >
             Add to seen
           </button>
           <button

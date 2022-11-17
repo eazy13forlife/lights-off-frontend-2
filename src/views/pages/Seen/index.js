@@ -13,7 +13,7 @@ const Seen = () => {
 
   const onPageButtonClick = useOnPageButtonClick();
 
-  const page = searchParams.get("page");
+  const page = +searchParams.get("page");
 
   const getSearchResponse = useSearchResponse();
 

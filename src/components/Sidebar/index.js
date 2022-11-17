@@ -57,7 +57,7 @@ const Sidebar = () => {
         <BsBookmark />
       </IconLink>
 
-      <IconLink path="/seen" pathPatterns={["/seen"]}>
+      <IconLink path="/seen/?page=1" pathPatterns={["/seen"]}>
         <GoEye />
       </IconLink>
 
