@@ -1,6 +1,7 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
 
+import { BACKEND_URL } from "../../../constants";
 import useSearchResponse from "./useSearchResponse";
 import useSearchData from "../../../hooks/useSearchData";
 import ContentPageLayout from "../../../components/ContentPageLayout";
@@ -31,6 +32,9 @@ const Favorites = () => {
           {...searchData}
           subject="Favorites"
           onPageButtonClick={onPageButtonClick}
+          removable={{
+            base: `${BACKEND_URL}/favorites`,
+          }}
         />
       </ContentPageLayout>
     </div>

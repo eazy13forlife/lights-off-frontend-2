@@ -14,6 +14,7 @@ const PaginatedContentGroup = ({
   currentPage,
   mediaType,
   onPageButtonClick,
+  removable,
 }) => {
   const onPreviousPageClick = () => {
     //only call function when we are not on the first page
@@ -47,7 +48,7 @@ const PaginatedContentGroup = ({
     //if backend data(theres a media_id property), get that and turn to a mediaObject recognized by front end, which is designed to use the fields of the imdb api
     if (media.media_id) {
       const data = createDataObjectFrontEnd(media);
-      return <ContentCard data={data} key={data.id} />;
+      return <ContentCard data={data} key={data.id} removable={removable} />;
     }
 
     //if not our backend data(so no media_id property) but imdb data, we can use it as it is. If we dont provide a media_type that means data already contains it, so it will override our undefined. Otherwise, what we provided will stay
@@ -56,6 +57,7 @@ const PaginatedContentGroup = ({
         <ContentCard
           data={{ media_type: mediaType, ...media }}
           key={media.id}
+          removable={removable}
         />
       );
     }

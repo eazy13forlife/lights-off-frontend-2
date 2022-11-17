@@ -4,7 +4,7 @@ import ContentPageLayout from "../../../components/ContentPageLayout";
 import { useSearchParams } from "react-router-dom";
 import useSearchResponse from "./useSearchResponse";
 import useSearchData from "../../../hooks/useSearchData";
-
+import { BACKEND_URL } from "../../../constants";
 import PaginatedContentGroup from "../../../components/PaginatedContentGroup";
 import useOnPageButtonClick from "./useOnPageButtonClick";
 
@@ -32,6 +32,9 @@ const Seen = () => {
           {...searchData}
           subject="Seen"
           onPageButtonClick={onPageButtonClick}
+          removable={{
+            base: `${BACKEND_URL}/seen`,
+          }}
         />
       </ContentPageLayout>
     </div>

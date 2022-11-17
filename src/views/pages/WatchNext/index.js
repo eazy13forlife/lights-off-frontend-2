@@ -4,7 +4,7 @@ import ContentPageLayout from "../../../components/ContentPageLayout";
 import { useSearchParams } from "react-router-dom";
 import useSearchResponse from "./useSearchResponse";
 import useSearchData from "../../../hooks/useSearchData";
-
+import { BACKEND_URL } from "../../../constants";
 import PaginatedContentGroup from "../../../components/PaginatedContentGroup";
 import useOnPageButtonClick from "./useOnPageButtonClick";
 const WatchNext = () => {
@@ -31,6 +31,9 @@ const WatchNext = () => {
           {...searchData}
           subject="Watch Next"
           onPageButtonClick={onPageButtonClick}
+          removable={{
+            base: `${BACKEND_URL}/watch-next`,
+          }}
         />
       </ContentPageLayout>
     </div>
