@@ -14,7 +14,7 @@ const TvTrending = () => {
 
   const pageNumber = +searchParams.get("page");
 
-  const searchData = useSearchData(
+  const [searchData] = useSearchData(
     { searchValue: "tv", pageNumber: pageNumber },
     getSearchResponse
   );

@@ -15,7 +15,7 @@ const PeoplePopular = () => {
 
   const pageNumber = +searchParams.get("page");
 
-  const searchData = useSearchData(
+  const [searchData] = useSearchData(
     { searchValue: "person", pageNumber: pageNumber },
     getSearchResponse
   );

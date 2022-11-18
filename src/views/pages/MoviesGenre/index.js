@@ -15,7 +15,7 @@ const MoviesGenre = () => {
 
   const pageNumber = searchParams.get("page");
 
-  const searchData = useSearchData(
+  const [searchData] = useSearchData(
     { searchValue, pageNumber: +pageNumber },
     getSearchResponse
   );

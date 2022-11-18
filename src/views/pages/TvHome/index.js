@@ -6,6 +6,7 @@ import MainBody from "./MainBody";
 
 const TvHome = () => {
   usePopularContent();
+
   return (
     <div className="TvHome">
       <TvPageLayout>

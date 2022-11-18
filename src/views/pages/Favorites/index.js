@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import { BACKEND_URL } from "../../../constants";
 import useSearchResponse from "./useSearchResponse";
-import useSearchData from "../../../hooks/useSearchData";
+import useSearchDataModified from "../../../hooks/useSearchDataModified";
 import ContentPageLayout from "../../../components/ContentPageLayout";
 import PaginatedContentGroup from "../../../components/PaginatedContentGroup";
 import useOnPageButtonClick from "./useOnPageButtonClick";
 
 const Favorites = () => {
+  const [dataModified, setDataModified] = useState(false);
+
   const [searchParams] = useSearchParams();
 
   const onPageButtonClick = useOnPageButtonClick();
@@ -17,7 +19,14 @@ const Favorites = () => {
 
   const getSearchResponse = useSearchResponse();
 
-  const searchData = useSearchData({ pageNumber: page }, getSearchResponse);
+  const [searchData] = useSearchDataModified(
+    { pageNumber: page },
+    getSearchResponse,
+    {
+      modified: dataModified,
+      modify: setDataModified,
+    }
+  );
 
   return (
     <div className="Favorites">
@@ -34,6 +43,9 @@ const Favorites = () => {
           onPageButtonClick={onPageButtonClick}
           removable={{
             base: `${BACKEND_URL}/favorites`,
+            updateData() {
+              setDataModified(true);
+            },
           }}
         />
       </ContentPageLayout>

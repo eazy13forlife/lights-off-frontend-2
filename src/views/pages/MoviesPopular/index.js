@@ -13,7 +13,7 @@ const MoviesTopRated = () => {
 
   const pageNumber = +searchParams.get("page");
 
-  const searchData = useSearchData(
+  const [searchData] = useSearchData(
     { searchValue: "movie", pageNumber: pageNumber },
     getSearchResponse
   );

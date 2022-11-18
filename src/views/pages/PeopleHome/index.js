@@ -6,8 +6,6 @@ import usePopularPeople from "./usePopularPeople";
 import ContentGroup from "../../../components/ContentGroup";
 
 const PeopleHome = () => {
-  const navigate = useNavigate();
-
   const [renderedTrendingPeople, renderedPopularPeople] = usePopularPeople();
 
   return (

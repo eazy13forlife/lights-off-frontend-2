@@ -15,7 +15,7 @@ const HomeSearch = () => {
 
   const pageNumber = location.get("page");
 
-  const searchData = useSearchData(
+  const [searchData] = useSearchData(
     { searchValue: searchValue, pageNumber: +pageNumber },
     getSearchResponse
   );

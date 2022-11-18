@@ -18,7 +18,7 @@ const TvGenre = () => {
 
   const genre = searchParams.get("name");
 
-  const searchData = useSearchData(
+  const [searchData] = useSearchData(
     { searchValue, pageNumber },
     getSearchResponse
   );

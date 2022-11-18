@@ -13,7 +13,7 @@ const TvSearch = () => {
 
   const pageNumber = +searchParams.get("page");
 
-  const searchData = useSearchData(
+  const [searchData] = useSearchData(
     { searchValue, pageNumber },
     getSearchResponse
   );

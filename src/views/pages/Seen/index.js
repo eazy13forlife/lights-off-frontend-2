@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 
 import ContentPageLayout from "../../../components/ContentPageLayout";
 import { useSearchParams } from "react-router-dom";
 import useSearchResponse from "./useSearchResponse";
-import useSearchData from "../../../hooks/useSearchData";
+import useSearchDataModified from "../../../hooks/useSearchDataModified";
 import { BACKEND_URL } from "../../../constants";
 import PaginatedContentGroup from "../../../components/PaginatedContentGroup";
 import useOnPageButtonClick from "./useOnPageButtonClick";
 
 const Seen = () => {
+  const [dataModified, setDataModified] = useState(false);
+
   const [searchParams] = useSearchParams();
 
   const onPageButtonClick = useOnPageButtonClick();
@@ -17,7 +19,15 @@ const Seen = () => {
 
   const getSearchResponse = useSearchResponse();
 
-  const searchData = useSearchData({ pageNumber: page }, getSearchResponse);
+  const [searchData] = useSearchDataModified(
+    { pageNumber: page },
+    getSearchResponse,
+    {
+      modified: dataModified,
+      modify: setDataModified,
+    }
+  );
+  console.log(searchData);
 
   return (
     <div className="Seen">
@@ -34,6 +44,9 @@ const Seen = () => {
           onPageButtonClick={onPageButtonClick}
           removable={{
             base: `${BACKEND_URL}/seen`,
+            updateData() {
+              setDataModified(true);
+            },
           }}
         />
       </ContentPageLayout>

@@ -15,7 +15,7 @@ const MoviesSearch = () => {
 
   const pageNumber = searchParams.get("page");
 
-  const searchData = useSearchData(
+  const [searchData] = useSearchData(
     { searchValue: name, pageNumber: +pageNumber },
     getSearchResponse
   );

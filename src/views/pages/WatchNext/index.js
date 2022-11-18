@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import ContentPageLayout from "../../../components/ContentPageLayout";
 import { useSearchParams } from "react-router-dom";
@@ -7,7 +7,10 @@ import useSearchData from "../../../hooks/useSearchData";
 import { BACKEND_URL } from "../../../constants";
 import PaginatedContentGroup from "../../../components/PaginatedContentGroup";
 import useOnPageButtonClick from "./useOnPageButtonClick";
+import useSearchDataModified from "../../../hooks/useSearchDataModified";
 const WatchNext = () => {
+  const [dataModified, setDataModified] = useState(false);
+
   const [searchParams] = useSearchParams();
 
   const onPageButtonClick = useOnPageButtonClick();
@@ -16,7 +19,14 @@ const WatchNext = () => {
 
   const getSearchResponse = useSearchResponse();
 
-  const searchData = useSearchData({ pageNumber: page }, getSearchResponse);
+  const [searchData] = useSearchDataModified(
+    { pageNumber: page },
+    getSearchResponse,
+    {
+      modified: dataModified,
+      modify: setDataModified,
+    }
+  );
 
   return (
     <div className="WatchNext">
@@ -33,6 +43,9 @@ const WatchNext = () => {
           onPageButtonClick={onPageButtonClick}
           removable={{
             base: `${BACKEND_URL}/watch-next`,
+            updateData() {
+              setDataModified(true);
+            },
           }}
         />
       </ContentPageLayout>

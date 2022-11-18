@@ -27,6 +27,7 @@ const ContentCard = ({ data, removable }) => {
           className="ContentCard__button"
           onClick={async () => {
             await onRemoveClick(removable.base, data.id);
+            removable.updateData();
           }}
         >
           <BsTrash />
