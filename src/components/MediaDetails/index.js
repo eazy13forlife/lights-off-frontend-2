@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 
+import MessageModal from "../MessageModal";
 import RenderedCast from "./RenderedCast";
 import RenderedGenres from "./RenderedGenres";
 import RenderedSpecificContent from "./RenderedSpecificContent";
@@ -9,6 +10,8 @@ import { createBackendDataObject } from "./MediaOptionsButton/helperFunctions";
 import "./index.scss";
 
 const Details = ({ mediaData, castData, mediaType }) => {
+  const [displayMessage, setDisplayMessage] = useState("");
+
   //if no media currently, don't show anything on screen.
   if (!Object.values(mediaData).length) {
     return null;
@@ -28,6 +31,7 @@ const Details = ({ mediaData, castData, mediaType }) => {
           />
           <MediaOptionsButton
             mediaData={createBackendDataObject(mediaData, mediaType)}
+            setDisplayMessage={setDisplayMessage}
           />
         </figure>
 
@@ -95,6 +99,8 @@ const Details = ({ mediaData, castData, mediaType }) => {
           </div>
         </div>
       </div>
+
+      {displayMessage ? <MessageModal message={displayMessage} /> : null}
     </div>
   );
 };

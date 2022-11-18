@@ -4,10 +4,8 @@ import axios from "axios";
 import { onButtonClick } from "./helperFunctions";
 import "./index.scss";
 
-const MediaOptionsButton = ({ mediaData }) => {
+const MediaOptionsButton = ({ mediaData, setDisplayMessage }) => {
   const [showMediaOptions, setShowMediaOptions] = useState(false);
-
-  const [displayMessageBox, setDisplayMessageBox] = useState("");
 
   const authToken = useSelector((state) => {
     return state.userInfo.authToken;
@@ -33,7 +31,7 @@ const MediaOptionsButton = ({ mediaData }) => {
                 mediaData,
                 authToken,
                 setShowMediaOptions,
-                setDisplayMessageBox
+                setDisplayMessage
               );
             }}
           >
@@ -47,7 +45,7 @@ const MediaOptionsButton = ({ mediaData }) => {
                 mediaData,
                 authToken,
                 setShowMediaOptions,
-                setDisplayMessageBox
+                setDisplayMessage
               );
             }}
           >
@@ -61,7 +59,7 @@ const MediaOptionsButton = ({ mediaData }) => {
                 mediaData,
                 authToken,
                 setShowMediaOptions,
-                setDisplayMessageBox
+                setDisplayMessage
               );
             }}
           >

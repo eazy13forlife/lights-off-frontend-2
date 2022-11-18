@@ -27,7 +27,6 @@ const Seen = () => {
       modify: setDataModified,
     }
   );
-  console.log(searchData);
 
   return (
     <div className="Seen">

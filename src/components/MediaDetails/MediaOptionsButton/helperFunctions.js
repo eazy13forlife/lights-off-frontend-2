@@ -63,7 +63,7 @@ const addMediaToCategory = async (
   category,
   mediaData,
   authToken,
-  displayMessageBox
+  setDisplayMessage
 ) => {
   try {
     //check to see if media already exists in user_favorite database. If it does,so we get a 200 code, we send message saying already created
@@ -76,7 +76,7 @@ const addMediaToCategory = async (
       }
     );
 
-    displayMessageBox("Already added");
+    setDisplayMessage("Already added");
   } catch (e) {
     //if it doesnt exist, add it in. include a message saying created
     if (e.response.status === 404) {
@@ -90,7 +90,7 @@ const addMediaToCategory = async (
         }
       );
 
-      displayMessageBox("Added!");
+      setDisplayMessage("Added!");
     }
   }
 };
@@ -100,14 +100,14 @@ const onButtonClick = async (
   mediaData,
   authToken,
   setShowMediaOptions,
-  displayMessageBox
+  setDisplayMessage
 ) => {
   try {
     await addMediaToDatabase(mediaData, authToken);
 
-    await addMediaToCategory(category, mediaData, authToken, displayMessageBox);
+    await addMediaToCategory(category, mediaData, authToken, setDisplayMessage);
   } catch (e) {
-    displayMessageBox("Unable to add!");
+    setDisplayMessage("Unable to add!");
     console.log(e);
   } finally {
     setShowMediaOptions(false);
