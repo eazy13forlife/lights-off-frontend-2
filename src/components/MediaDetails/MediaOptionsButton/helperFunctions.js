@@ -103,12 +103,13 @@ const onButtonClick = async (
   setDisplayMessage
 ) => {
   try {
+    setDisplayMessage("");
+
     await addMediaToDatabase(mediaData, authToken);
 
     await addMediaToCategory(category, mediaData, authToken, setDisplayMessage);
   } catch (e) {
     setDisplayMessage("Unable to add!");
-    console.log(e);
   } finally {
     setShowMediaOptions(false);
   }

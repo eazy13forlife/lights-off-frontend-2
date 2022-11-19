@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import MessageModal from "../MessageModal";
 import RenderedCast from "./RenderedCast";
@@ -7,10 +7,27 @@ import RenderedSpecificContent from "./RenderedSpecificContent";
 import blankMedia from "../../images/cinema-clapboard.jpg";
 import MediaOptionsButton from "./MediaOptionsButton";
 import { createBackendDataObject } from "./MediaOptionsButton/helperFunctions";
+import useDelayUnmount from "../../hooks/useDelayUnmount";
 import "./index.scss";
 
 const Details = ({ mediaData, castData, mediaType }) => {
   const [displayMessage, setDisplayMessage] = useState("");
+
+  const shouldShowDisplayMessage = useDelayUnmount(displayMessage, 0);
+
+  useEffect(() => {
+    let timerId;
+
+    if (displayMessage) {
+      timerId = setTimeout(() => {
+        setDisplayMessage(false);
+      }, 2000);
+    }
+
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [displayMessage]);
 
   //if no media currently, don't show anything on screen.
   if (!Object.values(mediaData).length) {
@@ -100,7 +117,14 @@ const Details = ({ mediaData, castData, mediaType }) => {
         </div>
       </div>
 
-      {displayMessage ? <MessageModal message={displayMessage} /> : null}
+      {shouldShowDisplayMessage && (
+        <MessageModal
+          message={displayMessage}
+          close={() => {
+            setDisplayMessage("");
+          }}
+        />
+      )}
     </div>
   );
 };

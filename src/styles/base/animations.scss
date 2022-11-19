@@ -9,3 +9,12 @@
     transform: rotatey(0deg);
   }
 }
+
+@keyframes slideDownIntoView {
+  0% {
+    top: -40rem;
+  }
+
+  100% {
+  }
+}

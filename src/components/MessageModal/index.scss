@@ -5,9 +5,26 @@
   transform: translatex(-50%);
   width: 28rem;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   height: 4rem;
   border-radius: var(--border-radius-small);
   background-color: rgba(var(--color-light), 1);
+  animation: slideDownIntoView 500ms ease-in;
+  &__button {
+    background-color: transparent;
+    border: none;
+    margin-top: 0.4rem;
+    cursor: pointer;
+    position: absolute;
+    right: 0.5rem;
+    top: 0;
+  }
+  &__icon {
+    font-size: 3rem;
+  }
+}
+
+.MessageModal__button:hover .MessageModal__icon {
+  color: red;
 }
