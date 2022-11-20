@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const saveToLocalStorage = (name, data) => {
   const dataString = JSON.stringify(data);
 
@@ -33,4 +35,20 @@ const createDataObjectFrontEnd = (data) => {
   };
 };
 
-export { saveToLocalStorage, randomizeArray, createDataObjectFrontEnd };
+//if media exists a 200 success code will be thrown, otherwise an error
+const checkIfMediaExists = async (BACKEND_URL, mediaId, authToken) => {
+  const response = await axios.head(`${BACKEND_URL}/media/exists/${mediaId}`, {
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+    },
+  });
+
+  return response.status;
+};
+
+export {
+  saveToLocalStorage,
+  randomizeArray,
+  createDataObjectFrontEnd,
+  checkIfMediaExists,
+};

@@ -3,6 +3,7 @@ import axios from "axios";
 
 import { BACKEND_URL } from "../../constants";
 import useUserAuthorization from "../../hooks/useUserAuthorization";
+import { checkIfMediaExists } from "../../helperFunctions";
 
 const useAllReviews = (mediaId) => {
   const [allReviews, setAllReviews] = useState([]);
@@ -15,11 +16,12 @@ const useAllReviews = (mediaId) => {
       try {
         //check if media exists. If it does we continue on to getting the reviews for it
         try {
-          await axios.head(`${BACKEND_URL}/media/exists/${mediaId}`, {
-            headers: {
-              Authorization: `Bearer ${userInfo.authToken}`,
-            },
-          });
+          const responseStatus = await checkIfMediaExists(
+            BACKEND_URL,
+            mediaId,
+            userInfo.authToken
+          );
+
           //if media isnt found, there are no reviews so set reviews to an empty array. If another type of error, we will throw it, so parent catch block can deal with it
         } catch (e) {
           if (e.response.status === 404) {

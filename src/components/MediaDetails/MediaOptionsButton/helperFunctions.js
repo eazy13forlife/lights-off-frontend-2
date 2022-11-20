@@ -2,6 +2,8 @@ import moment from "moment";
 import axios from "axios";
 
 import { BACKEND_URL } from "../../../constants";
+import { checkIfMediaExists } from "../../../helperFunctions";
+
 //we will use this object to store the data required to make requests to our backend in order to save the imdb media to our database and then to be able to then ultimately add to favorites, seen,watch_next etc.
 const createBackendDataObject = (mediaData, mediaType) => {
   //user_upload is not true or doesnt exist in our mediaData object means it is imdb data. So, we are getting the necessary info from mediaData returned to us by imdb data and saving it in the keys that our backend takes in. (If I dont set user_account_id as null, a random one is generated and messes things up so set it). If imdb data, we only need to save certain things to our media database,in order to create the content card. When we actually want the media details of an imdb media we will call its api.
@@ -37,15 +39,8 @@ const createBackendDataObject = (mediaData, mediaType) => {
 //adds media to media database if not already in there
 const addMediaToDatabase = async (mediaData, authToken) => {
   try {
-    //check to see if media already exists in media database
-    const existInMediaResponse = await axios.head(
-      `${BACKEND_URL}/media/exists/${mediaData.media_id}`,
-      {
-        headers: {
-          Authorization: `Bearer ${authToken}`,
-        },
-      }
-    );
+    //check to see if media already exists in media database. If so, no error will be thrown because response status will be 200.
+    await checkIfMediaExists(BACKEND_URL, mediaData.media_id, authToken);
   } catch (e) {
     //if it doesnt exist, add to media database
     if (e.response.status === 404) {
