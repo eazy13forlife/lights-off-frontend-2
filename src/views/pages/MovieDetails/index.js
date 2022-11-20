@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import MediaDetails from "../../../components/MediaDetails";
 import useMediaDetails from "../../../hooks/useMediaDetails";
 import ContentPageLayout from "../../../components/ContentPageLayout";
+import Reviews from "../../../components/Reviews";
 import "../sharedStyles/movie-tv-details.scss";
 
 const MovieDetails = () => {
@@ -27,6 +28,7 @@ const MovieDetails = () => {
           castData={movieDetails.cast}
           mediaType="movie"
         />
+        <Reviews mediaId={movieId} />
       </ContentPageLayout>
     </div>
   );
