@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import useAllReviews from "./useAllReviews";
 import ReviewInput from "./ReviewInput";
@@ -7,10 +7,11 @@ import ReviewCard from "./ReviewCard/";
 import "./index.scss";
 
 const Reviews = ({ mediaId }) => {
-  const allReviews = useAllReviews(mediaId);
-  let renderedReviews;
+  const [justModified, setJustModified] = useState(false);
 
-  const getRenderedReviews = () => {
+  const allReviews = useAllReviews(mediaId, { justModified, setJustModified });
+
+  const getRenderedReviews = (mediaId, setJustModified) => {
     if (!allReviews) {
       return <p>Unable to retrieve reviews right now. Try again later</p>;
     }
@@ -26,6 +27,8 @@ const Reviews = ({ mediaId }) => {
           review={data.review}
           username={data.username}
           key={data.username}
+          mediaId={mediaId}
+          setJustModified={setJustModified}
         />
       );
     });
@@ -33,9 +36,11 @@ const Reviews = ({ mediaId }) => {
 
   return (
     <div className="Reviews">
-      <ReviewInput mediaId={mediaId} />
+      <ReviewInput mediaId={mediaId} setJustModified={setJustModified} />
       <h1 className="Reviews__heading heading-large ">All Reviews</h1>
-      <div className="Reviews__all">{getRenderedReviews()}</div>
+      <div className="Reviews__all">
+        {getRenderedReviews(mediaId, setJustModified)}
+      </div>
     </div>
   );
 };

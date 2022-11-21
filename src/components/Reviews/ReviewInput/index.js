@@ -3,12 +3,16 @@ import useReviewInputFunctions from "./useReviewInputFunctions";
 
 import "./index.scss";
 
-const ReviewInput = ({ mediaId }) => {
+const ReviewInput = ({ mediaId, setJustPosted }) => {
   const [review, setReview] = useState("");
 
   const [rating, setRating] = useState(1);
 
-  const postReview = useReviewInputFunctions(mediaId, { review, rating });
+  const postReview = useReviewInputFunctions(
+    mediaId,
+    { review, rating },
+    setJustPosted
+  );
 
   return (
     <div className="ReviewInput">
@@ -50,7 +54,15 @@ const ReviewInput = ({ mediaId }) => {
         className="ReviewInput__button Details__link Details__link--light heading-medium"
         type="submit"
         //set the review to empty and the ratng to 1 again
-        onClick={postReview}
+        onClick={async () => {
+          try {
+            await postReview();
+            setReview("");
+            setRating(1);
+          } catch (e) {
+            return;
+          }
+        }}
       >
         Submit
       </button>

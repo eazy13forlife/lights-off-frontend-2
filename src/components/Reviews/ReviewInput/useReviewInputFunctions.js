@@ -3,11 +3,11 @@ import axios from "axios";
 
 import { BACKEND_URL } from "../../../constants.js";
 
-const useReviewInputFunctions = (mediaId, data) => {
+const useReviewInputFunctions = (mediaId, data, setJustModified) => {
   const userInfo = useUserAuthorization();
 
   const postReview = async () => {
-    const response = await axios.post(
+    await axios.post(
       `${BACKEND_URL}/reviews/${mediaId}`,
       {
         review: data.review,
@@ -19,6 +19,8 @@ const useReviewInputFunctions = (mediaId, data) => {
         },
       }
     );
+
+    setJustModified(true);
   };
 
   return postReview;
