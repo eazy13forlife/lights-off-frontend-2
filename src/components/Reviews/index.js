@@ -34,8 +34,8 @@ const Reviews = ({ mediaId }) => {
   return (
     <div className="Reviews">
       <ReviewInput mediaId={mediaId} />
-      <h1 className="heading-large">All Reviews</h1>
-      {getRenderedReviews()}
+      <h1 className="Reviews__heading heading-large ">All Reviews</h1>
+      <div className="Reviews__all">{getRenderedReviews()}</div>
     </div>
   );
 };

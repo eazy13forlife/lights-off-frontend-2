@@ -5,9 +5,9 @@
   &__input {
     width: 100%;
     display: block;
-    padding: 1rem 1.5rem;
-    border-color: rgba(var(--color-light), 0.6);
-    background-color: rgba(var(--color-dark), 1);
+    padding: 1.5rem 1.5rem;
+    border: none;
+    background-color: rgba(var(--color-primary-light), 0.1);
     color: rgba(var(--color-light), 1);
     &::placeholder {
       color: rgba(var(--color-light), 1);
@@ -19,7 +19,6 @@
   }
   &__rating-box {
     margin-left: 1.5rem;
-  }
-  &__button {
+    font-size: var(--fs-550);
   }
 }

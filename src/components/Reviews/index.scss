@@ -1,5 +1,8 @@
 .Reviews {
   .ReviewInput {
-    margin-bottom: 5rem;
+  }
+  &__heading {
+    margin-top: 7rem;
+    margin-bottom: 3rem;
   }
 }

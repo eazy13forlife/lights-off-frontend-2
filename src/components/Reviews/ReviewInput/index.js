@@ -28,7 +28,7 @@ const ReviewInput = ({ mediaId }) => {
       <div className="ReviewInput__rating">
         <p className="heading-medium">Choose a rating:</p>
         <select
-          className="ReviewInput__rating-box heading-medium"
+          className="ReviewInput__rating-box"
           onChange={(e) => {
             setRating(e.target.value);
           }}

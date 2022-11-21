@@ -1,29 +1,44 @@
 .ReviewCard {
-  background-color: rgba(var(--color-primary-light), 1);
+  background-color: rgba(var(--color-primary-light), 0.1);
   border-radius: var(--border-radius-small);
   display: grid;
-  grid-template-columns: min-content min-content 1fr 1fr;
+  grid-template-columns: min-content min-content repeat(2, 1fr);
   grid-template-rows: repeat(3, min-content);
-  grid-column-gap: 1rem;
+  grid-column-gap: 1.5rem;
   grid-row-gap: 2rem;
+  align-items: center;
+  padding: 1rem 2rem;
+  &:not(:first-child) {
+    margin-top: 3rem;
+  }
   &__username {
     grid-row: 1/2;
-    grid-column: 1/4;
+    grid-column: 1/2;
+    font-style: italic;
+    font-size: var(--fs-550);
   }
   &__rating {
     grid-row: 1/2;
-    grid-column: 4/5;
+    grid-column: 2/3;
   }
   &__review {
     grid-row: 2/3;
     grid-column: 1/-1;
   }
-  &__edit {
-    grid-row: 3/4;
-    grid-column: 3/4;
-  }
-  &__delete {
+  &__buttons {
     grid-row: 3/4;
     grid-column: 4/5;
+    justify-self: end;
+  }
+  &__button {
+    cursor: pointer;
+    width: 15rem;
+  }
+  &__rating-top {
+    font-size: 3.5rem;
+    color: yellow;
+  }
+  &__rating-bottom {
+    font-size: 2.5rem;
   }
 }
