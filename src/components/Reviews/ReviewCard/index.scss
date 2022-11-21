@@ -1,0 +1,29 @@
+.ReviewCard {
+  background-color: rgba(var(--color-primary-light), 1);
+  border-radius: var(--border-radius-small);
+  display: grid;
+  grid-template-columns: min-content min-content 1fr 1fr;
+  grid-template-rows: repeat(3, min-content);
+  grid-column-gap: 1rem;
+  grid-row-gap: 2rem;
+  &__username {
+    grid-row: 1/2;
+    grid-column: 1/4;
+  }
+  &__rating {
+    grid-row: 1/2;
+    grid-column: 4/5;
+  }
+  &__review {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+  }
+  &__edit {
+    grid-row: 3/4;
+    grid-column: 3/4;
+  }
+  &__delete {
+    grid-row: 3/4;
+    grid-column: 4/5;
+  }
+}

@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import useReviewInputFunctions from "./useReviewInputFunctions";
 
 import "./index.scss";
 
-const ReviewInput = () => {
+const ReviewInput = ({ mediaId }) => {
   const [review, setReview] = useState("");
 
   const [rating, setRating] = useState(1);
+
+  const postReview = useReviewInputFunctions(mediaId, { review, rating });
 
   return (
     <div className="ReviewInput">
@@ -21,9 +24,15 @@ const ReviewInput = () => {
       >
         Add your review
       </textarea>
+
       <div className="ReviewInput__rating">
         <p className="heading-medium">Choose a rating:</p>
-        <select className="ReviewInput__rating-box heading-medium">
+        <select
+          className="ReviewInput__rating-box heading-medium"
+          onChange={(e) => {
+            setRating(e.target.value);
+          }}
+        >
           <option value={1}>1/10</option>
           <option value={2}>2/10</option>
           <option value={3}>3/10</option>
@@ -40,6 +49,8 @@ const ReviewInput = () => {
       <button
         className="ReviewInput__button Details__link Details__link--light heading-medium"
         type="submit"
+        //set the review to empty and the ratng to 1 again
+        onClick={postReview}
       >
         Submit
       </button>
