@@ -13,11 +13,15 @@ const Reviews = ({ mediaId }) => {
 
   const getRenderedReviews = (mediaId, setJustModified) => {
     if (!allReviews) {
-      return <p>Unable to retrieve reviews right now. Try again later</p>;
+      return (
+        <p className="heading-medium">
+          Unable to retrieve reviews right now. Try again later
+        </p>
+      );
     }
 
     if (!allReviews.length) {
-      return <p>No reviews yet.</p>;
+      return <p className="heading-medium">No reviews yet</p>;
     }
 
     return allReviews.map((data) => {

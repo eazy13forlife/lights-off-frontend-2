@@ -3,7 +3,7 @@ import useReviewInputFunctions from "./useReviewInputFunctions";
 
 import "./index.scss";
 
-const ReviewInput = ({ mediaId, setJustPosted }) => {
+const ReviewInput = ({ mediaId, setJustModified }) => {
   const [review, setReview] = useState("");
 
   const [rating, setRating] = useState(1);
@@ -11,7 +11,7 @@ const ReviewInput = ({ mediaId, setJustPosted }) => {
   const postReview = useReviewInputFunctions(
     mediaId,
     { review, rating },
-    setJustPosted
+    setJustModified
   );
 
   return (

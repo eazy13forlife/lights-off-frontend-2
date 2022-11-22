@@ -19,7 +19,9 @@ const useSearchData = (queryObject, searchFunction, dataModified) => {
       searchValue: queryObject.searchValue,
       totalNumberResults: response.data.total_results,
       totalNumberPages:
-        response.data.total_pages === 0 ? 1 : response.data.total_pages,
+        response.data.total_pages === 0
+          ? 1
+          : Math.min(500, response.data.total_pages),
       currentPage: queryObject.pageNumber,
     });
   };

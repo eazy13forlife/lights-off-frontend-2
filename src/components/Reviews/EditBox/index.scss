@@ -1,0 +1,12 @@
+.EditBox {
+  margin-top: 3rem;
+  border: 2px solid rgba(var(--color-primary-light), 1);
+  border-radius: var(--border-radius-small);
+  &__options {
+    padding: 0.5rem 1.5rem;
+    background-color: rgba(var(--color-primary-light), 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
