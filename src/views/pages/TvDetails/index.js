@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import MediaDetails from "../../../components/MediaDetails";
 import ContentPageLayout from "../../../components/ContentPageLayout";
 import useMediaDetails from "../../../hooks/useMediaDetails";
+import Reviews from "../../../components/Reviews";
 import "../sharedStyles/movie-tv-details.scss";
 
 const TvDetails = () => {
@@ -14,7 +15,7 @@ const TvDetails = () => {
   const tvDetails = useMediaDetails("tv", tvId);
 
   return (
-    <div className="TvDetails">
+    <div className="TvDetails color-light">
       <ContentPageLayout
         searchBarPlaceholder="Search for TV shows"
         onSearchSubmit={(e, searchValue) => {
@@ -27,6 +28,7 @@ const TvDetails = () => {
           castData={tvDetails.cast}
           mediaType="tv"
         />
+        <Reviews mediaId={tvId} mediaData={tvDetails.media} mediaType="tv" />
       </ContentPageLayout>
     </div>
   );

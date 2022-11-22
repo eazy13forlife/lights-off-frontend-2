@@ -3,14 +3,15 @@ import useReviewInputFunctions from "./useReviewInputFunctions";
 
 import "./index.scss";
 
-const ReviewInput = ({ mediaId, setJustModified }) => {
-  console.log("hey");
+const ReviewInput = ({ mediaId, setJustModified, mediaData, mediaType }) => {
   const [review, setReview] = useState("");
 
   const [rating, setRating] = useState(1);
 
   const postReview = useReviewInputFunctions(
     mediaId,
+    mediaData,
+    mediaType,
     { review, rating },
     setJustModified
   );

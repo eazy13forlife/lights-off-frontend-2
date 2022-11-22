@@ -6,7 +6,7 @@ import ReviewCard from "./ReviewCard/";
 import useShowReviewInput from "./useShowReviewInput";
 import "./index.scss";
 
-const Reviews = ({ mediaId }) => {
+const Reviews = ({ mediaId, mediaData, mediaType }) => {
   const [justModified, setJustModified] = useState(false);
 
   const allReviews = useAllReviews(mediaId, { justModified, setJustModified });
@@ -16,7 +16,12 @@ const Reviews = ({ mediaId }) => {
   const renderReviewInput = () => {
     if (showReviewInput.show) {
       return (
-        <ReviewInput mediaId={mediaId} setJustModified={setJustModified} />
+        <ReviewInput
+          mediaId={mediaId}
+          setJustModified={setJustModified}
+          mediaData={mediaData}
+          mediaType={mediaType}
+        />
       );
     }
 
@@ -53,7 +58,7 @@ const Reviews = ({ mediaId }) => {
   return (
     <div className="Reviews">
       {renderReviewInput()}
-      <h1 className="Reviews__heading heading-large ">All Reviews</h1>
+      <h1 className="Reviews__heading heading-large">All Reviews</h1>
       <div className="Reviews__all">
         {getRenderedReviews(mediaId, setJustModified)}
       </div>

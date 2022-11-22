@@ -49,6 +49,8 @@ const addMediaToDatabase = async (mediaData, authToken) => {
           Authorization: `Bearer ${authToken}`,
         },
       });
+    } else {
+      throw new Error(e);
     }
   }
 };
@@ -86,6 +88,8 @@ const addMediaToCategory = async (
       );
 
       setDisplayMessage("Added!");
+    } else {
+      throw new Error(e);
     }
   }
 };

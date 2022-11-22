@@ -28,7 +28,11 @@ const MovieDetails = () => {
           castData={movieDetails.cast}
           mediaType="movie"
         />
-        <Reviews mediaId={movieId} />
+        <Reviews
+          mediaId={movieId}
+          mediaData={movieDetails.media}
+          mediaType="movie"
+        />
       </ContentPageLayout>
     </div>
   );
