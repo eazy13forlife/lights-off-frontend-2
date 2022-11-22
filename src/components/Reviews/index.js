@@ -3,13 +3,25 @@ import React, { useState } from "react";
 import useAllReviews from "./useAllReviews";
 import ReviewInput from "./ReviewInput";
 import ReviewCard from "./ReviewCard/";
-
+import useShowReviewInput from "./useShowReviewInput";
 import "./index.scss";
 
 const Reviews = ({ mediaId }) => {
   const [justModified, setJustModified] = useState(false);
 
   const allReviews = useAllReviews(mediaId, { justModified, setJustModified });
+
+  const showReviewInput = useShowReviewInput(mediaId, justModified);
+
+  const renderReviewInput = () => {
+    if (showReviewInput.show) {
+      return (
+        <ReviewInput mediaId={mediaId} setJustModified={setJustModified} />
+      );
+    }
+
+    return <p className="heading-medium">{showReviewInput.message}</p>;
+  };
 
   const getRenderedReviews = (mediaId, setJustModified) => {
     if (!allReviews) {
@@ -40,7 +52,7 @@ const Reviews = ({ mediaId }) => {
 
   return (
     <div className="Reviews">
-      <ReviewInput mediaId={mediaId} setJustModified={setJustModified} />
+      {renderReviewInput()}
       <h1 className="Reviews__heading heading-large ">All Reviews</h1>
       <div className="Reviews__all">
         {getRenderedReviews(mediaId, setJustModified)}

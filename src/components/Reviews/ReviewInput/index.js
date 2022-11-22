@@ -4,6 +4,7 @@ import useReviewInputFunctions from "./useReviewInputFunctions";
 import "./index.scss";
 
 const ReviewInput = ({ mediaId, setJustModified }) => {
+  console.log("hey");
   const [review, setReview] = useState("");
 
   const [rating, setRating] = useState(1);
