@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import axios from "axios";
+
 import { onButtonClick } from "./helperFunctions";
 import "./index.scss";
 

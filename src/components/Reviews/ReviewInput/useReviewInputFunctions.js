@@ -1,9 +1,11 @@
 import useUserAuthorization from "../../../hooks/useUserAuthorization";
 import axios from "axios";
 
-import { checkIfMediaExists } from "../../../helperFunctions";
+import {
+  checkIfMediaExists,
+  createBackendDataObject,
+} from "../../../helperFunctions";
 import { BACKEND_URL } from "../../../constants.js";
-import { createBackendDataObject } from "../../MediaDetails/MediaOptionsButton/helperFunctions";
 
 const useReviewInputFunctions = (
   mediaId,

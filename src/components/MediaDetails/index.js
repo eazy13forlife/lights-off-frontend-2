@@ -6,7 +6,7 @@ import RenderedGenres from "./RenderedGenres";
 import RenderedSpecificContent from "./RenderedSpecificContent";
 import blankMedia from "../../images/cinema-clapboard.jpg";
 import MediaOptionsButton from "./MediaOptionsButton";
-import { createBackendDataObject } from "./MediaOptionsButton/helperFunctions";
+import { createBackendDataObject } from "../../helperFunctions";
 import useDelayUnmount from "../../hooks/useDelayUnmount";
 import "./index.scss";
 
