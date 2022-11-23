@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { MdMovie } from "react-icons/md";
 import { BsFilm, BsBookmark } from "react-icons/bs";
 import { CgScreen, CgPlayTrackNext } from "react-icons/cg";
@@ -8,9 +9,12 @@ import { BsPencilSquare } from "react-icons/bs";
 import { BsPersonFill } from "react-icons/bs";
 
 import IconLink from "./IconLink/IconLink";
+import useLogoff from "./useLogoff";
 import "./index.scss";
 
 const Sidebar = () => {
+  const logoff = useLogoff();
+
   return (
     <div className="Sidebar">
       <IconLink path="/" pathPatterns={["/", "/search"]}>
@@ -72,6 +76,19 @@ const Sidebar = () => {
       <IconLink path="/my-reviews" pathPatterns={["/my-reviews"]}>
         <BsPencilSquare />
       </IconLink>
+
+      <button
+        className="Sidebar__text-button body-small"
+        onClick={async () => {
+          try {
+            await logoff();
+          } catch (e) {
+            console.log(e);
+          }
+        }}
+      >
+        Log off
+      </button>
     </div>
   );
 };

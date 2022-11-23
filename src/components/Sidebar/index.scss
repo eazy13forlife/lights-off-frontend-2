@@ -7,6 +7,17 @@
   background-color: rgba(var(--color-primary), 1);
   border-radius: var(--border-radius-medium);
   position: sticky;
+  &__text-button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: rgba(var(--color-light), 1);
+    margin-top: auto;
+    text-transform: capitalize;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
   &__link {
     &:not(:first-child) {
       margin-top: 5rem;
