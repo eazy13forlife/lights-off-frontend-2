@@ -67,7 +67,7 @@ const ReviewInput = ({ mediaId, setJustModified, mediaData, mediaType }) => {
               setReview("");
               setRating(1);
             } catch (e) {
-              setErrorMessage("Unable to post review.");
+              setErrorMessage("Unable to post review");
             }
           }}
         >
@@ -77,7 +77,7 @@ const ReviewInput = ({ mediaId, setJustModified, mediaData, mediaType }) => {
 
       {errorMessage ? (
         <MessageModal
-          message="Unable to post review"
+          message={errorMessage}
           close={() => {
             setErrorMessage("");
           }}

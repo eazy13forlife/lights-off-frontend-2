@@ -12,6 +12,7 @@
   background-color: rgba(var(--color-light), 1);
   animation: slideDownIntoView 500ms ease-in;
   &__button {
+    cursor: pointer;
     background-color: transparent;
     border: none;
     margin-left: 2rem;
