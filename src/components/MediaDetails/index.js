@@ -8,26 +8,13 @@ import blankMedia from "../../images/cinema-clapboard.jpg";
 import MediaOptionsButton from "./MediaOptionsButton";
 import { createBackendDataObject } from "../../helperFunctions";
 import useDelayUnmount from "../../hooks/useDelayUnmount";
+import useDisplayMessage from "../../hooks/useDisplayMessage";
 import "./index.scss";
 
 const Details = ({ mediaData, castData, mediaType }) => {
-  const [displayMessage, setDisplayMessage] = useState("");
+  const [displayMessage, setDisplayMessage] = useDisplayMessage("");
 
   const shouldShowDisplayMessage = useDelayUnmount(displayMessage, 0);
-
-  useEffect(() => {
-    let timerId;
-
-    if (displayMessage) {
-      timerId = setTimeout(() => {
-        setDisplayMessage(false);
-      }, 2000);
-    }
-
-    return () => {
-      clearTimeout(timerId);
-    };
-  }, [displayMessage]);
 
   //if no media currently, don't show anything on screen.
   if (!Object.values(mediaData).length) {

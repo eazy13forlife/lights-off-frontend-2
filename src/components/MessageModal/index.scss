@@ -1,9 +1,9 @@
 .MessageModal {
-  position: absolute;
+  position: fixed;
   top: 14rem;
   left: 50%;
   transform: translatex(-50%);
-  width: 28rem;
+  padding: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,11 +14,8 @@
   &__button {
     background-color: transparent;
     border: none;
-    margin-top: 0.4rem;
-    cursor: pointer;
-    position: absolute;
-    right: 0.5rem;
-    top: 0;
+    margin-left: 2rem;
+    line-height: 0rem;
   }
   &__icon {
     font-size: 3rem;
