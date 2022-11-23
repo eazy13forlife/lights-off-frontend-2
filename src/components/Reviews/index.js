@@ -4,6 +4,7 @@ import useAllReviews from "./useAllReviews";
 import ReviewInput from "./ReviewInput";
 import ReviewCard from "./ReviewCard/";
 import useShowReviewInput from "./useShowReviewInput";
+import useUserAuthorization from "../../hooks/useUserAuthorization";
 import "./index.scss";
 
 const Reviews = ({ mediaId, mediaData, mediaType }) => {
@@ -12,6 +13,8 @@ const Reviews = ({ mediaId, mediaData, mediaType }) => {
   const allReviews = useAllReviews(mediaId, { justModified, setJustModified });
 
   const showReviewInput = useShowReviewInput(mediaId, justModified);
+
+  const userInfo = useUserAuthorization();
 
   const renderReviewInput = () => {
     if (showReviewInput.show) {
@@ -41,18 +44,38 @@ const Reviews = ({ mediaId, mediaData, mediaType }) => {
       return <p className="heading-medium">No reviews yet</p>;
     }
 
-    return allReviews.map((data) => {
-      return (
-        <ReviewCard
-          rating={data.rating}
-          review={data.review}
-          username={data.username}
-          key={data.username}
-          mediaId={mediaId}
-          setJustModified={setJustModified}
-        />
-      );
+    let userReview;
+    //get an array of all the ReviewCards for each review, except for the user Review. We
+    //just save that because we want it firs in the array. So we unshift it at the very end.
+    const reviews = allReviews.map((data) => {
+      if (data.username !== userInfo.username) {
+        return (
+          <ReviewCard
+            rating={data.rating}
+            review={data.review}
+            username={data.username}
+            key={data.username}
+            mediaId={mediaId}
+            setJustModified={setJustModified}
+          />
+        );
+      } else {
+        userReview = (
+          <ReviewCard
+            rating={data.rating}
+            review={data.review}
+            username={data.username}
+            key={data.username}
+            mediaId={mediaId}
+            setJustModified={setJustModified}
+          />
+        );
+      }
     });
+
+    reviews.unshift(userReview);
+
+    return reviews;
   };
 
   return (
