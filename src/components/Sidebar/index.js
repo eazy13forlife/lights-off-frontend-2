@@ -85,7 +85,7 @@ const Sidebar = () => {
       </IconLink>
 
       <button
-        className="Sidebar__text-button body-small"
+        className="Sidebar__text-button body-small color-primary-light"
         onClick={async () => {
           try {
             const response = await dispatch(logoutUser());

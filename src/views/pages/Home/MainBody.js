@@ -13,8 +13,16 @@ const MainBody = () => {
         content={renderedMovies}
         linkTo="/movies/trending/?page=1"
       />
-      <ContentGroup title="Trending TV" content={renderedTv} />
-      <ContentGroup title="Trending People" content={renderedPeople} />
+      <ContentGroup
+        title="Trending TV"
+        content={renderedTv}
+        linkTo="/tv/trending/?page=1"
+      />
+      <ContentGroup
+        title="Trending People"
+        content={renderedPeople}
+        linkTo="/people/trending/?page=1"
+      />
     </div>
   );
 };
