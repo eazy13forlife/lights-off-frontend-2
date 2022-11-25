@@ -9,17 +9,18 @@ import { AiOutlineDownload } from "react-icons/ai";
 import { BsPencilSquare } from "react-icons/bs";
 import { BsPersonFill } from "react-icons/bs";
 
-import { logoutUser } from "../../actions";
+import { logoutUser, removeLogoutError } from "../../actions";
+import MessageModal from "../MessageModal";
 import IconLink from "./IconLink/IconLink";
-import useLogoff from "./useLogoff";
+import useLogoutError from "./useLogoutError";
 import "./index.scss";
 
 const Sidebar = () => {
-  const logoff = useLogoff();
-
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
+
+  const logoutErrorBackend = useLogoutError();
 
   return (
     <div className="Sidebar">
@@ -87,15 +88,26 @@ const Sidebar = () => {
         className="Sidebar__text-button body-small"
         onClick={async () => {
           try {
-            await dispatch(logoutUser());
-            navigate("/login");
+            const response = await dispatch(logoutUser());
+            if (response === "success") {
+              navigate("/login");
+            }
           } catch (e) {
-            console.log(e);
+            return;
           }
         }}
       >
         Log off
       </button>
+
+      {logoutErrorBackend ? (
+        <MessageModal
+          message={logoutErrorBackend}
+          close={() => {
+            dispatch(removeLogoutError());
+          }}
+        />
+      ) : null}
     </div>
   );
 };

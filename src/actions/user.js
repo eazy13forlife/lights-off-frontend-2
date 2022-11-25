@@ -67,6 +67,8 @@ const logoutUser = () => {
       });
 
       dispatch(removeLogoutError());
+
+      return "success";
     } catch (e) {
       dispatch(sendLogoutError());
     }
@@ -104,4 +106,4 @@ const removeLoginError = () => {
   };
 };
 
-export { createUser, loginUser, logoutUser };
+export { createUser, loginUser, logoutUser, removeLogoutError };

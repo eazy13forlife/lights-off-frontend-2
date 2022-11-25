@@ -1,4 +1,4 @@
-import { createUser, loginUser, logoutUser } from "./user";
+import { createUser, loginUser, logoutUser, removeLogoutError } from "./user";
 import getTrending from "./allTrending";
 
-export { createUser, loginUser, getTrending, logoutUser };
+export { createUser, loginUser, getTrending, logoutUser, removeLogoutError };
