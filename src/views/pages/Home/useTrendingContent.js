@@ -1,30 +1,64 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+import apiKeys from "../../../api";
 import ContentCard from "../../../components/ContentCard";
 
 const useTrendingContent = () => {
-  const trendingMovies = useSelector((state) => {
-    return state.trending.movies || [];
+  const [trending, setTrending] = useState({
+    movies: [],
+    tv: [],
+    people: [],
   });
 
-  const trendingTv = useSelector((state) => {
-    return state.trending.tv || [];
-  });
+  useEffect(() => {
+    const getTrendingMovies = async () => {
+      const response = await axios.get(
+        `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKeys.theMovieDb}`
+      );
+      return response.data.results;
+      //setTrending(response.data.results.slice(0, 8));
+    };
 
-  const trendingPeople = useSelector((state) => {
-    return state.trending.people || [];
-  });
+    const getTrendingTv = async () => {
+      const response = await axios.get(
+        `https://api.themoviedb.org/3/trending/tv/day?api_key=${apiKeys.theMovieDb}`
+      );
+
+      return response.data.results;
+    };
+
+    const getTrendingPeople = async () => {
+      const response = await axios.get(
+        `https://api.themoviedb.org/3/trending/person/day?api_key=${apiKeys.theMovieDb}`
+      );
+
+      return response.data.results;
+    };
+
+    Promise.all([
+      getTrendingMovies(),
+      getTrendingTv(),
+      getTrendingPeople(),
+    ]).then((results) => {
+      setTrending({
+        movies: results[0],
+        tv: results[1],
+        people: results[2],
+      });
+    });
+  }, []);
 
   //get jsx of rendered movies,tv and people
-  const renderedMovies = trendingMovies.map((media) => {
+  const renderedMovies = trending.movies.map((media) => {
     return <ContentCard data={media} key={media.id} />;
   });
 
-  const renderedTv = trendingTv.map((media) => {
+  const renderedTv = trending.tv.map((media) => {
     return <ContentCard data={media} key={media.id} />;
   });
 
-  const renderedPeople = trendingPeople.map((media) => {
+  const renderedPeople = trending.people.map((media) => {
     return <ContentCard data={media} key={media.id} />;
   });
 
