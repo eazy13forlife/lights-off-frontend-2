@@ -27,6 +27,12 @@ const userInfoReducer = (state = initialState, action) => {
       return newUserInfo;
     }
 
+    case types.LOGOUT_USER: {
+      localStorage.removeItem("userInfo");
+
+      return null;
+    }
+
     default:
       return state;
   }

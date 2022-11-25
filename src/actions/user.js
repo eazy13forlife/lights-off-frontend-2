@@ -47,6 +47,44 @@ const loginUser = (userData) => {
   };
 };
 
+const logoutUser = () => {
+  return async (dispatch, getState) => {
+    try {
+      const userInfo = getState().userInfo;
+
+      await axios.post(
+        `${BACKEND_URL}/users/logout`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${userInfo.authToken}`,
+          },
+        }
+      );
+
+      dispatch({
+        type: types.LOGOUT_USER,
+      });
+
+      dispatch(removeLogoutError());
+    } catch (e) {
+      dispatch(sendLogoutError());
+    }
+  };
+};
+
+const sendLogoutError = () => {
+  return {
+    type: types.SEND_LOGOUT_ERROR,
+  };
+};
+
+const removeLogoutError = () => {
+  return {
+    type: types.REMOVE_LOGOUT_ERROR,
+  };
+};
+
 const sendCreateUserError = (message) => {
   return {
     type: types.SEND_CREATE_USER_ERROR,
@@ -66,4 +104,4 @@ const removeLoginError = () => {
   };
 };
 
-export { createUser, loginUser };
+export { createUser, loginUser, logoutUser };

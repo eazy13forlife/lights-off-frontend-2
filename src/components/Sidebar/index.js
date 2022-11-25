@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { MdMovie } from "react-icons/md";
 import { BsFilm, BsBookmark } from "react-icons/bs";
 import { CgScreen, CgPlayTrackNext } from "react-icons/cg";
@@ -8,12 +9,17 @@ import { AiOutlineDownload } from "react-icons/ai";
 import { BsPencilSquare } from "react-icons/bs";
 import { BsPersonFill } from "react-icons/bs";
 
+import { logoutUser } from "../../actions";
 import IconLink from "./IconLink/IconLink";
 import useLogoff from "./useLogoff";
 import "./index.scss";
 
 const Sidebar = () => {
   const logoff = useLogoff();
+
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   return (
     <div className="Sidebar">
@@ -81,7 +87,8 @@ const Sidebar = () => {
         className="Sidebar__text-button body-small"
         onClick={async () => {
           try {
-            await logoff();
+            await dispatch(logoutUser());
+            navigate("/login");
           } catch (e) {
             console.log(e);
           }
