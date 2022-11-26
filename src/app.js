@@ -34,6 +34,7 @@ import TvGenreWrapper from "./views/pages/TvGenreWrapper";
 import TvDetails from "./views/pages/TvDetails";
 import Uploads from "../src/views/pages/Uploads";
 import WatchNext from "../src/views/pages/WatchNext";
+import WatchNextSearch from "../src/views/pages/WatchNextSearch";
 import Media from "../src/views/pages/Media";
 import Login from "./views/pages/Login";
 import SignUp from "./views/pages/SignUp";
@@ -312,6 +313,14 @@ const App = () => {
           element={
             <ProtectedRoute>
               <WatchNext />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="watch-next/search"
+          element={
+            <ProtectedRoute>
+              <WatchNextSearch />
             </ProtectedRoute>
           }
         />

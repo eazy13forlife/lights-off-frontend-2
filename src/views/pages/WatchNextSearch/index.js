@@ -1,25 +1,27 @@
 import React, { useState } from "react";
-
-import WatchNextPageLayout from "../../../components/WatchNextPageLayout";
 import { useSearchParams } from "react-router-dom";
-import useSearchResponse from "./useSearchResponse";
-import { BACKEND_URL } from "../../../constants";
+
+//import useSearchData from "./useSearchData";
+import WatchNextPageLayout from "../../../components/WatchNextPageLayout";
 import PaginatedContentGroup from "../../../components/PaginatedContentGroup";
 import useOnPageButtonClick from "./useOnPageButtonClick";
 import useSearchDataModified from "../../../hooks/useSearchDataModified";
-const WatchNext = () => {
+import useSearchResponse from "./useSearchResponse";
+import { BACKEND_URL } from "../../../constants";
+
+const SeenSearch = () => {
   const [dataModified, setDataModified] = useState(false);
 
   const [searchParams] = useSearchParams();
 
-  const onPageButtonClick = useOnPageButtonClick();
+  const searchValue = searchParams.get("name");
 
-  const page = +searchParams.get("page");
+  const pageNumber = searchParams.get("page");
 
   const getSearchResponse = useSearchResponse();
 
   const [searchData] = useSearchDataModified(
-    { pageNumber: page },
+    { searchValue: searchValue, pageNumber: +pageNumber },
     getSearchResponse,
     {
       modified: dataModified,
@@ -27,15 +29,17 @@ const WatchNext = () => {
     }
   );
 
+  const onPageButtonClick = useOnPageButtonClick();
+
   return (
-    <div className="WatchNext">
+    <div className="WatchNextSearch">
       <WatchNextPageLayout>
         <PaginatedContentGroup
           {...searchData}
-          subject="Watch Next"
+          subject={searchData.searchValue}
           onPageButtonClick={onPageButtonClick}
           removable={{
-            base: `${BACKEND_URL}/watch-next`,
+            base: `${BACKEND_URL}/watch-next`, //base url to delete a seen item
             updateData() {
               setDataModified(true);
             },
@@ -46,4 +50,4 @@ const WatchNext = () => {
   );
 };
 
-export default WatchNext;
+export default SeenSearch;
