@@ -3,15 +3,15 @@ import { useNavigate } from "react-router-dom";
 
 import ContentPageLayout from "../ContentPageLayout";
 
-const FavoritesPageLayout = ({ children }) => {
+const SeenPageLayout = ({ children }) => {
   const navigate = useNavigate();
 
   return (
     <ContentPageLayout
-      searchBarPlaceholder="Search in favorites.."
+      searchBarPlaceholder="Search in seen.."
       onSearchSubmit={(e, searchValue) => {
         e.preventDefault();
-        navigate(`/favorites/search/?name=${searchValue}&page=1`);
+        navigate(`/seen/search/?name=${searchValue}&page=1`);
       }}
     >
       {children}
@@ -19,4 +19,4 @@ const FavoritesPageLayout = ({ children }) => {
   );
 };
 
-export default FavoritesPageLayout;
+export default SeenPageLayout;

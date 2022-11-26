@@ -1,26 +1,27 @@
 import React, { useState } from "react";
-
-import SeenPageLayout from "../../../components/SeenPageLayout";
 import { useSearchParams } from "react-router-dom";
-import useSearchResponse from "./useSearchResponse";
-import useSearchDataModified from "../../../hooks/useSearchDataModified";
-import { BACKEND_URL } from "../../../constants";
+
+//import useSearchData from "./useSearchData";
+import SeenPageLayout from "../../../components/SeenPageLayout";
 import PaginatedContentGroup from "../../../components/PaginatedContentGroup";
 import useOnPageButtonClick from "./useOnPageButtonClick";
+import useSearchDataModified from "../../../hooks/useSearchDataModified";
+import useSearchResponse from "./useSearchResponse";
+import { BACKEND_URL } from "../../../constants";
 
-const Seen = () => {
+const SeenSearch = () => {
   const [dataModified, setDataModified] = useState(false);
 
   const [searchParams] = useSearchParams();
 
-  const onPageButtonClick = useOnPageButtonClick();
+  const searchValue = searchParams.get("name");
 
-  const page = +searchParams.get("page");
+  const pageNumber = searchParams.get("page");
 
   const getSearchResponse = useSearchResponse();
 
   const [searchData] = useSearchDataModified(
-    { pageNumber: page },
+    { searchValue: searchValue, pageNumber: +pageNumber },
     getSearchResponse,
     {
       modified: dataModified,
@@ -28,15 +29,17 @@ const Seen = () => {
     }
   );
 
+  const onPageButtonClick = useOnPageButtonClick();
+
   return (
-    <div className="Seen">
+    <div className="SeenSearch">
       <SeenPageLayout>
         <PaginatedContentGroup
           {...searchData}
-          subject="Seen"
+          subject={searchData.searchValue}
           onPageButtonClick={onPageButtonClick}
           removable={{
-            base: `${BACKEND_URL}/seen`,
+            base: `${BACKEND_URL}/seen`, //base url to delete a seen item
             updateData() {
               setDataModified(true);
             },
@@ -47,4 +50,4 @@ const Seen = () => {
   );
 };
 
-export default Seen;
+export default SeenSearch;

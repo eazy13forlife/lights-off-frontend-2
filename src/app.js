@@ -23,6 +23,7 @@ import PeopleTrending from "./views/pages/PeopleTrending";
 import Person from "./views/pages/Person";
 import MyReviews from "../src/views/pages/MyReviews";
 import Seen from "../src/views/pages/Seen";
+import SeenSearch from "../src/views/pages/SeenSearch";
 import TvHome from "./views/pages/TvHome";
 import TvSearch from "./views/pages/TvSearch";
 import TvPopular from "./views/pages/TvPopular";
@@ -183,6 +184,14 @@ const App = () => {
           element={
             <ProtectedRoute>
               <Seen />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="seen/search"
+          element={
+            <ProtectedRoute>
+              <SeenSearch />
             </ProtectedRoute>
           }
         />
