@@ -6,6 +6,7 @@ import ProtectedRoute from "../src/views/ProtectedRoute";
 import Home from "../src/views/pages/Home";
 import HomeSearch from "../src/views/pages/HomeSearch";
 import Favorites from "../src/views/pages/Favorites";
+import FavoritesSearch from "../src/views/pages/FavoritesSearch";
 import MoviesHome from "./views/pages/MoviesHome";
 import MoviesSearch from "./views/pages/MoviesSearch";
 import MovieDetails from "./views/pages/MovieDetails";
@@ -78,6 +79,14 @@ const App = () => {
           element={
             <ProtectedRoute>
               <Favorites />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="favorites/search"
+          element={
+            <ProtectedRoute>
+              <FavoritesSearch />
             </ProtectedRoute>
           }
         />

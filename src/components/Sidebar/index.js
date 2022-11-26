@@ -64,7 +64,10 @@ const Sidebar = () => {
         <BsPersonFill />
       </IconLink>
 
-      <IconLink path="/favorites/?page=1" pathPatterns={["/favorites"]}>
+      <IconLink
+        path="/favorites/?page=1"
+        pathPatterns={["/favorites", "/favorites/search"]}
+      >
         <BsBookmark />
       </IconLink>
 

@@ -1,28 +1,27 @@
 import React, { useState } from "react";
-import { useSearchParams, useNavigate } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
-import { BACKEND_URL } from "../../../constants";
-import useSearchResponse from "./useSearchResponse";
-import useSearchDataModified from "../../../hooks/useSearchDataModified";
+//import useSearchData from "./useSearchData";
 import FavoritesPageLayout from "../../../components/FavoritesPageLayout";
 import PaginatedContentGroup from "../../../components/PaginatedContentGroup";
 import useOnPageButtonClick from "./useOnPageButtonClick";
+import useSearchDataModified from "../../../hooks/useSearchDataModified";
+import useSearchResponse from "./useSearchResponse";
+import { BACKEND_URL } from "../../../constants";
 
-const Favorites = () => {
-  const navigate = useNavigate();
-
+const FavoritesSearch = () => {
   const [dataModified, setDataModified] = useState(false);
 
   const [searchParams] = useSearchParams();
 
-  const onPageButtonClick = useOnPageButtonClick();
+  const searchValue = searchParams.get("name");
 
-  const page = +searchParams.get("page");
+  const pageNumber = searchParams.get("page");
 
   const getSearchResponse = useSearchResponse();
 
   const [searchData] = useSearchDataModified(
-    { pageNumber: page },
+    { searchValue: searchValue, pageNumber: +pageNumber },
     getSearchResponse,
     {
       modified: dataModified,
@@ -30,15 +29,17 @@ const Favorites = () => {
     }
   );
 
+  const onPageButtonClick = useOnPageButtonClick();
+
   return (
-    <div className="Favorites">
+    <div className="FavoritesSearch">
       <FavoritesPageLayout>
         <PaginatedContentGroup
           {...searchData}
-          subject="Favorites"
+          subject={searchData.searchValue}
           onPageButtonClick={onPageButtonClick}
           removable={{
-            base: `${BACKEND_URL}/favorites`,
+            base: `${BACKEND_URL}/favorites`, //base url to delete a favorited item
             updateData() {
               setDataModified(true);
             },
@@ -49,4 +50,4 @@ const Favorites = () => {
   );
 };
 
-export default Favorites;
+export default FavoritesSearch;
