@@ -1,23 +1,34 @@
+@use "../../styles/abstracts";
+
 .ContentPageLayout {
   min-height: 100vh;
   padding: 3rem;
   padding-bottom: 10rem;
   background-color: rgba(var(--color-dark), 1);
   overflow: scroll;
+  @include abstracts.respondMax(abstracts.$mobile-large) {
+    padding: 2rem;
+  }
   &__main {
     position: relative;
     padding: 0rem 9rem;
     margin-left: 15rem;
+    margin-top: 8rem;
     .PagesButtons {
       margin: 8rem auto 0rem auto;
     }
+    @include abstracts.respondMax(abstracts.$desktop-medium) {
+      padding: 0rem 3rem;
+    }
+    @include abstracts.respondMax(abstracts.$desktop-small) {
+      margin-left: 0rem;
+      padding: 0rem;
+    }
   }
   .Sidebar {
-    top: 5rem;
+    top: 12rem;
+    height: 85vh;
     position: fixed;
-    height: 90vh;
-  }
-  .SearchBar {
-    margin-top: 2rem;
+    z-index: 8;
   }
 }

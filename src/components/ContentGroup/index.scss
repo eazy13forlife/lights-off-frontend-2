@@ -1,3 +1,5 @@
+@use "../../styles/abstracts";
+
 .ContentGroupContainer {
   .ContentGroup {
     &:not(:first-child) {
@@ -15,11 +17,14 @@
   &__link {
     text-decoration: none;
     text-transform: capitalize;
-    font-size: 2.3rem;
+    font-size: 2rem;
     font-weight: 300;
     color: rgba(var(--color-primary-light), 1);
     &:hover {
       text-decoration: underline;
+    }
+    @include abstracts.respondMax(abstracts.$tablet-small) {
+      font-size: 1.5rem;
     }
   }
   &__all-media {
@@ -28,6 +33,9 @@
     grid-template-columns: repeat(5, 1fr);
     grid-column-gap: 1.5rem;
     grid-row-gap: 3rem;
+    @include abstracts.respondMax(abstracts.$desktop-medium) {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
   }
   &__blank {
     margin-top: 3rem;

@@ -2,6 +2,7 @@ import React from "react";
 
 import Sidebar from "../Sidebar";
 import Searchbar from "../SearchBar";
+import Header from "../Header";
 import "./index.scss";
 
 const ContentPageLayout = ({
@@ -11,6 +12,7 @@ const ContentPageLayout = ({
 }) => {
   return (
     <div className="ContentPageLayout">
+      <Header />
       <Sidebar />
       <div className="ContentPageLayout__main">
         <Searchbar

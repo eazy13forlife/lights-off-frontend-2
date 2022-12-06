@@ -1,3 +1,5 @@
+@use "../../styles/abstracts";
+
 .SearchBar {
   width: 100%;
   &__form {
@@ -5,17 +7,23 @@
     height: 100%;
   }
   &__button {
-    width: 5rem;
+    margin-right: 1.5rem;
     border: none;
     background-color: transparent;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     cursor: pointer;
+    @include abstracts.respondMax(abstracts.$mobile-large) {
+      display: none;
+    }
   }
   &__icon {
     font-size: 3rem;
     color: rgba(var(--color-light), 1);
+    @include abstracts.respondMax(abstracts.$tablet-small) {
+      font-size: 2rem;
+    }
   }
   &__input {
     background-color: transparent;
@@ -27,6 +35,12 @@
     caret-color: rgba(var(--color-secondary), 1);
     &::placeholder {
       color: rgba(var(--color-light), 0.7);
+    }
+    @include abstracts.respondMax(abstracts.$tablet-small) {
+      font-size: 2rem;
+    }
+    @include abstracts.respondMax(abstracts.$mobile-large) {
+      font-size: 1.75rem;
     }
   }
 }
