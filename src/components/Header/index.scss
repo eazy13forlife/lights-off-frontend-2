@@ -13,5 +13,8 @@
     font-size: 5.7rem;
     color: rgba(var(--color-secondary), 1);
     text-transform: uppercase;
+    @include abstracts.respondMax(abstracts.$mobile-large) {
+      font-size: 4.7rem;
+    }
   }
 }

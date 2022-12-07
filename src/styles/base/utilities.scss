@@ -1,8 +1,13 @@
+@use "../abstracts";
+
 .container {
   max-width: 144rem;
   margin: 0 auto;
   padding: 0rem 4rem;
   height: 100%;
+  @include abstracts.respondMax(abstracts.$tablet-large) {
+    padding: 0rem 1.5rem;
+  }
 }
 
 .logo {
