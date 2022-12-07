@@ -1,3 +1,5 @@
+@use "../../styles/abstracts";
+
 .Sidebar {
   padding: 3rem;
   display: flex;
@@ -80,6 +82,9 @@
     right: 3rem;
     top: 2.7rem;
     z-index: 8;
+    @include abstracts.respondMax(abstracts.$mobile-large) {
+      top: 2rem;
+    }
   }
   &__hamburger {
     display: block;
@@ -95,7 +100,7 @@
       height: 0.3rem;
       background-color: rgba(var(--color-secondary), 1);
       left: 0;
-      transition: transform 200ms ease-in;
+      transition: transform 800ms ease-in;
     }
     &::before {
       bottom: 1rem;

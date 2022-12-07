@@ -1,3 +1,5 @@
+@use "../../styles/abstracts";
+
 .PagesButtons {
   width: 53rem;
   height: 5rem;
@@ -5,6 +7,16 @@
   border-radius: var(--border-radius-small);
   display: flex;
   overflow: hidden;
+  @include abstracts.respondMax(abstracts.$tablet) {
+    width: 50rem;
+  }
+  @include abstracts.respondMax(abstracts.$tablet-small) {
+    border: none;
+    height: auto;
+    flex-direction: column;
+    width: 100%;
+  }
+
   &__screen {
     background-color: rgba(var(--color-light), 1);
     display: flex;
@@ -12,6 +24,14 @@
     justify-content: center;
     flex: 1 0 0;
     padding: 0rem 1rem;
+    @include abstracts.respondMax(abstracts.$tablet-small) {
+      width: 30rem;
+      align-self: center;
+      border-radius: var(--border-radius-small);
+      height: 48rem;
+      justify-self: stretch;
+      margin: 1rem 0rem 1rem 0rem;
+    }
   }
   &__number-screen {
     text-align: center;
@@ -36,6 +56,26 @@
         color: rgba(var(--color-dark), 1);
         border: 1px solid rgba(var(--color-dark), 0.4);
       }
+    }
+    &--left {
+      @include abstracts.respondMax(abstracts.$tablet-small) {
+        align-self: flex-start;
+      }
+      @include abstracts.respondMax(abstracts.$mobile-large) {
+        justify-content: flex-start;
+      }
+    }
+    &--right {
+      @include abstracts.respondMax(abstracts.$tablet-small) {
+        align-self: flex-end;
+      }
+      @include abstracts.respondMax(abstracts.$mobile-large) {
+        justify-content: flex-end;
+      }
+    }
+    @include abstracts.respondMax(abstracts.$mobile-large) {
+      padding: 1rem 1rem;
+      width: auto;
     }
   }
   &__icon {

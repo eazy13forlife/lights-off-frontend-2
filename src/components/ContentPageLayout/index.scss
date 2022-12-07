@@ -22,7 +22,7 @@
     }
     @include abstracts.respondMax(abstracts.$desktop-small) {
       margin-left: 0rem;
-      padding: 0rem;
+      padding: 0rem 0rem 5rem 0rem;
     }
   }
   .Sidebar {

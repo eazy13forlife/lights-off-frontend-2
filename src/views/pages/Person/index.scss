@@ -1,6 +1,20 @@
+@use "../../../styles/abstracts";
+
 .Person {
+  &__details-main {
+    display: flex;
+    @include abstracts.respondMax(abstracts.$tablet-large) {
+      flex-direction: column;
+      text-align: left;
+    }
+  }
   &__buttons {
     margin-top: 8rem;
+    @include abstracts.respondMax(abstracts.$tablet-small) {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
   &__button {
     cursor: pointer;
@@ -12,6 +26,10 @@
     box-shadow: 0 1rem 2rem rgba(var(--color-light), 0.1);
     &:not(:first-child) {
       margin-left: 3rem;
+      @include abstracts.respondMax(abstracts.$tablet-small) {
+        margin-left: 0rem;
+        margin-top: 2rem;
+      }
     }
 
     &:active {
@@ -19,6 +37,10 @@
     }
     &--active {
       border: 2px solid rgba(var(--color-light), 1);
+    }
+    @include abstracts.respondMax(abstracts.$tablet-small) {
+      margin-left: 0rem;
+      width: 25rem;
     }
   }
   .ContentGroup {
