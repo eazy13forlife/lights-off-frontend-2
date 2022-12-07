@@ -28,9 +28,11 @@
       width: 30rem;
       align-self: center;
       border-radius: var(--border-radius-small);
-      height: 48rem;
       justify-self: stretch;
       margin: 1rem 0rem 1rem 0rem;
+    }
+    @include abstracts.respondMax(abstracts.$mobile) {
+      width: 100%;
     }
   }
   &__number-screen {
@@ -39,6 +41,11 @@
     height: 3rem;
     margin-left: 1rem;
     margin-right: 1rem;
+    @include abstracts.respondMax(abstracts.$tablet-small) {
+      border-top: none;
+      border-bottom: none;
+      border-color: rgba(var(--color-primary), 1);
+    }
   }
   &__button {
     color: rgba(var(--color-light), 1);

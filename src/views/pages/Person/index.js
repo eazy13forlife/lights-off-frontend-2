@@ -54,50 +54,52 @@ const Person = () => {
       >
         <PersonDetails data={details} />
 
-        <div className="Person__buttons">
-          <button
-            className={`Person__button ${
-              creditType === "movie" ? "Person__button--active" : null
-            }`}
-            onClick={() => {
-              setCreditType("movie");
-            }}
-          >
-            <span className="Person__button-text Details__body-text">
-              Get Movie Credits
-            </span>
-          </button>
-          <button
-            className={`Person__button ${
-              creditType === "tv" ? "Person__button--active" : null
-            }`}
-            onClick={() => {
-              setCreditType("tv");
-            }}
-          >
-            <span className="Person__button-text Details__body-text">
-              Get TV Credits
-            </span>
-          </button>
+        <div className="container">
+          <div className="Person__buttons">
+            <button
+              className={`Person__button ${
+                creditType === "movie" ? "Person__button--active" : null
+              }`}
+              onClick={() => {
+                setCreditType("movie");
+              }}
+            >
+              <span className="Person__button-text Details__body-text">
+                Get Movie Credits
+              </span>
+            </button>
+            <button
+              className={`Person__button ${
+                creditType === "tv" ? "Person__button--active" : null
+              }`}
+              onClick={() => {
+                setCreditType("tv");
+              }}
+            >
+              <span className="Person__button-text Details__body-text">
+                Get TV Credits
+              </span>
+            </button>
+          </div>
+
+          {creditType === "movie" ? (
+            <PaginatedContentGroup2
+              content={renderedMovieCredits}
+              itemsPerPage={15}
+              mediaType="movie"
+              subject="All Movie Credits"
+            />
+          ) : null}
+
+          {creditType === "tv" ? (
+            <PaginatedContentGroup2
+              content={renderedTVCredits}
+              itemsPerPage={15}
+              mediaType="tv"
+              subject="All TV Credits"
+            />
+          ) : null}
         </div>
-
-        {creditType === "movie" ? (
-          <PaginatedContentGroup2
-            content={renderedMovieCredits}
-            itemsPerPage={15}
-            mediaType="movie"
-            subject="All Movie Credits"
-          />
-        ) : null}
-
-        {creditType === "tv" ? (
-          <PaginatedContentGroup2
-            content={renderedTVCredits}
-            itemsPerPage={15}
-            mediaType="tv"
-            subject="All TV Credits"
-          />
-        ) : null}
       </ContentPageLayout>
     </div>
   );

@@ -13,7 +13,7 @@ import "./index.scss";
 
 const Details = ({ mediaData, castData, mediaType }) => {
   const [displayMessage, setDisplayMessage] = useDisplayMessage("");
-  console.log(mediaData);
+
   const shouldShowDisplayMessage = useDelayUnmount(displayMessage, 0);
 
   //if no media currently, don't show anything on screen.
