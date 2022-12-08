@@ -11,6 +11,15 @@ const usePersonDetails = (personId) => {
     tv: [],
   });
 
+  const addUniqueCredits = (seenCredits, allCredits, mediaObj) => {
+    mediaObj.forEach((obj) => {
+      if (!(obj.id in seenCredits)) {
+        seenCredits[obj.id] = true;
+        allCredits.push(obj);
+      }
+    });
+  };
+
   useEffect(() => {
     const getPersonDetails = async () => {
       const response = await axios.get(
@@ -33,19 +42,35 @@ const usePersonDetails = (personId) => {
     };
 
     const getMovieCredits = async () => {
+      const moviesSeen = {};
+
+      const allCredits = [];
+
       const response = await axios.get(
         `https://api.themoviedb.org/3/person/${personId}/movie_credits?api_key=${apiKeys.theMovieDb}&language=en-US`
       );
 
-      return [...response.data.cast, ...response.data.crew];
+      addUniqueCredits(moviesSeen, allCredits, response.data.cast);
+
+      addUniqueCredits(moviesSeen, allCredits, response.data.crew);
+
+      return allCredits;
     };
 
     const getTvCredits = async () => {
+      const tvSeen = {};
+
+      const allCredits = [];
+
       const response = await axios.get(
         `https://api.themoviedb.org/3/person/${personId}/tv_credits?api_key=${apiKeys.theMovieDb}&language=en-US`
       );
 
-      return [...response.data.cast, ...response.data.crew];
+      addUniqueCredits(tvSeen, allCredits, response.data.cast);
+
+      addUniqueCredits(tvSeen, allCredits, response.data.crew);
+
+      return allCredits;
     };
 
     getPersonDetails();
