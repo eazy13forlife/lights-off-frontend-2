@@ -87,6 +87,7 @@ const Sidebar = () => {
             "movie/:id",
             "/movies/trending",
             "/movies/top_rated",
+            "/movies/now_playing",
             "/movies/popular",
             "/movies/upcoming",
           ]}

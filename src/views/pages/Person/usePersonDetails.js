@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import moment from "moment";
 
 import apiKeys from "../../../api";
 
@@ -50,10 +51,27 @@ const usePersonDetails = (personId) => {
         `https://api.themoviedb.org/3/person/${personId}/movie_credits?api_key=${apiKeys.theMovieDb}&language=en-US`
       );
 
+      //add all the unique credits to an array
       addUniqueCredits(moviesSeen, allCredits, response.data.cast);
 
       addUniqueCredits(moviesSeen, allCredits, response.data.crew);
 
+      //sort credits by latest credits first
+      allCredits.sort((a, b) => {
+        if (!a.release_date || !b.release_date) {
+          return 1;
+        }
+
+        if (moment(a.release_date).unix() > moment(b.release_date).unix()) {
+          return -1;
+        } else if (
+          moment(a.release_date).unix() < moment(b.release_date).unix()
+        ) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
       return allCredits;
     };
 
@@ -69,6 +87,23 @@ const usePersonDetails = (personId) => {
       addUniqueCredits(tvSeen, allCredits, response.data.cast);
 
       addUniqueCredits(tvSeen, allCredits, response.data.crew);
+
+      //sort credits by latest credits first
+      allCredits.sort((a, b) => {
+        if (!a.first_air_date || !b.first_air_date) {
+          return 1;
+        }
+
+        if (moment(a.first_air_date).unix() > moment(b.first_air_date).unix()) {
+          return -1;
+        } else if (
+          moment(a.first_air_date).unix() < moment(b.first_air_date).unix()
+        ) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
 
       return allCredits;
     };
