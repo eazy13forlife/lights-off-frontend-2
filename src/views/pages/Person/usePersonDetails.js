@@ -58,7 +58,13 @@ const usePersonDetails = (personId) => {
 
       //sort credits by latest credits first
       allCredits.sort((a, b) => {
-        if (!a.release_date || !b.release_date) {
+        //if a has a release date and b doesn't show a first so -1
+        if (a.release_date && !b.release_date) {
+          return -1;
+        }
+
+        //if a doesnt have a release date and b does, show b first so 1
+        if (!a.release_date && b.release_date) {
           return 1;
         }
 
@@ -90,7 +96,11 @@ const usePersonDetails = (personId) => {
 
       //sort credits by latest credits first
       allCredits.sort((a, b) => {
-        if (!a.first_air_date || !b.first_air_date) {
+        if (a.first_air_date && !b.first_air_date) {
+          return -1;
+        }
+
+        if (!a.first_air_date && b.first_air_date) {
           return 1;
         }
 
