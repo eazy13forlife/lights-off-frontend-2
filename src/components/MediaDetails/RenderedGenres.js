@@ -18,7 +18,15 @@ const RenderedGenres = ({ genres }) => {
     });
   }
 
-  return <>{renderedGenres}</>;
+  const getGenres = () => {
+    if (renderedGenres.length) {
+      return renderedGenres;
+    }
+
+    return <p className="Details__body-text">N/A</p>;
+  };
+
+  return getGenres();
 };
 
 export default RenderedGenres;

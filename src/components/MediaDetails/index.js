@@ -80,7 +80,7 @@ const Details = ({ mediaData, castData, mediaType }) => {
               </div>
             ) : null}
 
-            <div className="Details__group Details__horizontal">
+            <div className="Details__group Details__grid">
               {RenderedSpecificContent(mediaData, mediaType)}
             </div>
 

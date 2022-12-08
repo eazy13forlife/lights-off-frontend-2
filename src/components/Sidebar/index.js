@@ -124,11 +124,11 @@ const Sidebar = () => {
         <IconLink path="/seen/?page=1" pathPatterns={["/seen", "/seen/search"]}>
           <GoEye />
         </IconLink>
-
+        {/*
         <IconLink path="/uploads" pathPatterns={["/uploads"]}>
           <AiOutlineDownload />
         </IconLink>
-
+        */}
         <IconLink
           path="/watch-next/?page=1"
           pathPatterns={["/watch-next", "/watch-next/search"]}
@@ -136,10 +136,11 @@ const Sidebar = () => {
           <CgPlayTrackNext className="Sidebar__link--next" />
         </IconLink>
 
+        {/*}
         <IconLink path="/my-reviews" pathPatterns={["/my-reviews"]}>
           <BsPencilSquare />
         </IconLink>
-
+      */}
         <button
           className="Sidebar__text-button body-small color-primary-light"
           onClick={async () => {

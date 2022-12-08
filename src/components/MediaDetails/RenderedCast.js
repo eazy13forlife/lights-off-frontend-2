@@ -14,7 +14,15 @@ const RenderedCast = ({ cast }) => {
     );
   });
 
-  return <>{renderedCast}</>;
+  return (
+    <>
+      {renderedCast.length ? (
+        renderedCast
+      ) : (
+        <p className="Details__body-text">N/A</p>
+      )}
+    </>
+  );
 };
 
 export default RenderedCast;

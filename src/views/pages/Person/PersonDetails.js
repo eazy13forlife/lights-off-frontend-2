@@ -53,7 +53,7 @@ const PersonDetails = ({ data }) => {
               </div>
             ) : null}
 
-            <div className="Details__group Details__horizontal">
+            <div className="Details__group Details__grid">
               <div className="Details__about">
                 <p className="Details__subject">Birthday</p>
                 <p className="Details__body-text">
