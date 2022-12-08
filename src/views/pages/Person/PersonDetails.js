@@ -3,7 +3,6 @@ import moment from "moment";
 import blankPerson from "../../../images/blank-person.jpg";
 
 const PersonDetails = ({ data }) => {
-  console.log(data);
   if (!Object.values(data).length) {
     return null;
   }
@@ -54,7 +53,7 @@ const PersonDetails = ({ data }) => {
               </div>
             ) : null}
 
-            <div className="Details__group Details__grid">
+            <div className="Details__group Details__grid-person">
               <div className="Details__about">
                 <p className="Details__subject">Birthday</p>
                 <p className="Details__body-text">

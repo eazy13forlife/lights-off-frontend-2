@@ -8,7 +8,12 @@
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
-
+  @include abstracts.respondMax(abstracts.$tablet-small) {
+    padding: 2rem 2em 15rem 2rem;
+  }
+  @include abstracts.respondMax(abstracts.$mobile-large) {
+    padding: 1.5rem 1.5rem 15rem 1.5rem;
+  }
   &__main {
     position: relative;
     padding: 0rem 9rem;

@@ -107,6 +107,18 @@
       width: 100%;
     }
   }
+  &__grid-person {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    grid-column-gap: 0.5rem;
+    grid-row-gap: 2rem;
+    @include abstracts.respondMax(abstracts.$tablet-large) {
+      grid-template-columns: repeat(auto-fit, minmax(16rem, max-content));
+      width: 100%;
+      grid-column-gap: 5rem;
+      justify-content: center;
+    }
+  }
   &__horizontal--space-between {
     justify-content: space-between;
     align-items: center;
