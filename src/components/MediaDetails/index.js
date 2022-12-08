@@ -86,7 +86,7 @@ const Details = ({ mediaData, castData, mediaType }) => {
 
             <div className="Details__group">
               <p className="Details__subject">Genres</p>
-              <div className="Details__genres ">
+              <div className="Details__genres">
                 {<RenderedGenres genres={mediaData.genres} />}
               </div>
             </div>

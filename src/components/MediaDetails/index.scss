@@ -138,6 +138,9 @@
   &__genres {
     display: flex;
     flex-wrap: wrap;
+    @include abstracts.respondMax(abstracts.$tablet-large) {
+      justify-content: center;
+    }
   }
   &__link {
     display: inline-block;

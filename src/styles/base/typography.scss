@@ -20,7 +20,7 @@
   font-weight: 300;
   line-height: 3.024rem;
   @include abstracts.respondMax(abstracts.$mobile) {
-    font-size: var(--fs-450);
+    font-size: var(--fs-500);
     line-height: 2.016rem;
   }
 }

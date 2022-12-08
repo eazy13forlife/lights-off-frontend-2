@@ -3,6 +3,7 @@ import moment from "moment";
 import blankPerson from "../../../images/blank-person.jpg";
 
 const PersonDetails = ({ data }) => {
+  console.log(data);
   if (!Object.values(data).length) {
     return null;
   }

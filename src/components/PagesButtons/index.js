@@ -33,44 +33,46 @@ const PagesButtons = ({
   }, [currentPage]);
 
   return (
-    <div className="PagesButtons heading-extra-small">
-      <button
-        className={`PagesButtons__button ${getLeftButtonHoverClass()} PagesButtons__button--left`}
-        onClick={onPreviousClick}
-      >
-        <GoArrowLeft className="PagesButtons__icon PagesButtons__icon--left" />
-        <span>Previous</span>
-      </button>
-
-      <div className="PagesButtons__screen">
-        <span>Page</span>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            onDirectPageNumberChange(pageNumberToDisplay);
-          }}
+    <div className="PagesButtons__container">
+      <div className="PagesButtons heading-extra-small">
+        <button
+          className={`PagesButtons__button ${getLeftButtonHoverClass()} PagesButtons__button--left`}
+          onClick={onPreviousClick}
         >
-          <input
-            type="text"
-            value={pageNumberToDisplay}
-            className="PagesButtons__number-screen"
-            onChange={(e) => {
-              setPageNumberToDisplay(e.target.value);
+          <GoArrowLeft className="PagesButtons__icon PagesButtons__icon--left" />
+          <span>Previous</span>
+        </button>
+
+        <div className="PagesButtons__screen">
+          <span>Page</span>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              onDirectPageNumberChange(pageNumberToDisplay);
             }}
-          />
-        </form>
+          >
+            <input
+              type="text"
+              value={pageNumberToDisplay}
+              className="PagesButtons__number-screen"
+              onChange={(e) => {
+                setPageNumberToDisplay(e.target.value);
+              }}
+            />
+          </form>
 
-        <span>{`of ${totalPages}`}</span>
-        {/*<p>{`Page ${currentPage} of ${totalPages}`} </p>*/}
+          <span>{`of ${totalPages}`}</span>
+          {/*<p>{`Page ${currentPage} of ${totalPages}`} </p>*/}
+        </div>
+
+        <button
+          className={`PagesButtons__button ${getRightButtonHoverClass()} PagesButtons__button--right`}
+          onClick={onNextClick}
+        >
+          <span>Next</span>
+          <GoArrowRight className="PagesButtons__icon PagesButtons__icon--right" />
+        </button>
       </div>
-
-      <button
-        className={`PagesButtons__button ${getRightButtonHoverClass()} PagesButtons__button--right`}
-        onClick={onNextClick}
-      >
-        <span>Next</span>
-        <GoArrowRight className="PagesButtons__icon PagesButtons__icon--right" />
-      </button>
     </div>
   );
 };

@@ -2,33 +2,37 @@
 
 .ContentPageLayout {
   min-height: 100vh;
-  padding: 3rem;
-  padding-bottom: 10rem;
+  padding: 3rem 3rem 15rem 3rem;
+  position: relative;
   background-color: rgba(var(--color-dark), 1);
-  overflow: scroll;
-  @include abstracts.respondMax(abstracts.$mobile-large) {
-    padding: 2rem;
-  }
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+
   &__main {
     position: relative;
     padding: 0rem 9rem;
     margin-left: 15rem;
     margin-top: 8rem;
-    .PagesButtons {
-      margin: 8rem auto 0rem auto;
+    flex: 1 0 0;
+    .PagesButtons__container {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translatex(-50%);
     }
     @include abstracts.respondMax(abstracts.$desktop-medium) {
       padding: 0rem 3rem;
     }
     @include abstracts.respondMax(abstracts.$desktop-small) {
       margin-left: 0rem;
-      padding: 0rem 0rem 5rem 0rem;
+      padding: 0rem;
     }
   }
   .Sidebar {
     top: 12rem;
     height: 85vh;
-    position: fixed;
+    position: absolute;
     z-index: 8;
   }
 }

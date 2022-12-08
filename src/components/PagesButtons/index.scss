@@ -1,20 +1,27 @@
 @use "../../styles/abstracts";
 
-.PagesButtons {
+.PagesButtons__container {
+  padding-top: 5rem;
+  padding-bottom: 10rem;
   width: 53rem;
+  @include abstracts.respondMax(abstracts.$tablet) {
+    width: 50rem;
+  }
+  @include abstracts.respondMax(abstracts.$tablet-small) {
+    width: 100%;
+    padding-bottom: 7rem;
+  }
+}
+.PagesButtons {
   height: 5rem;
   border: 2px solid rgba(var(--color-light), 1);
   border-radius: var(--border-radius-small);
   display: flex;
   overflow: hidden;
-  @include abstracts.respondMax(abstracts.$tablet) {
-    width: 50rem;
-  }
   @include abstracts.respondMax(abstracts.$tablet-small) {
     border: none;
     height: auto;
     flex-direction: column;
-    width: 100%;
   }
 
   &__screen {
