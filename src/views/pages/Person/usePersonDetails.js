@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 import apiKeys from "../../../api";
@@ -37,7 +37,7 @@ const usePersonDetails = (personId) => {
         `https://api.themoviedb.org/3/person/${personId}/movie_credits?api_key=${apiKeys.theMovieDb}&language=en-US`
       );
 
-      return response.data.cast;
+      return [...response.data.cast, ...response.data.crew];
     };
 
     const getTvCredits = async () => {
@@ -45,7 +45,7 @@ const usePersonDetails = (personId) => {
         `https://api.themoviedb.org/3/person/${personId}/tv_credits?api_key=${apiKeys.theMovieDb}&language=en-US`
       );
 
-      return response.data.cast;
+      return [...response.data.cast, ...response.data.crew];
     };
 
     getPersonDetails();
