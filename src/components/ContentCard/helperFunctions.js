@@ -1,3 +1,5 @@
+import moment from "moment";
+
 import blankPerson from "../../images/blank-person.jpg";
 import blankMedia from "../../images/cinema-clapboard.jpg";
 
@@ -29,4 +31,14 @@ const getImageSrc = (data) => {
   }
 };
 
-export { getOnClickLink, getImageSrc };
+const getReleaseDate = (data) => {
+  if (data.media_type === "movie") {
+    return data.release_date ? moment(data.release_date).year() : "N/A";
+  }
+
+  if (data.media_type === "tv") {
+    return data.first_air_date ? moment(data.first_air_date).year() : "N/A";
+  }
+};
+
+export { getOnClickLink, getImageSrc, getReleaseDate };

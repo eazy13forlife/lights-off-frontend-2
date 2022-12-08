@@ -1,7 +1,7 @@
 import React from "react";
 import { FiFilm } from "react-icons/fi";
 import { FaTv } from "react-icons/fa";
-import moment from "moment";
+import { getReleaseDate } from "./helperFunctions";
 
 const DescriptionContent = ({ data }) => {
   if (data.media_type === "person") {
@@ -18,11 +18,7 @@ const DescriptionContent = ({ data }) => {
   if (data.media_type === "movie" || data.media_type === "tv") {
     return (
       <>
-        <p className="capitalize body-medium">
-          {data.media_type === "movie"
-            ? moment(data.release_date).year()
-            : moment(data.first_air_date).year()}
-        </p>
+        <p className="capitalize body-medium">{getReleaseDate(data)}</p>
 
         <div className="ContentCard__media-type">
           {data.media_type === "movie" ? (

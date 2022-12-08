@@ -16,7 +16,9 @@ const RenderedSpecificContent = (mediaData, mediaType) => {
         <div className="Details__about">
           <p className="Details__subject">Year</p>
           <p className="Details__body-text">
-            {moment(mediaData.release_date).year()}
+            {mediaData.releaseDate
+              ? moment(mediaData.release_date).year()
+              : "N/A"}
           </p>
         </div>
       </>
