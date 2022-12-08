@@ -26,6 +26,8 @@ const MovieDetails = () => {
         <MediaDetails
           mediaData={movieDetails.media}
           castData={movieDetails.cast}
+          directorData={movieDetails.directors}
+          writerData={movieDetails.writers}
           mediaType="movie"
         />
         <Reviews

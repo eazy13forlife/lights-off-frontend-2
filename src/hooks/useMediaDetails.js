@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import apiKeys from "../api";
 import axios from "axios";
 
@@ -6,6 +6,8 @@ const useMediaDetails = (mediaType, mediaId) => {
   const [mediaDetails, setMediaDetails] = useState({
     media: {},
     cast: [],
+    directors: [],
+    writers: [],
   });
 
   useEffect(() => {
@@ -17,18 +19,50 @@ const useMediaDetails = (mediaType, mediaId) => {
       return response.data;
     };
 
-    const getCastDetails = async () => {
+    const getCreditsDetails = async () => {
       const creditsResponse = await axios.get(
         `https://api.themoviedb.org/3/${mediaType}/${mediaId}/credits?api_key=${apiKeys.theMovieDb}&language=en-US`
       );
 
-      return creditsResponse.data.cast;
+      return creditsResponse.data;
     };
 
-    Promise.all([getMediaDetails(), getCastDetails()]).then((results) => {
+    Promise.all([getMediaDetails(), getCreditsDetails()]).then((results) => {
+      //get all the directors and writers from the credits object
+      const directors = [];
+
+      //multiple writers appear many times so let's keep track of them
+      const writersSeen = {};
+
+      const writers = [];
+
+      results[1].crew.forEach((crewObj) => {
+        if (mediaType === "movie") {
+          if (crewObj.job === "Director") {
+            directors.push(crewObj);
+          }
+        }
+
+        if (mediaType === "tv") {
+          if (crewObj.known_for_department === "Directing") {
+            directors.push(crewObj);
+          }
+        }
+
+        //only add writer to writers array if we haven't added that writer yet
+        if (crewObj.known_for_department === "Writing") {
+          if (!(crewObj.id in writersSeen)) {
+            writersSeen[crewObj.id] = true;
+            writers.push(crewObj);
+          }
+        }
+      });
+
       setMediaDetails({
         media: results[0],
-        cast: results[1],
+        cast: results[1].cast,
+        directors: directors,
+        writers: writers,
       });
     });
   }, []);

@@ -1,23 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const RenderedCast = ({ cast }) => {
-  const renderedCast = cast.map((castObject, index) => {
+const RenderedCredits = ({ data }) => {
+  const renderedCredits = data.map((dataObject, index) => {
     return (
       <Link
-        to={`/person/${castObject.id}`}
+        to={`/person/${dataObject.id}`}
         className="Details__link Details__link--dark"
         key={index}
       >
-        <span className="Details__link-text">{castObject.name}</span>
+        <span className="Details__link-text">{dataObject.name}</span>
       </Link>
     );
   });
 
   return (
     <>
-      {renderedCast.length ? (
-        renderedCast
+      {renderedCredits.length ? (
+        renderedCredits
       ) : (
         <p className="Details__body-text">N/A</p>
       )}
@@ -25,4 +25,4 @@ const RenderedCast = ({ cast }) => {
   );
 };
 
-export default RenderedCast;
+export default RenderedCredits;

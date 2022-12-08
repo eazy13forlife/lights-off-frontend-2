@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import MessageModal from "../MessageModal";
-import RenderedCast from "./RenderedCast";
+import RenderedCredits from "./RenderedCredits";
 import RenderedGenres from "./RenderedGenres";
 import RenderedSpecificContent from "./RenderedSpecificContent";
 import blankMedia from "../../images/cinema-clapboard.jpg";
@@ -11,7 +11,13 @@ import useDelayUnmount from "../../hooks/useDelayUnmount";
 import useDisplayMessage from "../../hooks/useDisplayMessage";
 import "./index.scss";
 
-const Details = ({ mediaData, castData, mediaType }) => {
+const Details = ({
+  mediaData,
+  castData,
+  directorData,
+  writerData,
+  mediaType,
+}) => {
   const [displayMessage, setDisplayMessage] = useDisplayMessage("");
 
   const shouldShowDisplayMessage = useDelayUnmount(displayMessage, 0);
@@ -99,9 +105,23 @@ const Details = ({ mediaData, castData, mediaType }) => {
           </div>
 
           <div className="Details__group">
+            <p className="Details__subject">Directors</p>
+            <div className="Details__directors">
+              {<RenderedCredits data={directorData} />}
+            </div>
+          </div>
+
+          <div className="Details__group">
+            <p className="Details__subject">Writers</p>
+            <div className="Details__directors">
+              {<RenderedCredits data={writerData} />}
+            </div>
+          </div>
+
+          <div className="Details__group">
             <p className="Details__subject">Cast</p>
             <div className="Details__cast">
-              {<RenderedCast cast={castData} />}
+              {<RenderedCredits data={castData} />}
             </div>
           </div>
         </div>
