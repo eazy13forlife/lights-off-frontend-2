@@ -109,14 +109,25 @@
   }
   &__grid-person {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    grid-template-columns: minmax(min-content, 16rem) minmax(7rem, 1fr) minmax(
+        16rem,
+        1fr
+      );
     grid-column-gap: 0.5rem;
     grid-row-gap: 2rem;
+    align-items: center;
     @include abstracts.respondMax(abstracts.$tablet-large) {
       grid-template-columns: repeat(auto-fit, minmax(16rem, max-content));
       width: 100%;
       grid-column-gap: 5rem;
       justify-content: center;
+    }
+    .line {
+      position: relative;
+      right: 1.1rem;
+      @include abstracts.respondMax(abstracts.$tablet-large) {
+        display: none;
+      }
     }
   }
   &__horizontal--space-between {

@@ -63,6 +63,12 @@ const PersonDetails = ({ data }) => {
                 </p>
               </div>
 
+              <div className="line">
+                <div className="line__circle"></div>
+                <div className="line__line"></div>
+                <div className="line__circle"></div>
+              </div>
+
               <div className="Details__about">
                 <p className="Details__subject">Place of Birth</p>
                 <p className="Details__body-text">
