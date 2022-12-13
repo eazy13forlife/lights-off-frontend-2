@@ -1,4 +1,3 @@
-import React from "react";
 import { useLocation, matchPath } from "react-router-dom";
 
 const useMatchedRoute = (pathPatterns) => {
