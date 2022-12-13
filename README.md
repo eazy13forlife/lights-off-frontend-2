@@ -1,6 +1,9 @@
 # Lights Off
 Lights Off is going to be a fully responsive, full stack movie/tv show application with a bunch of fun features.
 
+## Live Site
+https://vercel.com/eazy13forlife/lights-off-frontend
+
 ## My Current Idea
 * So the frontend will have a clean, dark but bold look and organized in a netflix-type style, where we can see  current movies, tv shows and click for more information
 * A user can search for whatever it is they are looking for. I'll probably use themoviedb/imdbapi for this.
