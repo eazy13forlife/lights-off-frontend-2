@@ -24,7 +24,7 @@ const usePersonDetails = (personId) => {
   useEffect(() => {
     const getPersonDetails = async () => {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/person/${personId}?api_key=${apiKeys.theMovieDb}&language=en-US`
+        `https://api.themoviedb.org/3/person/${personId}?api_key=${process.env.REACT_APP_MOVIE_DB_API}&language=en-US`
       );
 
       setDetails(response.data);
@@ -36,7 +36,7 @@ const usePersonDetails = (personId) => {
   useEffect(() => {
     const getPersonDetails = async () => {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/person/${personId}?api_key=${apiKeys.theMovieDb}&language=en-US`
+        `https://api.themoviedb.org/3/person/${personId}?api_key=${process.env.REACT_APP_MOVIE_DB_API}&language=en-US`
       );
 
       setDetails(response.data);
@@ -48,7 +48,7 @@ const usePersonDetails = (personId) => {
       const allCredits = [];
 
       const response = await axios.get(
-        `https://api.themoviedb.org/3/person/${personId}/movie_credits?api_key=${apiKeys.theMovieDb}&language=en-US`
+        `https://api.themoviedb.org/3/person/${personId}/movie_credits?api_key=${process.env.REACT_APP_MOVIE_DB_API}&language=en-US`
       );
 
       //add all the unique credits to an array
@@ -87,7 +87,7 @@ const usePersonDetails = (personId) => {
       const allCredits = [];
 
       const response = await axios.get(
-        `https://api.themoviedb.org/3/person/${personId}/tv_credits?api_key=${apiKeys.theMovieDb}&language=en-US`
+        `https://api.themoviedb.org/3/person/${personId}/tv_credits?api_key=${process.env.REACT_APP_MOVIE_DB_API}&language=en-US`
       );
 
       addUniqueCredits(tvSeen, allCredits, response.data.cast);

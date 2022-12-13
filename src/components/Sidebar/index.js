@@ -5,8 +5,6 @@ import { MdMovie } from "react-icons/md";
 import { BsFilm, BsBookmark } from "react-icons/bs";
 import { CgScreen, CgPlayTrackNext } from "react-icons/cg";
 import { GoEye } from "react-icons/go";
-import { AiOutlineDownload } from "react-icons/ai";
-import { BsPencilSquare } from "react-icons/bs";
 import { BsPersonFill } from "react-icons/bs";
 
 import { logoutUser, removeLogoutError } from "../../actions";

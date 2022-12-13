@@ -13,7 +13,7 @@ const usePopularPeople = () => {
   useEffect(() => {
     const getTrendingPeople = async () => {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/trending/person/day?api_key=${apiKeys.theMovieDb}`
+        `https://api.themoviedb.org/3/trending/person/day?api_key=${process.env.REACT_APP_MOVIE_DB_API}`
       );
 
       return response.data.results;
@@ -21,7 +21,7 @@ const usePopularPeople = () => {
 
     const getPopularPeople = async () => {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/person/popular?api_key=${apiKeys.theMovieDb}&language=en-US`
+        `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_MOVIE_DB_API}&language=en-US`
       );
 
       return response.data.results;

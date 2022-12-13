@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 //queryObject needs to take in searchValue and pageNumber keys as we will perform api
 //requests with these two values. We might need more though.

@@ -13,7 +13,7 @@ const useMediaDetails = (mediaType, mediaId) => {
   useEffect(() => {
     const getMediaDetails = async () => {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/${mediaType}/${mediaId}?api_key=${apiKeys.theMovieDb}&language=en-US`
+        `https://api.themoviedb.org/3/${mediaType}/${mediaId}?api_key=${process.env.REACT_APP_MOVIE_DB_API}&language=en-US`
       );
 
       return response.data;
@@ -21,7 +21,7 @@ const useMediaDetails = (mediaType, mediaId) => {
 
     const getCreditsDetails = async () => {
       const creditsResponse = await axios.get(
-        `https://api.themoviedb.org/3/${mediaType}/${mediaId}/credits?api_key=${apiKeys.theMovieDb}&language=en-US`
+        `https://api.themoviedb.org/3/${mediaType}/${mediaId}/credits?api_key=${process.env.REACT_APP_MOVIE_DB_API}&language=en-US`
       );
 
       return creditsResponse.data;

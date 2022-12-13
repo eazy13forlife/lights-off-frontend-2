@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
 import PeoplePageLayout from "../../../components/PeoplePageLayout";
 import usePopularPeople from "./usePopularPeople";

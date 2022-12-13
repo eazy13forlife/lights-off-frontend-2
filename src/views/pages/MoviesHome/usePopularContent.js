@@ -16,7 +16,7 @@ const usePopularContent = () => {
   useEffect(() => {
     const getTopRated = async () => {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKeys.theMovieDb}&language=en-US&page=1`
+        `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_MOVIE_DB_API}&language=en-US&page=1`
       );
       return response.data.results.slice(0, 10);
       //setTopRated(response.data.results.slice(0, 8));
@@ -24,7 +24,7 @@ const usePopularContent = () => {
 
     const getNowPlaying = async () => {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKeys.theMovieDb}&language=en-US&page=1`
+        `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_MOVIE_DB_API}&language=en-US&page=1`
       );
       return response.data.results.slice(0, 10);
       //setNowPlaying(response.data.results.slice(0, 8));
@@ -32,7 +32,7 @@ const usePopularContent = () => {
 
     const getPopular = async () => {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=${apiKeys.theMovieDb}&language=en-US&page=1`
+        `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_MOVIE_DB_API}&language=en-US&page=1`
       );
       return response.data.results.slice(0, 10);
       //setPopular(response.data.results.slice(0, 8));
@@ -40,7 +40,7 @@ const usePopularContent = () => {
 
     const getUpcoming = async () => {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKeys.theMovieDb}&language=en-US&page=1`
+        `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_MOVIE_DB_API}&language=en-US&page=1`
       );
       return response.data.results.slice(0, 10);
       //setUpcoming(response.data.results.slice(0, 8));
@@ -48,7 +48,7 @@ const usePopularContent = () => {
 
     const getTrending = async () => {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKeys.theMovieDb}`
+        `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_MOVIE_DB_API}`
       );
       return response.data.results.slice(0, 10);
       //setTrending(response.data.results.slice(0, 8));

@@ -14,7 +14,7 @@ const useTrendingContent = () => {
   useEffect(() => {
     const getTrendingMovies = async () => {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKeys.theMovieDb}`
+        `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_MOVIE_DB_API}`
       );
       return response.data.results;
       //setTrending(response.data.results.slice(0, 8));
@@ -22,7 +22,7 @@ const useTrendingContent = () => {
 
     const getTrendingTv = async () => {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/trending/tv/day?api_key=${apiKeys.theMovieDb}`
+        `https://api.themoviedb.org/3/trending/tv/day?api_key=${process.env.REACT_APP_MOVIE_DB_API}`
       );
 
       return response.data.results;
@@ -30,7 +30,7 @@ const useTrendingContent = () => {
 
     const getTrendingPeople = async () => {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/trending/person/day?api_key=${apiKeys.theMovieDb}`
+        `https://api.themoviedb.org/3/trending/person/day?api_key=${process.env.REACT_APP_MOVIE_DB_API}`
       );
 
       return response.data.results;

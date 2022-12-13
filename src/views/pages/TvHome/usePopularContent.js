@@ -14,7 +14,7 @@ const usePopularContent = () => {
   useEffect(() => {
     const getPopular = async () => {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/tv/popular?api_key=${apiKeys.theMovieDb}&language=en-US&page=1`
+        `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.REACT_APP_MOVIE_DB_API}&language=en-US&page=1`
       );
 
       return response.data.results.slice(0, 10);
@@ -22,7 +22,7 @@ const usePopularContent = () => {
 
     const getTopRated = async () => {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/tv/top_rated?api_key=${apiKeys.theMovieDb}&language=en-US&page=1`
+        `https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.REACT_APP_MOVIE_DB_API}&language=en-US&page=1`
       );
 
       return response.data.results.slice(0, 10);
@@ -30,7 +30,7 @@ const usePopularContent = () => {
 
     const getTrending = async () => {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/trending/tv/day?api_key=${apiKeys.theMovieDb}`
+        `https://api.themoviedb.org/3/trending/tv/day?api_key=${process.env.REACT_APP_MOVIE_DB_API}`
       );
 
       return response.data.results.slice(0, 10);
@@ -38,7 +38,7 @@ const usePopularContent = () => {
 
     const getOnAir = async () => {
       const response = await axios.get(`
-      https://api.themoviedb.org/3/tv/on_the_air?api_key=${apiKeys.theMovieDb}&language=en-US&page=1`);
+      https://api.themoviedb.org/3/tv/on_the_air?api_key=${process.env.REACT_APP_MOVIE_DB_API}&language=en-US&page=1`);
 
       return response.data.results.slice(0, 10);
     };
