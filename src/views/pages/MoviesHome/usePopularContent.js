@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import ContentCard from "../../../components/ContentCard";
-import apiKeys from "../../../api";
+//import apiKeys from "../../../api";
 
 const usePopularContent = () => {
   const [popularContent, setPopularContent] = useState({

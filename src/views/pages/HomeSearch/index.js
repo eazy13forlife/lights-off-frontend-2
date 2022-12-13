@@ -1,5 +1,5 @@
 import React from "react";
-import { useSearchParams, useNavigate } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 //import useSearchResults from "./useSearchResults";
 import { getSearchResponse } from "./helperFunctions";

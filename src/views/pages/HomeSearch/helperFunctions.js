@@ -1,4 +1,4 @@
-import apiKeys from "../../../api";
+//import apiKeys from "../../../api";
 import axios from "axios";
 
 const getSearchResponse = async (query) => {
