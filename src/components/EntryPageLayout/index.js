@@ -8,12 +8,12 @@ const EntryPageLayout = ({ errors, children, isAttempting }) => {
     <div className="Entry">
       <BsFillLightbulbOffFill className="Entry__logo logo" />
       {isAttempting.boolean ? (
-        <p className="Entry__error-text color-light body-medium">
+        <p className="Entry__error-text color-light body-medium-2">
           {isAttempting.message}
         </p>
       ) : null}
       {errors ? (
-        <p className="Entry__error-text color-error body-medium">{errors}</p>
+        <p className="Entry__error-text color-error body-medium-2">{errors}</p>
       ) : null}
       {children}
     </div>
