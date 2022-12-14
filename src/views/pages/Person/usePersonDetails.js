@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import moment from "moment";
 
-//import apiKeys from "../../../api";
-
 const usePersonDetails = (personId) => {
   const [details, setDetails] = useState({});
 

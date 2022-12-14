@@ -1,5 +1,4 @@
 import axios from "axios";
-//import apiKeys from "../../../api";
 
 const getSearchResponse = async (query) => {
   const response = await axios.get(

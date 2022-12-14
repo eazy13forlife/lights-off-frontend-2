@@ -1,7 +1,6 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
 
-//import useSearchResults from "./useSearchResults";
 import { getSearchResponse } from "./helperFunctions";
 import useSearchData from "../../../hooks/useSearchData";
 import PaginatedContentGroup from "../../../components/PaginatedContentGroup";

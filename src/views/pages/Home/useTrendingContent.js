@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-//import apiKeys from "../../../api";
 import ContentCard from "../../../components/ContentCard";
 
 const useTrendingContent = () => {

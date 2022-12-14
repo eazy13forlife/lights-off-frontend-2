@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-//import apiKeys from "../api";
 import axios from "axios";
 
 const useMediaDetails = (mediaType, mediaId) => {
