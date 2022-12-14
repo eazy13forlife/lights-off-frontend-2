@@ -20,14 +20,18 @@
     right: 2rem;
     transition: right 900ms ease-in;
   }
+  &__text-button-container {
+    margin-top: auto;
+    padding-top: 4rem;
+  }
 
   &__text-button {
     cursor: pointer;
     background-color: transparent;
     border: none;
     color: rgba(var(--color-light), 1);
-    margin-top: auto;
     text-transform: capitalize;
+
     &:hover {
       text-decoration: underline;
     }

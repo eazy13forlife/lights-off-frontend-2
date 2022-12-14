@@ -26,6 +26,7 @@ const Sidebar = () => {
   const navigate = useNavigate();
 
   const logoutErrorBackend = useLogoutError();
+
   useEffect(() => {
     if (screenSize <= 1000) {
       setShowHamburger(true);
@@ -47,6 +48,7 @@ const Sidebar = () => {
       return `Sidebar--open`;
     }
   };
+
   return (
     <>
       {showHamburger ? (
@@ -123,11 +125,13 @@ const Sidebar = () => {
         <IconLink path="/seen/?page=1" pathPatterns={["/seen", "/seen/search"]}>
           <GoEye />
         </IconLink>
+
         {/*
         <IconLink path="/uploads" pathPatterns={["/uploads"]}>
           <AiOutlineDownload />
         </IconLink>
         */}
+
         <IconLink
           path="/watch-next/?page=1"
           pathPatterns={["/watch-next", "/watch-next/search"]}
@@ -139,22 +143,24 @@ const Sidebar = () => {
         <IconLink path="/my-reviews" pathPatterns={["/my-reviews"]}>
           <BsPencilSquare />
         </IconLink>
-      */}
-        <button
-          className="Sidebar__text-button body-small color-primary-light"
-          onClick={async () => {
-            try {
-              const response = await dispatch(logoutUser());
-              if (response === "success") {
-                navigate("/login");
+        */}
+        <div className="Sidebar__text-button-container">
+          <button
+            className="Sidebar__text-button body-small color-primary-light"
+            onClick={async () => {
+              try {
+                const response = await dispatch(logoutUser());
+                if (response === "success") {
+                  navigate("/login");
+                }
+              } catch (e) {
+                return;
               }
-            } catch (e) {
-              return;
-            }
-          }}
-        >
-          Log off
-        </button>
+            }}
+          >
+            Log off
+          </button>
+        </div>
 
         {logoutErrorBackend ? (
           <MessageModal
