@@ -34,7 +34,7 @@ const PagesButtons = ({
 
   return (
     <div className="PagesButtons__container">
-      <div className="PagesButtons heading-extra-small">
+      <div className="PagesButtons heading-extra-small color-primary">
         <button
           className={`PagesButtons__button ${getLeftButtonHoverClass()} PagesButtons__button--left`}
           onClick={onPreviousClick}

@@ -48,6 +48,7 @@
     height: 3rem;
     margin-left: 1rem;
     margin-right: 1rem;
+    border-radius: 0;
     @include abstracts.respondMax(abstracts.$tablet-small) {
       border-top: none;
       border-bottom: none;

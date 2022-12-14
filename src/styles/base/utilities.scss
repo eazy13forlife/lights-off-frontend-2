@@ -26,7 +26,9 @@
 .color-error {
   color: var(--color-error);
 }
-
+.color-primary {
+  color: rgba(var(--color-primary), 1);
+}
 .color-light {
   color: rgba(var(--color-light), 1);
 }
