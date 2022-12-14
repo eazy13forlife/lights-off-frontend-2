@@ -17,6 +17,7 @@ const movieGenres = {
   53: { genre: "Thriller", id: 53 },
   10752: { genre: "War", id: 10752 },
   37: { genre: "Western", id: 37 },
+  878: { genre: "Science Fiction", id: 878 },
 };
 
 const tvGenres = {
