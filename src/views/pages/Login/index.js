@@ -12,8 +12,18 @@ const Login = () => {
     return state.loginErrorsBackend;
   });
 
+  const isAttemptingLogin = useSelector((state) => {
+    return state.isAttemptingLogin;
+  });
+
   return (
-    <EntryPageLayout errors={loginErrorsBackend}>
+    <EntryPageLayout
+      errors={loginErrorsBackend}
+      isAttempting={{
+        message: "Waiting to log you in...",
+        boolean: isAttemptingLogin,
+      }}
+    >
       <LoginForm onSubmit={onSubmit} />
     </EntryPageLayout>
   );

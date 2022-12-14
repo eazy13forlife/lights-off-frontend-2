@@ -6,6 +6,8 @@ import { BACKEND_URL } from "../constants";
 const createUser = (userData) => {
   return async (dispatch) => {
     try {
+      dispatch(startSignup());
+
       const response = await axios.post(
         `${BACKEND_URL}/users/signup`,
         userData
@@ -16,9 +18,12 @@ const createUser = (userData) => {
         payload: response.data,
       });
 
+      dispatch(endSignup());
+
       dispatch(removeCreateUserError());
     } catch (e) {
-      console.log(e);
+      dispatch(endSignup());
+
       dispatch(sendCreateUserError(e.response.data));
     }
   };
@@ -27,6 +32,8 @@ const createUser = (userData) => {
 const loginUser = (userData) => {
   return async (dispatch) => {
     try {
+      dispatch(startLogin());
+
       const userResponse = await axios.post(
         `${BACKEND_URL}/users/login`,
         userData
@@ -36,9 +43,12 @@ const loginUser = (userData) => {
         type: types.LOGIN_USER,
         payload: userResponse.data,
       });
+      dispatch(endLogin());
 
       dispatch(removeLoginError());
     } catch (e) {
+      dispatch(endLogin());
+
       dispatch({
         type: types.SEND_LOGIN_ERROR,
         payload: e.response.data,
@@ -103,6 +113,30 @@ const removeCreateUserError = () => {
 const removeLoginError = () => {
   return {
     type: types.REMOVE_LOGIN_ERROR,
+  };
+};
+
+const startLogin = () => {
+  return {
+    type: types.START_LOGIN,
+  };
+};
+
+const startSignup = () => {
+  return {
+    type: types.START_SIGNUP,
+  };
+};
+
+const endLogin = () => {
+  return {
+    type: types.END_LOGIN,
+  };
+};
+
+const endSignup = () => {
+  return {
+    type: types.END_SIGNUP,
   };
 };
 

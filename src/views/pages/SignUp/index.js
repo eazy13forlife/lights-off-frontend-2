@@ -12,8 +12,18 @@ const SignUp = () => {
     return state.signUpErrorsBackend;
   });
 
+  const isAttemptingSignup = useSelector((state) => {
+    return state.isAttemptingSignup;
+  });
+
   return (
-    <EntryPageLayout errors={signUpErrorsBackend}>
+    <EntryPageLayout
+      errors={signUpErrorsBackend}
+      isAttempting={{
+        message: "Waiting to sign you up...",
+        boolean: isAttemptingSignup,
+      }}
+    >
       <SignUpForm onSubmit={onSubmit} />
     </EntryPageLayout>
   );
