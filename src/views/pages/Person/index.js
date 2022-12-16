@@ -17,7 +17,6 @@ const Person = () => {
 
   const [creditType, setCreditType] = useState("movie");
 
-  console.log(credits);
   const renderedMovieCredits = credits.movie.map((result) => {
     if (result.media_type) {
       return <ContentCard data={result} key={result.credit_id} />;
