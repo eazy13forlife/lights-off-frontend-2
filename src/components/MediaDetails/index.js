@@ -106,7 +106,9 @@ const Details = ({
         <div className="Details__bottom">
           <div className="Details__group">
             <p className="Details__subject">Synopsis</p>
-            <p className="Details__body-text">{mediaData.overview}</p>
+            <p className="Details__body-text">
+              {mediaData.overview ? mediaData.overview : "N/A"}
+            </p>
           </div>
 
           <div className="Details__group">
