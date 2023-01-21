@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 const useSearchData = (queryObject, searchFunction, dataModified) => {
   const [searchData, setSearchData] = useState({
     searchValue: queryObject.searchValue,
-    results: [],
+    results: null,
     totalNumberResults: 0,
     totalNumberPages: 1,
     currentPage: 1,
