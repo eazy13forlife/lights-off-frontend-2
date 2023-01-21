@@ -8,7 +8,7 @@ const WatchNextPageLayout = ({ children }) => {
 
   return (
     <ContentPageLayout
-      searchBarPlaceholder="Search in watch next.."
+      searchBarPlaceholder="Search in watch next..."
       onSearchSubmit={(e, searchValue) => {
         e.preventDefault();
         navigate(`/watch-next/search/?name=${searchValue}&page=1`);

@@ -8,7 +8,7 @@ const FavoritesPageLayout = ({ children }) => {
 
   return (
     <ContentPageLayout
-      searchBarPlaceholder="Search in favorites.."
+      searchBarPlaceholder="Search in favorites..."
       onSearchSubmit={(e, searchValue) => {
         e.preventDefault();
         navigate(`/favorites/search/?name=${searchValue}&page=1`);

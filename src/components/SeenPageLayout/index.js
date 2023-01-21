@@ -8,7 +8,7 @@ const SeenPageLayout = ({ children }) => {
 
   return (
     <ContentPageLayout
-      searchBarPlaceholder="Search in seen.."
+      searchBarPlaceholder="Search in seen..."
       onSearchSubmit={(e, searchValue) => {
         e.preventDefault();
         navigate(`/seen/search/?name=${searchValue}&page=1`);
