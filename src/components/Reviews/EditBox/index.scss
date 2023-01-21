@@ -12,8 +12,11 @@
     align-items: center;
   }
   &__actions {
-    display: flex;
-    justify-content: flex-end;
-    margin-left: 1.5rem;
+    @include abstracts.respondMax(600px) {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-left: 1.5rem;
+    }
   }
 }
