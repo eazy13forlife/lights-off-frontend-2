@@ -80,7 +80,11 @@ const PaginatedContentGroup = ({
           <p className="ContentGroup__blank heading-large color-light">
             No results found
           </p>
-        ) : null}
+        ) : (
+          <p className="ContentGroup__blank body-medium color-light">
+            Searching...
+          </p>
+        )}
       </div>
 
       <PagesButtons
