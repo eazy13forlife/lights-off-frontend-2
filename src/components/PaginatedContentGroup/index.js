@@ -44,6 +44,28 @@ const PaginatedContentGroup = ({
     onPageButtonClick(searchValue, pageNumber);
   };
 
+  const getLoadingScreen = () => {
+    //results is null when our request hasn't even been made yet
+    if (!results) {
+      return (
+        <p className="ContentGroup__blank body-medium color-light">
+          Searching...
+        </p>
+      );
+    }
+    if (!results.length) {
+      return (
+        <p className="ContentGroup__blank heading-large color-light">
+          No results found
+        </p>
+      );
+    }
+
+    if (results.length) {
+      return null;
+    }
+  };
+
   let renderedResults;
 
   if (!results) {
@@ -76,15 +98,7 @@ const PaginatedContentGroup = ({
           title={`All results for "${subject}" `}
           content={renderedResults}
         />
-        {results && !results.length ? (
-          <p className="ContentGroup__blank heading-large color-light">
-            No results found
-          </p>
-        ) : (
-          <p className="ContentGroup__blank body-medium color-light">
-            Searching...
-          </p>
-        )}
+        {getLoadingScreen()}
       </div>
 
       <PagesButtons
