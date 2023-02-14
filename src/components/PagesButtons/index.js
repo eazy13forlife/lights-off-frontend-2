@@ -62,7 +62,6 @@ const PagesButtons = ({
           </form>
 
           <span>{`of ${totalPages}`}</span>
-          {/*<p>{`Page ${currentPage} of ${totalPages}`} </p>*/}
         </div>
 
         <button

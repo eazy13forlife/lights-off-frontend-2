@@ -45,8 +45,9 @@ const Reviews = ({ mediaId, mediaData, mediaType }) => {
     }
 
     let userReview;
+
     //get an array of all the ReviewCards for each review, except for the user Review. We
-    //just save that because we want it firs in the array. So we unshift it at the very end.
+    //just save that because we want it first in the array. So we unshift it at the very end.
     const reviews = allReviews.map((data) => {
       if (data.username !== userInfo.username) {
         return (

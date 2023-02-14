@@ -60,7 +60,7 @@ const ReviewInput = ({ mediaId, setJustModified, mediaData, mediaType }) => {
         <button
           className="ReviewInput__button Details__link Details__link--light heading-medium"
           type="submit"
-          //set the review to empty and the ratng to 1 again
+          //set the review to empty and the rating to 1 again
           onClick={async () => {
             try {
               await postReview();
